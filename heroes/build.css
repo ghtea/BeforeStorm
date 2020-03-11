@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+    zoom: 85%;
+  }
+}
+
+html {
+  font-family:'Barlow', Helvetica, Arial, sans-serif !important;
+  font-size: 16px;
+}
+
+body {
+  color: white;
+  background-color: #000429;
+  width: 375px;
+  /*max-width: 400px;*/
+  position: static;
+  text-align: center;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+a {
+  color: white;
+}
+
+
 body {
   color: white;
   background-color: #000207;
@@ -51,15 +81,9 @@ table {
 .imgTalent {
     width: 46px;
     height: 46px;
+    border-radius: 5px;
 }
 
-.rowTalent > td:nth-child(1) > img{
-  border-radius: 8px 0px 0px 8px;
-}
-
-.rowTalent > td:nth-child(7) > img{
-  border-radius: 0px 8px 8px 0px;
-}
 
 .colS {
     width:50px;
