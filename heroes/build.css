@@ -93,6 +93,12 @@ table {
   height: 25px;
 }
 
+
+.divWinRate {
+  display: inline-block;
+}
+
 .barWinRate {
+  display: inline-block;
   background-color: #009900;
 }
