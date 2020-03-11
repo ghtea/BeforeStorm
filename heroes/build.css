@@ -12,17 +12,6 @@ html {
   font-size: 16px;
 }
 
-body {
-  color: white;
-  background-color: #000429;
-  width: 375px;
-  /*max-width: 400px;*/
-  position: static;
-  text-align: center;
-  margin-right: auto !important;
-  margin-left: auto !important;
-}
-
 a {
   color: white;
 }
@@ -31,11 +20,16 @@ a {
 body {
   color: white;
   background-color: #000207;
+  position: static;
+  text-align: center;
+  margin-right: auto !important;
+  margin-left: auto !important;
   margin-top: 0;
   margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
+  width: 375px;
 }
 
 #divTop {
@@ -54,9 +48,12 @@ body {
   margin-left: 5px;
   border-radius: 5px;
 }
-
 #divTop p {
   display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1.3rem;
+  
 }
 
 .divBuild {
@@ -66,8 +63,21 @@ body {
   margin-left: auto;
   background-color: #111550;
   border-radius: 10px;
-  width: 360px;
+  width: 365px;
 }
+
+.divBuildTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.divBuildTitle p {
+  font-size: 1.2rem;
+}
+
+
 
 table {
   margin-right: auto;
@@ -89,16 +99,19 @@ table {
     width:50px;
 }
 
-.trTitle {
-  height: 25px;
-}
-
 
 .divWinRate {
-  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+}
+
+.divWinRate p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .barWinRate {
-  display: inline-block;
-  background-color: #009900;
+  background-color: lightblue;
 }
