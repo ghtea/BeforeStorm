@@ -18,8 +18,9 @@ a {
 
 
 body {
-  color: #eeeeee;
-  background-color: #000000;
+  color: #111111;
+  background-color: #dddddd;
+  /* background-image: linear-gradient(to right, #541b65, #041340); */
   position: static;
   text-align: center;
   margin-top: 0;
@@ -27,13 +28,13 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
-  
   width: 100%;
 }
 
 #divTop {
   display: flex;
   justify-content: center;
+  background-color: #ffffff;
 }
 
 #divTop > div {
@@ -41,7 +42,6 @@ body {
   height: 70px;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #111111;
 }
 
 #divTop img {
@@ -63,20 +63,17 @@ body {
 
 #divTab {
   width: 100%;
-  diplay: flex;
-  align-items: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
   margin-bottom: 20px;
+  background-color: #5027aa;
+  font-size: 1.1rem;
+  color: #ffffff;
 }
 
-#divTab div {
-  display: inline-block;
-  font-size: 1.1rem;
-  margin-right: 0;
-  margin-left: 0;
-  padding-right: 0;
-  padding-left: 0;
-  height: 30px;
-}
+
 
 #tabBasic {
   width: 122px;
@@ -89,8 +86,7 @@ body {
 
 #tabBuild {
   width: 122px;
-  background-color: #111550;
-  border-radius: 0px 0px 10px 10px;
+  
 }
 
 .divBuild {
@@ -98,7 +94,7 @@ body {
   margin-bottom: 15px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #111550;
+  background-color: #271c3b;//mid
   border-radius: 10px;
   width: 365px;
 }
@@ -126,7 +122,7 @@ table {
 }
 
 th {
-  color: #dddddd !important;
+  color: #444444 !important;
 }
 
 .imgTalent {
