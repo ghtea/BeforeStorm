@@ -56,6 +56,20 @@ body {
   
 }
 
+
+#divTab {
+  diplay: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20px;
+}
+
+#divTab div {
+  display: inline-block;
+  width: 120px;
+}
+
+
 .divBuild {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -88,6 +102,10 @@ table {
   
 }
 
+th {
+  color: #dddddd !important;
+}
+
 .imgTalent {
     width: 46px;
     height: 46px;
@@ -113,5 +131,5 @@ table {
 }
 
 .barWinRate {
-  background-color: lightblue;
+  background-color: lightblue !important;
 }
