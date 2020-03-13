@@ -1,6 +1,6 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render } from 'https://ghtea.github.io/StormBook/#common/standalone.module.js';
+import { html, Component, render } from 'https://ghtea.github.io/StormBook/common/standalone.module.js';
 
 const Build = () => html` 
 <div class="divBuild">
@@ -27,7 +27,7 @@ const Build = () => html`
       <th>20</th>
       </tr>
       <tr class="rowTalent">
-      <td><img src="../../#images/talents/Alarak/04_Show_of_Force.png" class = "imgTalent"></td>
+      <td><img src="../../images/talents/Alarak/04_Show_of_Force.png" class = "imgTalent"></td>
       <td><img class = "imgTalent"></td>
       <td><img class = "imgTalent"></td>
       <td><img class = "imgTalent"></td>
