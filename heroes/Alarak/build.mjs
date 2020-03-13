@@ -47,7 +47,7 @@ const Build = () => html`
 `;
 
 
-render(html`<${Build}/>`, document.body);
+render(html`<${Build}/>`, document.getElelmentById("divBuildAll"));
 
 /*
   const CountryName = ({ countryCode }) => html`<h1>${objCountryBasic[countryCode]['Country']}</h1>`;
