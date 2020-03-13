@@ -19,7 +19,7 @@ a {
 
 body {
   color: #111111;
-  background-color: #dddddd;
+  background-color: #dddde8;
   /* background-image: linear-gradient(to right, #541b65, #041340); */
   position: static;
   text-align: center;
@@ -61,32 +61,47 @@ body {
 }
 
 
-#divTab {
+#divTabBack {
   width: 100%;
+  
+  height: 40px;
+  margin-bottom: 20px;
+  /* background-color: #5027aa; */
+  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
+  
+}
+
+#divTab {
+  font-size: 1.1rem;
+  color: #ffffff;
+  width: 375px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  margin-bottom: 20px;
-  background-color: #5027aa;
-  font-size: 1.1rem;
-  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-
 #tabBasic {
-  width: 122px;
+  width: 25%;
+  color: #999999;
 }
 
 #tabTalent {
-  width: 123px;
+  width: 25%;
+  color: #999999;
 }
 
-
 #tabBuild {
-  width: 122px;
-  
+  width: 25%;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
+}
+
+#tabPick {
+  width: 25%;
+  color: #999999;
 }
 
 .divBuild {
@@ -94,7 +109,7 @@ body {
   margin-bottom: 15px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #271c3b;//mid
+  background-color: #ffffff;
   border-radius: 10px;
   width: 365px;
 }
@@ -122,7 +137,8 @@ table {
 }
 
 th {
-  color: #444444 !important;
+  color: #777777;
+  font-weight: normal;
 }
 
 .imgTalent {
@@ -142,13 +158,28 @@ th {
   justify-content: flex-start;
   align-items: center;
   height: 40px;
+  margin-top: 4px;
+  background-color: #f0f0f0;
+  border-radius: 0 0 10px 10px;
 }
 
-.divWinRate p {
+.divWinRate div {
+  display: inline-block;
   margin-left: 10px;
-  margin-right: 10px;
+  padding-bottom: 2px;
+}
+
+.divWinRate div:nth-child(1) {
+  color: #777777;
+}
+
+.divWinRate div:nth-child(2) {
+  width: 200px;  
 }
 
 .barWinRate {
-  background-color: lightblue !important;
+  height: 20px;
+  background-color: #550000;
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  border-radius: 0 3px 3px 0px;
 }
