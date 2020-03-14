@@ -112,17 +112,20 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   width: 365px;
+  box-shadow: 0px 0px 3px 1px #cccccc;
+}
 }
 
 .divBuildTitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  height: 30px !important;
 }
 
 .divBuildTitle p {
-  font-size: 1.2rem;
+  display: inline-block;
+  font-size: 1.2rem;    
 }
 
 
@@ -173,12 +176,9 @@ th {
   color: #777777;
 }
 
-.divWinRate div:nth-child(2) {
-  width: 200px;  
-}
 
 .barWinRate {
-  height: 20px;
+
   background-color: #550000;
   background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
   border-radius: 0 4px 4px 0px;

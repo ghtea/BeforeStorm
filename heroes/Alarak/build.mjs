@@ -2,21 +2,26 @@
 
 import { html, Component, render } from 'https://ghtea.github.io/StormBook/0/common/standalone.module.js';
 
+/* manipulate data */
 objHeroBuild.sort(function(a, b) { 
-    return a.WinRate - b.WinRate;
+    return b.WinRate - a.WinRate;
 })
+const listLevel = ['01', '04', '07', '10', '13', '16', '20'];
+
+const HeroID = objHeroBuild[0]['HeroID']
+
 
 const divTop = () => html`
    <div id="divTop"> 
       <div>
-         <img src="../../0/images/heroes/Alarak.png"/>
-         <p> <b>Alarak</b> </p>
+         <img src="../../0/images/heroes/${HeroID}.png"/>
+         <p> <b>${HeroID}</b> </p>
       </div>
    </div>
 `;
 const divTabBack = () => html`
-<div id= "divTabBack" >
-<div id= "divTab" >
+<div id="divTabBack" >
+<div id="divTab" >
       <div id="tabBasic" > Basic </div>
       <div id="tabTalent" > Talents</div>
       <div id="tabBuild" >Builds</div>
@@ -25,7 +30,11 @@ const divTabBack = () => html`
       </div>
 `;
 
-const Build = ({iBuild}) => html`
+const Build = ({iBuild}) => {
+   let listTalent = [
+objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
+
+   return html`
 <div class="divBuild">
       <div class="divBuildTitle"> <p> Build ${iBuild + 1}
       </p></div>
@@ -52,33 +61,39 @@ const Build = ({iBuild}) => html`
       </tr>
       
       <tr class="rowTalent">
-      <td> <img class="imgTalent"  src="../../0/images/talents/Alarak/04_Show_of_Force.png" /> </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"01_"+(objHeroBuild[iBuild]['01']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"04_"+(objHeroBuild[iBuild]['04']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"07_"+(objHeroBuild[iBuild]['07']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"10_"+(objHeroBuild[iBuild]['10']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"13_"+(objHeroBuild[iBuild]['13']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"16_"+(objHeroBuild[iBuild]['16']).replace(/\s/g, '_')}.png" /></td>
+      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"20_"+(objHeroBuild[iBuild]['20']).replace(/\s/g, '_')}.png" /></td>
       </tr>
-      
+
    </table>
   
    <div class="divWinRate"> 
       <div>WinRate</div>
-      <div class="barWinRate">  </div>
-      <div> 55.5% </div>
+      <div class="barWinRate" style="height: 20px; width: ${(objHeroBuild[iBuild]['WinRate']-40)*8}px;">  </div>
+      <div> ${(Math.round(objHeroBuild[iBuild]['WinRate']*10)/10).toString() + "%"} </div>
    </div>
   
   </div>
 `;
+}
+
+const divContent = () => html`
+   ${objHeroBuild.map((build, index)=> html`
+      <${Build} iBuild=${index}/>`)}
+`
+
+
 
 const All = () => html`
 <${divTop}/>
 <${divTabBack}/>
-<${Build} iBuild=${0}/>
+<${divContent} />
 `;
    
    
-
-
 render(html`<${All}/>`, document.body);
