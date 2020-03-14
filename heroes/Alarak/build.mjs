@@ -1,14 +1,33 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render } from 'https://ghtea.github.io/StormBook/common/standalone.module.js';
+import { html, Component, render } from 'https://ghtea.github.io/StormBook/0/common/standalone.module.js';
 
 objHeroBuild.sort(function(a, b) { 
     return a.WinRate - b.WinRate;
 })
 
-const Build = () => html`
+const divTop = () => html`
+   <div id="divTop"> 
+      <div>
+         <img src="../../0/images/heroes/Alarak.png"/>
+         <p> <b>Alarak</b> </p>
+      </div>
+   </div>
+`;
+const divTabBack = () => html`
+<div id= "divTabBack" >
+<div id= "divTab" >
+      <div id="tabBasic" > Basic </div>
+      <div id="tabTalent" > Talents</div>
+      <div id="tabBuild" >Builds</div>
+      <div id="tabPick" >Pick</div>
+      </div>
+      </div>
+`;
+
+const Build = ({iBuild}) => html`
 <div class="divBuild">
-      <div class="divBuildTitle"> <p> Build 1
+      <div class="divBuildTitle"> <p> Build ${iBuild + 1}
       </p></div>
       <table>  
       
@@ -53,5 +72,13 @@ const Build = () => html`
   </div>
 `;
 
+const All = () => html`
+<${divTop}/>
+<${divTabBack}/>
+<${Build} iBuild=${0}/>
+`;
+   
+   
 
-render(html`<${Build}/>`, document.getElementById("divBuildAll"));
+
+render(html`<${All}/>`, document.body);

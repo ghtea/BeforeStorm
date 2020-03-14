@@ -45,7 +45,6 @@ const Build = () => html`
       <div class="barWinRate">  </div>
       <div> 55.5% </div>
    </div>
-  
   </div>
 `;
 
