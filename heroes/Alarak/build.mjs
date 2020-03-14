@@ -6,12 +6,12 @@ objHeroBuild.sort(function(a, b) {
     return a.WinRate - b.WinRate;
 })
 
-const Build = ({iBuild}) => {
-   var iStr = (iBuild +1).toString()
-   return html`
+const Build = () => html`
 <div class="divBuild">
-      <div class="divBuildTitle"> <p>  Build ${iStr} </p></div>
+      <div class="divBuildTitle"> <p> Build 1
+      </p></div>
       <table>  
+      
       <colgroup>
           <col class="colS" />
           <col class="colS" />
@@ -33,14 +33,13 @@ const Build = ({iBuild}) => {
       </tr>
       
       <tr class="rowTalent">
-         <td><img src="../../images/talents/Alarak/01_Extended_Lightning.png" class="imgTalent"/> </td>
+      <td><img src="../../_images/talents/Alarak/04_Show_of_Force.png" class = "imgTalent"/></td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
-         
       </tr>
       
    </table>
@@ -53,10 +52,6 @@ const Build = ({iBuild}) => {
   
   </div>
 `;
-}
 
 
-render(html`<${Build} iBuild =${i}/>`, document.getElementById("divBuildAll"));
-}
-
-   
+render(html`<${Build}/>`, document.getElementById("divBuildAll"));
