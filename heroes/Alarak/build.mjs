@@ -1,6 +1,6 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render } from 'https://ghtea.github.io/StormBook/_common/standalone.module.js';
+import { html, Component, render } from 'https://ghtea.github.io/StormBook/common/standalone.module.js';
 
 objHeroBuild.sort(function(a, b) { 
     return a.WinRate - b.WinRate;
