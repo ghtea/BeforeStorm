@@ -33,7 +33,7 @@ const Build = () => html`
       </tr>
       
       <tr class="rowTalent">
-      <td><img src="../../_images/talents/Alarak/04_Show_of_Force.png" class = "imgTalent"/></td>
+      <td> <img class="imgTalent"  src="../../0/images/talents/Alarak/04_Show_of_Force.png" /> </td>
       <td></td>
       <td></td>
       <td></td>
