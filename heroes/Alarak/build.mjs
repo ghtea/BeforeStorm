@@ -1,14 +1,16 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render } from 'https://ghtea.github.io/StormBook/common/standalone.module.js';
+import { html, Component, render } from 'https://ghtea.github.io/StormBook/_common/standalone.module.js';
 
 objHeroBuild.sort(function(a, b) { 
     return a.WinRate - b.WinRate;
 })
 
-const Build = ({iBuild}) => html`
+const Build = ({iBuild}) => {
+   var iStr = (iBuild +1).toString()
+   return html`
 <div class="divBuild">
-      <div class="divBuildTitle"> <p>  ${"Build " + iBuild} </p></div>
+      <div class="divBuildTitle"> <p>  Build ${iStr} </p></div>
       <table>  
       <colgroup>
           <col class="colS" />
@@ -51,10 +53,10 @@ const Build = ({iBuild}) => html`
   
   </div>
 `;
+}
 
 
-for (var i=0; i<objHeroBuild.length; i++) {
-   render(html`<${Build} iBuild =${i} />`, document.getElementById("divBuildAll"));
+render(html`<${Build} iBuild =${i}/>`, document.getElementById("divBuildAll"));
 }
 
    
