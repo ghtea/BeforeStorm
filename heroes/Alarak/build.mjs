@@ -11,6 +11,8 @@ const listLevel = ['01', '04', '07', '10', '13', '16', '20'];
 const HeroID = objHeroBuild[0]['HeroID']
 
 
+/* components */
+
 const divTop = () => html`
    <div id="divTop"> 
       <div>
@@ -19,6 +21,7 @@ const divTop = () => html`
       </div>
    </div>
 `;
+
 const divTabBack = () => html`
 <div id="divTabBack" >
 <div id="divTab" >
@@ -29,7 +32,6 @@ const divTabBack = () => html`
       </div>
       </div>
 `;
-
 
 const Build = ({iBuild}) => {
    let listTalent = [
@@ -68,7 +70,9 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
       <td>
   <img 
   class="imgTalent ${talentId}"     
-  src="../../0/images/talents/${HeroID}/${talentId}.png" />
+  src="../../0/images/talents/${HeroID}/${talentId}.png" 
+  
+  />
       </td>
       `)}
       </tr>
@@ -77,25 +81,38 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
   
    <div class="divWinRate"> 
       <div>WinRate</div>
-      <div class="barWinRate" style="height: 20px; width: ${(objHeroBuild[iBuild]['WinRate']-40)*8}px;">  </div>
+      <div class="barWinRate" style="height: 20px; width: ${(objHeroBuild[iBuild]['WinRate'] - 40)*8}px;"></div>
       <div> ${(Math.round(objHeroBuild[iBuild]['WinRate']*10)/10).toString() + "%"} </div>
    </div>
-  
   </div>
 `;
-}
+};
 
-const divContent = () => html`
-   ${objHeroBuild.map((build, index)=> html`
-      <${Build} iBuild=${index}/>`)}
+const divMenu = () => html`
+   <div id="divMenu">
+   <${divTop} />
+   <${divTabBack} />
+   </div>
 `
 
 
-const All = () => html`
-<${divTop}/>
-<${divTabBack}/>
-<${divContent} />
+const divContent = () => html`
+   <div id="divContent">
+   ${objHeroBuild.map((build, index)=> html`
+      <${Build} iBuild=${index}/>`)}
+   </div>
 `;
-   
-   
+
+const divTalentInfo = () => html`
+   <div id="divTalentInfo">
+      dd
+   </div>   
+`;
+
+const All = () => html`
+<${divMenu}/>
+<${divContent}/>
+<${divTalentInfo}/>
+`;   
+
 render(html`<${All}/>`, document.body);
