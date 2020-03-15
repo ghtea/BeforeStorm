@@ -76,7 +76,7 @@ body {
   margin-bottom: 20px;
   /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
-  
+  /* box-shadow: 0px 15px 10px -8px  #777777; */
 }
 
 #divTab {
@@ -116,7 +116,7 @@ body {
 
 #divContent {
   margin-top: 130px;
-  margin-bottom: 100px; /* to make space for divTalentInfo */
+  margin-bottom: 130px; /* to make space for divTalentInfo */
 }
 
 .divBuild {
@@ -202,7 +202,7 @@ th {
 #divTalentInfo {
   position: fixed;
   bottom: 20px;
-  height: 80px;
+  height: 100px;
   width: 100%;
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   color:#ffffff;
