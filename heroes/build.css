@@ -106,26 +106,28 @@ body {
 
 .divBuild {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-right: auto;
   margin-left: auto;
   background-color: #ffffff;
   border-radius: 10px;
   width: 365px;
-  box-shadow: 0px 0px 3px 1px #cccccc;
+  box-shadow: 0px 0px 3px 1px #cccccc;  
 }
-}
+
 
 .divBuildTitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px !important;
+  height: 40px; 
 }
 
 .divBuildTitle p {
   display: inline-block;
   font-size: 1.2rem;    
+  padding:0px;  
+  margin:0px;
 }
 
 

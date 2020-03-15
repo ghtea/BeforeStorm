@@ -30,14 +30,17 @@ const divTabBack = () => html`
       </div>
 `;
 
+
 const Build = ({iBuild}) => {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
-
+   let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
+   
    return html`
 <div class="divBuild">
+   <div class="divBuildTop">
       <div class="divBuildTitle"> <p> Build ${iBuild + 1}
-      </p></div>
+      </p></div></div>     
       <table>  
       
       <colgroup>
@@ -61,13 +64,13 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
       </tr>
       
       <tr class="rowTalent">
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"01_"+(objHeroBuild[iBuild]['01']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"04_"+(objHeroBuild[iBuild]['04']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"07_"+(objHeroBuild[iBuild]['07']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"10_"+(objHeroBuild[iBuild]['10']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"13_"+(objHeroBuild[iBuild]['13']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"16_"+(objHeroBuild[iBuild]['16']).replace(/\s/g, '_')}.png" /></td>
-      <td><img class="imgTalent"  src="../../0/images/talents/${HeroID}/${"20_"+(objHeroBuild[iBuild]['20']).replace(/\s/g, '_')}.png" /></td>
+      ${listTalentId.map((talentId, index)=> html`
+      <td>
+  <img 
+  class="imgTalent ${talentId}"     
+  src="../../0/images/talents/${HeroID}/${talentId}.png" />
+      </td>
+      `)}
       </tr>
 
    </table>
@@ -86,7 +89,6 @@ const divContent = () => html`
    ${objHeroBuild.map((build, index)=> html`
       <${Build} iBuild=${index}/>`)}
 `
-
 
 
 const All = () => html`
