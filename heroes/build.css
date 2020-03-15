@@ -116,6 +116,7 @@ body {
 
 #divContent {
   margin-top: 130px;
+  margin-bottom: 100px; /* to make space for divTalentInfo */
 }
 
 .divBuild {
@@ -200,13 +201,13 @@ th {
 
 #divTalentInfo {
   position: fixed;
-  bottom: 50px;
+  bottom: 20px;
   height: 80px;
   width: 100%;
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   color:#ffffff;
   z-index: 1;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /*
