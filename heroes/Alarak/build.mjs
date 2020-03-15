@@ -10,6 +10,12 @@ const listLevel = ['01', '04', '07', '10', '13', '16', '20'];
 
 const HeroID = objHeroBuild[0]['HeroID']
 
+var currentTalent = '0';
+
+/* making functions */
+const changeCurrentTalent = (event) => {
+   currentTalent = event.target.getAttribute('data-talentId');
+};
 
 /* components */
 
@@ -37,6 +43,8 @@ const Build = ({iBuild}) => {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
    let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
+   
+   
    
    return html`
 <div class="divBuild">
@@ -69,9 +77,10 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
       ${listTalentId.map((talentId, index)=> html`
       <td>
   <img 
-  class="imgTalent ${talentId}"     
+  data-talentId="${talentId}"
+  class="imgTalent"     
   src="../../0/images/talents/${HeroID}/${talentId}.png" 
-  
+  onClick=${changeCurrentTalent()}
   />
       </td>
       `)}
@@ -103,11 +112,15 @@ const divContent = () => html`
    </div>
 `;
 
-const divTalentInfo = () => html`
+const divTalentInfo = () => {
+return html`
    <div id="divTalentInfo">
-      dd
+      <div class="divTalentName"> ${"COUNTER-STRIKE"}</div>
+      <div class="divTalentDescription"> ${"hahahahahahahahhaa"}
    </div>   
+   </div>
 `;
+}
 
 const All = () => html`
 <${divMenu}/>
