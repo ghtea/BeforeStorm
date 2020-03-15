@@ -8,14 +8,8 @@ objHeroBuild.sort(function(a, b) {
 })
 const listLevel = ['01', '04', '07', '10', '13', '16', '20'];
 
-const HeroID = objHeroBuild[0]['HeroID']
+const HeroID = objHeroBuild[0]['HeroID'];
 
-var currentTalent = '0';
-
-/* making functions */
-const changeCurrentTalent = (event) => {
-   currentTalent = event.target.getAttribute('data-talentId');
-};
 
 /* components */
 
@@ -39,12 +33,22 @@ const divTabBack = () => html`
       </div>
 `;
 
-const Build = ({iBuild}) => {
+const divMenu = () => html`
+   <div id="divMenu">
+      <${divTop} />
+      <${divTabBack} />
+   </div>
+`;
+
+
+const Build = ({iBuild, changeTalent2}) => {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
    let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
    
-   
+   function changeTalent3(event) {
+    changeTalent2(event.target.getAttribute('data-talentId'));
+  }
    
    return html`
 <div class="divBuild">
@@ -80,7 +84,7 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
   data-talentId="${talentId}"
   class="imgTalent"     
   src="../../0/images/talents/${HeroID}/${talentId}.png" 
-  onClick=${changeCurrentTalent()}
+  onClick=${changeTalent3}
   />
       </td>
       `)}
@@ -97,35 +101,35 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
 `;
 };
 
-const divMenu = () => html`
-   <div id="divMenu">
-   <${divTop} />
-   <${divTabBack} />
-   </div>
-`
 
-
-const divContent = () => html`
+const divContent = ({changeTalent1}) => html`
    <div id="divContent">
    ${objHeroBuild.map((build, index)=> html`
-      <${Build} iBuild=${index}/>`)}
+      <${Build} changeTalent2=${changeTalent1} iBuild=${index}/>`)}
    </div>
 `;
 
-const divTalentInfo = () => {
+const divTalentInfo = ({currentTalent1}) => {
 return html`
    <div id="divTalentInfo">
-      <div class="divTalentName"> ${"COUNTER-STRIKE"}</div>
+      <div class="divTalentName"> ${currentTalent1} </div>
       <div class="divTalentDescription"> ${"hahahahahahahahhaa"}
    </div>   
    </div>
 `;
 }
 
-const All = () => html`
+const All = () => {
+   const [currentTalent0, setTalent] = useState('No Talent Selected');
+   const changeTalent0 = (x)=>{ 
+      setTalent(x);
+   }
+  
+return html`
 <${divMenu}/>
-<${divContent}/>
-<${divTalentInfo}/>
+<${divContent} changeTalent1 = ${changeTalent0}/>
+<${divTalentInfo} currentTalent1=${currentTalent0}/>
 `;   
+}
 
 render(html`<${All}/>`, document.body);
