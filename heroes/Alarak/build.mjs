@@ -1,6 +1,6 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render } from 'https://ghtea.github.io/StormBook/0/common/standalone.module.js';
+import { html, Component, render, useState } from 'https://ghtea.github.io/StormBook/0/common/standalone.module.js';
 
 /* manipulate data */
 objHeroBuild.sort(function(a, b) { 
@@ -13,7 +13,8 @@ const HeroID = objHeroBuild[0]['HeroID'];
 
 /* components */
 
-const divTop = () => html`
+function divTop() {
+return html`
    <div id="divTop"> 
       <div>
          <img src="../../0/images/heroes/${HeroID}.png"/>
@@ -21,8 +22,10 @@ const divTop = () => html`
       </div>
    </div>
 `;
+}
 
-const divTabBack = () => html`
+function divTabBack() {
+return html`
 <div id="divTabBack" >
 <div id="divTab" >
       <div id="tabBasic" > Basic </div>
@@ -32,23 +35,36 @@ const divTabBack = () => html`
       </div>
       </div>
 `;
+};
 
-const divMenu = () => html`
+function divMenu() {
+   return html`
    <div id="divMenu">
       <${divTop} />
       <${divTabBack} />
    </div>
 `;
+};
 
 
-const Build = ({iBuild, changeTalent2}) => {
+function Talent ({changeTalent3,talentId}) {
+   function changeTalent4(event) {
+changeTalent3(event.target.getAttribute('data-talentId'));
+  };
+   return html`
+  <td><img 
+  data-talentId="${talentId}"
+  class="imgTalent"     
+  src="../../0/images/talents/${HeroID}/${talentId}.png" 
+  onClick=${changeTalent4}
+  /></td>
+`
+}
+
+function Build({iBuild,changeTalent2}) {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
    let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
-   
-   function changeTalent3(event) {
-    changeTalent2(event.target.getAttribute('data-talentId'));
-  }
    
    return html`
 <div class="divBuild">
@@ -79,15 +95,9 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
       
       <tr class="rowTalent">
       ${listTalentId.map((talentId, index)=> html`
-      <td>
-  <img 
-  data-talentId="${talentId}"
-  class="imgTalent"     
-  src="../../0/images/talents/${HeroID}/${talentId}.png" 
-  onClick=${changeTalent3}
-  />
-      </td>
-      `)}
+      <${Talent} changeTalent3=${changeTalent2} talentId=${talentId}
+      />`
+      )}
       </tr>
 
    </table>
@@ -101,34 +111,47 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
 `;
 };
 
+/*  arrow function makes error */
+function divContent({changeTalent1}){
 
-const divContent = ({changeTalent1}) => html`
+return html`
    <div id="divContent">
    ${objHeroBuild.map((build, index)=> html`
-      <${Build} changeTalent2=${changeTalent1} iBuild=${index}/>`)}
-   </div>
-`;
-
-const divTalentInfo = ({currentTalent1}) => {
-return html`
-   <div id="divTalentInfo">
-      <div class="divTalentName"> ${currentTalent1} </div>
-      <div class="divTalentDescription"> ${"hahahahahahahahhaa"}
-   </div>   
+      <${Build} changeTalent2=${changeTalent1} iBuild=${index} />`)}
    </div>
 `;
 }
 
-const All = () => {
-   const [currentTalent0, setTalent] = useState('No Talent Selected');
-   const changeTalent0 = (x)=>{ 
-      setTalent(x);
+function divTalentInfo ({ currentTalent}) { 
+
+   if (currentTalent == "0") {
+      var strClass = "";
+      var strTalentName= "";
+      var strTalentDescription = "";
+   } else {
+      var strClass ="allVisible";
+      var strTalentName= objHeroTalent[currentTalent]['TalentName'];
+      var strTalentDescription = objHeroTalent[currentTalent]["Description"];
    }
-  
+   
+   return html`
+   <div id="divTalentInfo" class=${strClass}>
+      <div class="divTalentName">${strTalentName} </div>
+      <div class="divTalentDescription"> ${strTalentDescription}
+   </div>   
+   </div>
+`;
+};
+
+function All() {
+const [currentTalent, setTalent] = useState('0');
+   function changeTalent0(x){
+    setTalent(x);
+   }
 return html`
 <${divMenu}/>
-<${divContent} changeTalent1 = ${changeTalent0}/>
-<${divTalentInfo} currentTalent1=${currentTalent0}/>
+<${divContent} changeTalent1=${changeTalent0} />
+<${divTalentInfo} currentTalent=${currentTalent} />
 `;   
 }
 
