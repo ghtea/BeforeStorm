@@ -229,6 +229,12 @@ th {
   visibility: hidden;
 }
 
+@media (min-height: 1000px) {
+  #divTalentInfo {
+    top: 750px;
+  }
+}
+
 .allVisible{
   visibility: visible !important;
 }
