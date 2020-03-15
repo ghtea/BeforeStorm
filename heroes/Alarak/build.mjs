@@ -51,17 +51,18 @@ function Talent ({changeTalent3,talentId, currentTalent}) {
    function changeTalent4(event) {
 changeTalent3(event.target.getAttribute('data-talentId'));
   };
+  var strImgClass = "imgTalent";
   
   if (currentTalent == talentId) {
-      var strImgClass = "imgTalent imgEffect";
+      strImgClass = "imgTalent imgEffect";
    } else {
-      var strImgClass = "imgTalent";
+      strImgClass = "imgTalent";
    };
   
    return html`
   <td><img 
   data-talentId="${talentId}"
-  class=${strImgClass};
+  class="${strImgClass}"
   src="../../0/images/talents/${HeroID}/${talentId}.png" 
   onClick=${changeTalent4}
   /></td>

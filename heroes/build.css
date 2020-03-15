@@ -167,7 +167,11 @@ th {
 }
 
 .imgEffect {
-  border: 4px solid #4530BB ;
+  border: 4px solid yellow ;
+  border-radius: 2px;
+  height: 40px !important;
+  width: 40px !important;
+  
 }
 
 .colS {
