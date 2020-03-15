@@ -47,21 +47,28 @@ function divMenu() {
 };
 
 
-function Talent ({changeTalent3,talentId}) {
+function Talent ({changeTalent3,talentId, currentTalent}) {
    function changeTalent4(event) {
 changeTalent3(event.target.getAttribute('data-talentId'));
   };
+  
+  if (currentTalent == talentId) {
+      var strImgClass = "imgTalent imgEffect";
+   } else {
+      var strImgClass = "imgTalent";
+   };
+  
    return html`
   <td><img 
   data-talentId="${talentId}"
-  class="imgTalent"     
+  class=${strImgClass};
   src="../../0/images/talents/${HeroID}/${talentId}.png" 
   onClick=${changeTalent4}
   /></td>
 `
 }
 
-function Build({iBuild,changeTalent2}) {
+function Build({iBuild,changeTalent2, currentTalent}) {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
    let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
@@ -95,7 +102,7 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
       
       <tr class="rowTalent">
       ${listTalentId.map((talentId, index)=> html`
-      <${Talent} changeTalent3=${changeTalent2} talentId=${talentId}
+      <${Talent} changeTalent3=${changeTalent2} talentId=${talentId} currentTalent=${currentTalent}
       />`
       )}
       </tr>
@@ -112,12 +119,11 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
 };
 
 /*  arrow function makes error */
-function divContent({changeTalent1}){
-
+function divContent({changeTalent1, currentTalent}){
 return html`
    <div id="divContent">
    ${objHeroBuild.map((build, index)=> html`
-      <${Build} changeTalent2=${changeTalent1} iBuild=${index} />`)}
+      <${Build} changeTalent2=${changeTalent1} iBuild=${index} currentTalent=${currentTalent} />`)}
    </div>
 `;
 }
@@ -150,7 +156,7 @@ const [currentTalent, setTalent] = useState('0');
    }
 return html`
 <${divMenu}/>
-<${divContent} changeTalent1=${changeTalent0} />
+<${divContent} changeTalent1=${changeTalent0} currentTalent=${currentTalent}  />
 <${divTalentInfo} currentTalent=${currentTalent} />
 `;   
 }
