@@ -72,7 +72,7 @@ changeTalent3(event.target.getAttribute('data-talentId'));
 function Build({iBuild,changeTalent2, currentTalent}) {
    let listTalent = [
 objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07'], objHeroBuild[iBuild]['10'], objHeroBuild[iBuild]['13'], objHeroBuild[iBuild]['16'], objHeroBuild[iBuild]['20']]
-   let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_'));
+   let listTalentId = listTalent.map((x, index) => listLevel[index] + "_" + x.replace(/\s/g, '_').replace(/:/g,""));
    
    return html`
 <div class="divBuild">
