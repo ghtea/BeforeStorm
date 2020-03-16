@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+    zoom: 85%;
+  }
+}
+
+html {
+  font-family:'Barlow', Helvetica, Arial, sans-serif !important;
+  font-size: 16px;
+}
+
+a {
+  color: #eeeeee;
+}
+
+
+body {
+  /*position: relative;*/
+  color: #111111;
+  background-color: #dddde8;
+  /* background-image: linear-gradient(to right, #541b65, #041340); */
+  position: static;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0px;
+  width: 100%;
+}
+
+#divMenu {
+  position: fixed;
+  top:0;
+  width:100%;
+}
+
+#divTop {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+#divTop > div {
+  width: 375px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+#divTop img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  margin-left: 25px;
+  border-radius: 5px;
+}
+
+#divTop p {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1.3rem;
+  
+}
+
+
+#divTabBack {
+
+  width: 100%;
+  height: 40px;
+   /* same with height of divTop */
+  margin-bottom: 20px;
+  /* background-color: #5027aa; */
+  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
+  /* box-shadow: 0px 15px 10px -8px  #777777; */
+}
+
+#divTab {
+  font-size: 1.1rem;
+  color: #ffffff;
+  width: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tabBasic {
+  width: 25%;
+  color: #999999;
+}
+
+#tabTalent {
+  width: 25%;
+  color: #999999;
+}
+
+#tabBuild {
+  width: 25%;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
+}
+
+#tabPick {
+  width: 25%;
+  color: #999999;
+}
+
+
+
+#divContent {
+  margin-top: 130px;
+  margin-bottom: 150px; /* to make space for divTalentInfo */
+}
+
+.divBuild {
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 365px;
+  box-shadow: 0px 0px 3px 1px #cccccc;  
+}
+
+
+.divBuildTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; 
+}
+
+.divBuildTitle p {
+  display: inline-block;
+  font-size: 1.2rem;    
+  padding:0px;  
+  margin:0px;
+}
+
+
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  
+  
+}
+
+th {
+  color: #777777;
+  font-weight: normal;
+}
+
+.imgTalent {
+    width: 46px;
+    height: 46px;
+    border-radius: 5px;
+}
+
+.imgEffect {
+  border: 4px solid yellow ;
+  border-radius: 2px;
+  height: 40px !important;
+  width: 40px !important;
+  
+}
+
+.colS {
+    width:50px;
+}
+
+
+.divWinRate {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+  margin-top: 4px;
+  background-color: #f0f0f0;
+  border-radius: 0 0 10px 10px;
+}
+
+.divWinRate div {
+  display: inline-block;
+  margin-left: 10px;
+  padding-bottom: 2px;
+}
+
+.divWinRate div:nth-child(1) {
+  color: #777777;
+}
+
+
+.barWinRate {
+  background-color: #550000;
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  border-radius: 0 4px 4px 0px;
+}
+
+
+
+#divTalentInfo {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  
+  height: 100px;
+  overflow: hide;
+  overflow-y: scroll;
+  width: 375px  ;
+  
+  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
+  color:#ffffff;
+  z-index: 1;
+  opacity: 0.95;
+  
+  border-radius: 10px;
+  border: 4px solid #4530BB ;
+  visibility: hidden;
+}
+
+@media (min-height: 1000px) {
+  #divTalentInfo {
+    top: 750px;
+  }
+}
+
+.allVisible{
+  visibility: visible !important;
+}
+
+.divTalentName {
+  font-weight: bold;
+  margin: 2px;  
+  font-size: 1.1rem;
+}
+
+
+
