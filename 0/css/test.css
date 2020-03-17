@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+    zoom: 85%;
+  }
+}
+
+html {
+  font-family:'Barlow', Helvetica, Arial, sans-serif !important;
+  font-size: 16px;
+}
+
+
+body {
+  /*position: relative;*/
+  color: #111111;
+  background-color: #dddde8;
+  /* background-image: linear-gradient(to right, #541b65, #041340); */
+  position: static;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0px;
+  width: 100%;
+}
+
+
+#divTop10 > div {
+  width: 175px;
+  height: 56px;
+
+}
+
+#divBottom > div {
+  width: 56px;
+  height: 56px;
+}
+
+
+
