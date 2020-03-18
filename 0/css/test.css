@@ -31,30 +31,18 @@ body {
 #divTop {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #ffffff;
 }
 
 #divTop > div {
   width: 375px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-}
-
-#divTop img {
-  width: 50px;
   height: 50px;
-  margin-right: 5px;
-  margin-left: 25px;
-  border-radius: 5px;
-}
-
-#divTop p {
-  display: inline-block;
-  margin-right: 5px;
-  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.3rem;
-  
+  font-weight: bold;
 }
 
 
@@ -80,25 +68,16 @@ body {
   margin-right: auto;
 }
 
-#tabBasic {
-  width: 25%;
-  color: #999999;
-}
 
-#tabTalent {
-  width: 25%;
-  color: #999999;
-}
-
-#tabBuild {
-  width: 25%;
+#tabMeta {
+  width: 50%;
   padding-top: 9px;
   padding-bottom: 4px;
   border-bottom: 5px solid #ffffff;
 }
 
-#tabPick {
-  width: 25%;
+#tabAbc {
+  width: 50%;
   color: #999999;
 }
 
