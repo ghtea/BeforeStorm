@@ -91,8 +91,8 @@ body {
 }
 
 .imgHero {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   border-radius: 4px;
 }
 
@@ -104,12 +104,11 @@ body {
   height: 15px;
   width: 33px;
   background-color: green;
+  
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  border-radius: 0 4px 4px 0px;
 }
 
-.bar2 {
-  height: 15px;
-  background-color: purple;
-}
 
 .groupNumber {
   width: 45px;
@@ -119,26 +118,116 @@ body {
   flex-wrap: wrap;
 }
 
+#divTop10 > div, #divBottom > div {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  height: 52px;
+  margin: 4px;
+}
 
 #divTop10 > div {
   width: 175px;
-  height: 56px;
-  margin: 2px;
   
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   
-  background-color: #bbbbbb;
+  
 }
 
 #divBottom > div {
-  width: 56px;
-  height: 56px;
-  margin: 2px;
+  width: 52px;
   
-  background-color: #bbbbbb;
 }
 
 
 
+#cardHero {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 370px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  
+  height: 105px;
+  overflow: hide;
+  overflow-y: scroll;
+  width: 370px  ;
+  
+  padding: 4px;
+  
+  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
+  color:#ffffff;
+  z-index: 1;
+  opacity: 0.95;
+  
+  border-radius: 10px;
+  border: 4px solid #4530BB ;
+  /* visibility: hidden; */
+}
+
+@media (min-height: 1000px) {
+  #cardHero {
+    top: 750px;
+  }
+}
+
+
+
+
+
+#divCardInfo {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+#divCardGroupLink {
+  position: absolute;
+  width: 80px;
+  right: 0;
+}
+
+#divCardInfoMain {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#divCardMainImg > img {
+  width: 60px;
+  height: 60px;
+  margin: 4px;
+  border-radius: 6px;
+}
+
+#divCardMainText > div {
+  width: 210px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#divCardInfoSub {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+#divCardGroupLink > div {
+  height: 35px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
