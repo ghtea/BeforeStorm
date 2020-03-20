@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
 
-@media (max-width: 375px) {
-  html {
-    font-size: 13px;
-    zoom: 85%;
-  }
-}
-
 html {
   font-family:'Barlow', Helvetica, Arial, sans-serif !important;
   font-size: 16px;
+}
+
+@media (max-width: 410px) {
+  html {font-size: 15px; zoom: 95%;}
+}
+
+@media (max-width: 390px) {
+  html {font-size: 14px; zoom: 90%;}
+}
+
+@media (max-width: 370px) {
+  html {font-size: 13px; zoom: 85%;}
 }
 
 
@@ -28,14 +33,14 @@ body {
   width: 100%;
 }
 
-#divTop {
+#Header {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
 }
 
-#divTop > div {
+#Header > div {
   width: 375px;
   height: 50px;
   display: flex;
@@ -46,17 +51,17 @@ body {
 }
 
 
-#divTabBack {
+#Tab {
   
   width: 100%;
   height: 40px;
    /* same with height of divTop */
   /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
-  /* box-shadow: 0px 15px 10px -8px  #777777; */
+  /* main gradient */
 }
 
-#divTab {
+#TabFront {
   font-size: 1.1rem;
   color: #ffffff;
   width: 375px;
@@ -84,74 +89,95 @@ body {
 
 
 
-#divOption {
+#Setting {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
   
   color: #dddddd;
   
   width: 100%;
   height: 120px;
+  margin-bottom: 10px;
    
-  margin-bottom: 20px;
-  /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #111111, #333333);
-  /* box-shadow: 0px 15px 10px -8px  #777777; */
 }
 
-#divInput {
-  background-image: linear-gradient(-180deg, #3F0C8E, #0F1B6D);
-  border-radius: 15px 15px 0 0;
-  padding-top: 10px;
+#Setting > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 0.9rem;
 }
 
-#guideRatio {
+#Setting > div:nth-child(1) {
   height: 20px;
-  font-size: 0.8rem;
 }
 
-#divRatio1, #divRatio2 {
-  height: 35px;
-  width: 335px;
-  margin-left: auto !important;
-  margin-right: auto !important;
+#Setting > div:nth-child(2) {
+  height: 40px;
+}
+
+#Setting > div:nth-child(3) {
+  height: 40px;
+}
+
+#Setting > div:nth-child(2) > div:nth-child(1), #Setting > div:nth-child(2) > div:nth-child(3), #Setting > div:nth-child(3) > div:nth-child(1), #Setting > div:nth-child(3) > div:nth-child(3) {
+  width: 14%;
+}
+
+#Setting > div:nth-child(2) > div:nth-child(2), #Setting > div:nth-child(3) > div:nth-child(2) {
+  width: 40%;
+}
+
+
+
+#divMap {
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#divMap,
-#divDifficulty {
-  padding: 5px;
+/* Reset Select */
+#selectMap {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border: 0 !important;
+}
+/* Remove IE arrow */
+#selectMap::-ms-expand {
+  display: none;
 }
 
-/* Winrate and 3 more*/
-#divRatio1 > div, #divRatio2 > div {
-  display: table;
-  width: 70px;
+/* Custom Select */
+#selectMap {
+  
+  width: 240px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 15px;
+  
+  font-size: 1rem;
+  text-indent: 10px;
+  
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #666666, #777777);
+  cursor: pointer;
+  
 }
 
-.txtRg {
-  width: 70px;
-  height: 35px;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-/* ratio bar */
-#divRatio1 > :nth-child(2), #divRatio2 > :nth-child(2){
-  width: 175px;
-}
 
 
 
-
-
-
-
-#divTop10, #divBottom {
+#heroesTop, #heroesOthers {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,8 +187,16 @@ body {
 .imgHero {
   width: 46px;
   height: 46px;
-  border-radius: 4px;
+  border-radius: 6px;
+  border-width: 3px;
+  border-style: solid;
 }
+
+.imgHero.roleMA {
+  border-color: red;
+}
+
+
 
 .groupBar {
   width: 70px;
@@ -186,16 +220,16 @@ body {
   flex-wrap: wrap;
 }
 
-#divTop10 > div, #divBottom > div {
+#heroesTop > div, #heroesOthers > div {
   background-color: #ffffff;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0px 0px 1px 0px #cccccc;
   
   height: 52px;
   margin: 4px;
 }
 
-#divTop10 > div {
+#heroesTop > div {
   width: 175px;
   
   display: flex;
@@ -205,14 +239,14 @@ body {
   
 }
 
-#divBottom > div {
+#heroesOthers > div {
   width: 52px;
   
 }
 
 
 
-#cardHero {
+#card {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -228,7 +262,7 @@ body {
   overflow-y: scroll;
   width: 370px  ;
   
-  padding: 4px;
+  padding: 6px;
   
   
   background-image: linear-gradient(to bottom, #111111, #333333);
@@ -245,58 +279,69 @@ body {
 }
 
 @media (min-height: 1000px) {
-  #cardHero {
+  #card {
     top: 750px;
   }
 }
 
+#cardLeft {width: 28%;}
+#carMid {width: 44%;}
+#cardRight {width: 28%;}
 
-#divCardInfo {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-#divCardGroupLink {
-  position: absolute;
-  width: 80px;
-  right: 0;
-}
-
-#divCardInfoMain {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#divCardMainImg > img {
+#imgHeroCard {
   width: 60px;
   height: 60px;
   margin: 4px;
   border-radius: 6px;
+  box-shadow: 0px 0px 3px 0px #000000;
 }
 
-#divCardMainText > div {
-  width: 210px;
+#cardMid {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-#divCardInfoSub {
+
+#cardMid > div:nth-child(1) {
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
+#cardMid > div:nth-child(2) {
 
-#divCardGroupLink > div {
-  height: 35px;
-  
+}
+
+#cardMid > div:nth-child(3) {
+
+}
+
+#cardMid > div:nth-child(4) {
+  width: 100%;
+}
+
+#cardMid > div:nth-child(5) {
+  width: 100%;
+}
+
+#cardRight > div {
+  width: 100%;
+  height: 25px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  background-image: linear-gradient(to right, #ffffff, #dddde8);
+  color: #000000;
+  box-shadow: 0px 0px 3px 0px #000000;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  opacity: 0.9;
+  
 }

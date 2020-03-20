@@ -23,46 +23,59 @@
     
 <body>
    
-   <div id="divTop"> 
+   <div id="Header"> 
       <div>
          BEFORE STORM
       </div>
    </div>
    
    
-   <div id="divTabBack" >
-      <div id="divTab" >
+   <div id="Tab" >
+      <div id="TabFront" >
       <div id="tabMeta" >META</div>
       <div id="tabAbc" >ABC</div>
       </div>
    </div>
    
-   <div id="divOption" >
-      <div id="guideRatio">SORT: What is more important?</div>
-      <div id="divRatio1">
-            <div><div class="txtRg rgTextBig" >Winrate</div></div>
-            <div><input id="rgRatio" type="range" /></div>
-            <div><div class="txtRg rgTextSmall">
-              Number <br />
-              of Games
-            </div></div>
-          </div>
-          
-          <div id="divRatio2">
-            <div><div  class="txtRg rgTextSmall"> difficulty: <br /> Easy </div></div>
-            <div><input id="rgRatio2" type="range" /></div>
-            <div><div class="txtRg rgTextBig">
-               Hard
-            </div></div>
-          </div>
+   <div id="Setting" >
       
+      <div>SORT: What is more important?</div>
+      
+      <div>
+      <div>Winrate</div>
+      <div><input type="range"/></div>
+      <div> Number <br/> of Games</div>
+      </div>
+          
+      <div>
+      <div> difficulty: <br /> Easy </div>
+      <div><input type="range"/></div>
+      <div>Hard</div>
+      </div>
+         
    </div>
       
-   
-   <div id="divHeroAll">
-      <div id="divTop10"> 
+   <div id="divMap">
+      <select id="selectMap">
+      <option value="All" selected >All Map </option>
+      <option value="Alterac Pass"> Alterac Pass </option>
+      <option value="Battlefield of Eternity">Battlefield of Eternity</option>
+      <option value="Braxis Holdout">Braxis Holdout</option>
+      <option value="Cursed Hollow">Cursed Hollow</option>
+      <option value="Dragon Shire">Dragon Shire</option>
+      <option value="Hanamura Temple">Hanamura Temple</option>
+      <option value="Infernal Shrines">Infernal Shrines</option>
+      <option value="Sky Temple">Sky Temple</option>
+      <option value="Tomb of the Spider Queen">Tomb of the Spider Queen</option>
+      <option value="Towers of Doom">Towers of Doom</option>
+      <option value="Volskaya Foundry">Volskaya Foundry</option>
+      </select>
+   </div>
+      
+   <div id="Heroes">
+      <div id="heroesTop"> 
          <div> 
-         <img class="imgHero" src="0/images/heroes/Alarak.png" /> 
+         <img class="imgHero roleMA" src="0/images/heroes/Alarak.png" /> 
          
          <div class ="groupBar">
          <div style="width:44px height: 30px" class="bar1"> </div>
@@ -87,7 +100,7 @@
          <div> </div>
       </div>
       
-      <div id="divBottom"> 
+      <div id="heroesOthers"> 
          <div> </div>
          <div> </div>
          <div> </div>
@@ -104,31 +117,24 @@
    </div>
    
    
-   <div id="cardHero">
-   
-      <div id="divCardInfo">
+   <div id="card">
       
-      <div id="divCardInfoMain">
-      
-      <div id="divCardMainImg"> <img id="imgCardHero" src="0/images/heroes/Kerrigan.png" /> </div>
-      
-      <div id="divCardMainText">
-      <div id="divCardHeroName"> Kerrigan </div>
-      <div id="divCardMeta"> 1/88 </div>
-      <div id="divCardMetaDetail"> 55.5%, 1 / 33 games </div>
+      <div id="cardLeft"> 
+      <img id="imgHeroCard" src="0/images/heroes/Kerrigan.png" /> 
+      <div> #1 (of 88) </div>
       </div>
       
-      </div>
-      
-      <div id="divCardInfoSub"> 
-      <div> Melee Assassin </div> 
+      <div id="cardMid"> 
+      <div> Kerrigan </div>
+      <div> Melee Assassin &nbsp;</div>
       <div> Difficult </div>   
+      <div> winrate: 55.5% </div> 
+      <div> popularity: 22.3% </div> 
       </div>
+
       
-      </div>
-      
-      <div id = "divCardGroupLink"> 
-         <div><a>PlayStyle</a></div>
+      <div id = "cardRight"> 
+         <div><a>Basic</a></div>
          <div><a>Build</a></div>
          <div><a>Pick</a></div>
       </div>
