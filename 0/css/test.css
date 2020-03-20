@@ -184,12 +184,53 @@ body {
   flex-wrap: wrap;
 }
 
+#heroesTop > div, #heroesOthers > div {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 0px;
+  
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  height: 52px;
+  margin: 4px;
+}
+
+#heroesTop > div {
+  width: 175px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  
+}
+
+#heroesOthers > div {
+  width: 52px;
+  
+}
+
+.backHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 52px;
+  height: 52px;
+  margin:0px;
+  pdding: 0px;
+  border-radius: 6px;
+}
+
+
+
 .imgHero {
   width: 46px;
   height: 46px;
-  border-radius: 6px;
-  border-width: 3px;
-  border-style: solid;
+  margin:0px;
+  pdding: 0px;
+  
+  border-radius: 5px;
 }
 
 .imgHero.roleMA {
@@ -220,29 +261,7 @@ body {
   flex-wrap: wrap;
 }
 
-#heroesTop > div, #heroesOthers > div {
-  background-color: #ffffff;
-  border-radius: 6px;
-  box-shadow: 0px 0px 1px 0px #cccccc;
-  
-  height: 52px;
-  margin: 4px;
-}
 
-#heroesTop > div {
-  width: 175px;
-  
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  
-  
-}
-
-#heroesOthers > div {
-  width: 52px;
-  
-}
 
 
 
@@ -251,7 +270,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
 
-  width: 370px;
+  width: 362px;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -312,7 +331,11 @@ body {
 }
 
 #cardMid > div:nth-child(2) {
-
+  border-radius: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 #cardMid > div:nth-child(3) {
@@ -345,3 +368,14 @@ body {
   opacity: 0.9;
   
 }
+
+
+/* role color */
+.backHero.roleMA {
+  background-image: linear-gradient(to bottom, #ff0066, #ff0000);
+}
+
+#cardMid > div:nth-child(2) {
+  background-image: linear-gradient(to bottom, #ff0066, #ff0000);
+}
+

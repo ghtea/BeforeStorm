@@ -15,9 +15,9 @@
     
 
   <link rel="stylesheet" href="0/css/test.css" />
-  <script src="0/data/meta/objHeroHero.js"> </script>
-  <script src="0/data/meta/objHeroMapBasic.js"> </script>
-  
+  <script src="0/data/meta/objHeroBasic.js"> </script>
+  <script src="0/data/meta/objHeroMap.js"> </script>
+  <script src="0/data/meta/objGames.js"> </script>
   
 </head>
     
@@ -74,17 +74,20 @@
       
    <div id="Heroes">
       <div id="heroesTop"> 
+      
          <div> 
-         <img class="imgHero roleMA" src="0/images/heroes/Alarak.png" /> 
+         
+         <div class="backHero roleMA">
+         <img class="imgHero" src="0/images/heroes/Alarak.png" /> 
+         </div>
          
          <div class ="groupBar">
-         <div style="width:44px height: 30px" class="bar1"> </div>
-
+            <div style="width:44px height: 30px" class="bar1"> </div>
          </div>
          
          <div class ="groupNumber">
-         <div> 55.4% </div>
-         <div> 1 / 15.5 </div>
+            <div> 55.4% </div>
+            <div> 1 / 15.5 </div>
          </div>
          
          </div>
@@ -121,12 +124,12 @@
       
       <div id="cardLeft"> 
       <img id="imgHeroCard" src="0/images/heroes/Kerrigan.png" /> 
-      <div> #1 (of 88) </div>
+      <div> #1 </div>
       </div>
       
       <div id="cardMid"> 
       <div> Kerrigan </div>
-      <div> Melee Assassin &nbsp;</div>
+      <div> Melee Assassin</div>
       <div> Difficult </div>   
       <div> winrate: 55.5% </div> 
       <div> popularity: 22.3% </div> 
