@@ -47,11 +47,10 @@ body {
 
 
 #divTabBack {
-
+  
   width: 100%;
   height: 40px;
    /* same with height of divTop */
-  margin-bottom: 20px;
   /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   /* box-shadow: 0px 15px 10px -8px  #777777; */
@@ -69,6 +68,7 @@ body {
 }
 
 
+
 #tabMeta {
   width: 50%;
   padding-top: 9px;
@@ -80,6 +80,74 @@ body {
   width: 50%;
   color: #999999;
 }
+
+
+
+
+#divOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  color: #dddddd;
+  
+  width: 100%;
+  height: 120px;
+   
+  margin-bottom: 20px;
+  /* background-color: #5027aa; */
+  background-image: linear-gradient(to bottom, #111111, #333333);
+  /* box-shadow: 0px 15px 10px -8px  #777777; */
+}
+
+#divInput {
+  background-image: linear-gradient(-180deg, #3F0C8E, #0F1B6D);
+  border-radius: 15px 15px 0 0;
+  padding-top: 10px;
+}
+
+#guideRatio {
+  height: 20px;
+  font-size: 0.8rem;
+}
+
+#divRatio1, #divRatio2 {
+  height: 35px;
+  width: 335px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#divMap,
+#divDifficulty {
+  padding: 5px;
+}
+
+/* Winrate and 3 more*/
+#divRatio1 > div, #divRatio2 > div {
+  display: table;
+  width: 70px;
+}
+
+.txtRg {
+  width: 70px;
+  height: 35px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* ratio bar */
+#divRatio1 > :nth-child(2), #divRatio2 > :nth-child(2){
+  width: 175px;
+}
+
+
+
+
 
 
 
@@ -162,13 +230,17 @@ body {
   
   padding: 4px;
   
-  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
+  
+  background-image: linear-gradient(to bottom, #111111, #333333);
+  
+  /*background-image: linear-gradient(to bottom, #792bbc, #2b33ba); */
   color:#ffffff;
   z-index: 1;
-  opacity: 0.95;
+  opacity: 0.90;
   
   border-radius: 10px;
-  border: 4px solid #4530BB ;
+  border: 4px solid #000000;
+  /* border: 4px solid #4530BB ; */
   /* visibility: hidden; */
 }
 
@@ -177,9 +249,6 @@ body {
     top: 750px;
   }
 }
-
-
-
 
 
 #divCardInfo {
