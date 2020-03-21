@@ -247,10 +247,7 @@ body {
 }
 
 .bar1 {
-  height: 15px;
-  width: 33px;
   background-color: green;
-  
   background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
   border-radius: 0 4px 4px 0px;
 }

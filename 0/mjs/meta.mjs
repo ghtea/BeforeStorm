@@ -16,8 +16,14 @@ for (var iHero = 0; iHero < numHero; iHero++) {
 
 /* components */
 
-function partStatic({changeMap, cMap, point}) {
+function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, point}) {
 
+   function changeRGW1(event) {
+      changeRGW(event.target.value);
+   }
+   function changeRED1(event) {
+      changeRED(event.target.value);
+   }
    function changeMap1(event) {
       changeMap(event.target.value);
    }
@@ -42,14 +48,14 @@ return html`
       <div>SORT: What is more important?</div>
       
       <div>
-      <div>Winrate</div>
-      <div><input type="range"/></div>
-      <div> Number <br/> of Games</div>
+      <div>Number <br/> of Games</div>
+      <div><input type="range" value=${cRatioGW} onChange=${changeRGW1}/></div>
+      <div> WinRate</div>
       </div>
           
       <div>
       <div> difficulty: <br /> Easy </div>
-      <div><input type="range"/></div>
+      <div><input type="range" value=${cRatioED} onChange=${changeRED1}/></div>
       <div>Hard</div>
       </div>
          
@@ -76,7 +82,16 @@ return html`
 
 
 
-function heroTop({heroId}) {
+function heroTop({heroId, cMap}) {
+
+/* 허용된총너비가 4*std(1 여유해서 5), 중앙이 평균점 */
+
+var width = (objHeroMap[cMap][heroId]['zWin'] + 2) * 75 / 5;
+var height = (objHeroMap[cMap][heroId]['zGame'] + 2) * 46 / 5;
+
+if (width < 2) {width = 2;}
+if (width < 2) {width = 2;}
+
 return html`
          
    <div> 
@@ -85,7 +100,7 @@ return html`
          </div>
          
       <div class="groupBar">
-         <div style="width:44px height: 30px" class="bar1"> </div>
+         <div style="width:${width}px; height:${height}px;" class="bar1"> </div>
       </div>
          
       <div class="groupNumber">
@@ -98,7 +113,7 @@ return html`
 }
 
 
-function Heroes({point}) {
+function Heroes({point, cMap}) {
 var pointTop = point.slice(0, numTop);
 var pointOthers = point.slice(numTop,);
 
@@ -107,7 +122,7 @@ return html`
       <div id="heroesTop"> 
       
 ${pointTop.map((objHero, index)=> html`
-   <${heroTop} heroId=${objHero['HeroID']}/>
+   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap}/>
 `)}
       </div>
       
@@ -193,20 +208,20 @@ function updatePoint() {
 
 function changeMap(x){
    setMap(x); updatePoint();}
-function changeRGW(x){setRGW(x)}
-function changeRED(x){setRED(x)}
+function changeRGW(x){setRGW(x); updatePoint();}
+function changeRED(x){setRED(x); updatePoint();}
 
 updatePoint();
 
 return html`
 <${partStatic} 
 changeMap=${changeMap} cMap=${cMap} 
-changeRGW=${changeMap} cRatioGW=${cRatioGW}
+changeRGW=${changeRGW} cRatioGW=${cRatioGW}
 changeRED=${changeRED} cRatioED=${cRatioED}
 point=${point}
 />
    
-<${Heroes} point=${point}/>
+<${Heroes} point=${point} cMap=${cMap} />
 <${card}/>
 `;   
 }
