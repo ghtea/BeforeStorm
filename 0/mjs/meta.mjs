@@ -3,6 +3,7 @@
 import { html, Component, render, useState } from 'https://ghtea.github.io/BeforeStorm/0/common/standalone.module.js';
 
 const numHero = Object.keys(objHeroBasic).length
+const numTop = 12;
 
 /* first make of point */
 var listObjHeroPoint = [];
@@ -12,9 +13,6 @@ for (var iHero = 0; iHero < numHero; iHero++) {
          "Point": 0
        })
    }
-console.log(listObjHeroPoint);
-
-
 
 /* components */
 
@@ -27,7 +25,7 @@ function partStatic({changeMap, cMap, point}) {
 return html`
    <div id="Header"> 
       <div>
-         BEFORE STORM: ${cMap}
+         BEFORE STORM: 
       </div>
    </div>
    
@@ -77,37 +75,40 @@ return html`
 }
 
 
-function Heroes() {
+
+function heroTop({heroId}) {
+return html`
+         
+   <div> 
+      <div class="backHero roleMA">
+      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+         </div>
+         
+      <div class="groupBar">
+         <div style="width:44px height: 30px" class="bar1"> </div>
+      </div>
+         
+      <div class="groupNumber">
+         <div> 55.4% </div>
+         <div> 1 / 15.5 </div>
+      </div>
+         
+   </div>
+`;
+}
+
+
+function Heroes({point}) {
+var pointTop = point.slice(0, numTop);
+var pointOthers = point.slice(numTop,);
+
 return html`
    <div id="Heroes">
       <div id="heroesTop"> 
       
-         <div> 
-         
-         <div class="backHero roleMA">
-         <img class="imgHero" src="0/images/heroes/Alarak.png" /> 
-         </div>
-         
-         <div class="groupBar">
-            <div style="width:44px height: 30px" class="bar1"> </div>
-         </div>
-         
-         <div class="groupNumber">
-            <div> 55.4% </div>
-            <div> 1 / 15.5 </div>
-         </div>
-         
-         </div>
-         
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
+${pointTop.map((objHero, index)=> html`
+   <${heroTop} heroId=${objHero['HeroID']}/>
+`)}
       </div>
       
       <div id="heroesOthers"> 
@@ -169,13 +170,12 @@ const [cMap, setMap] = useState('All');
 const [cRatioGW, setRGW] = useState(50);
 const [cRatioED, setRED] = useState(50);
 
-const [point, setPoint] = useState([]);
+const [point, setPoint] = useState(listObjHeroPoint);
 
 
 function updatePoint() {
    for (var iHero = 0; iHero < numHero; iHero++) {
        var cHero = listObjHeroPoint[iHero]['HeroID']
-       
        
        listObjHeroPoint[iHero]['Point'] =
            (100 - cRatioGW) * objHeroMap[cMap][cHero]['zGame']
@@ -183,12 +183,12 @@ function updatePoint() {
            + (cRatioED - 50) * objHeroBasic[cHero]["Difficulty"]
    }
    
-   listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? 1 : -1);
+   listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? -1 : 1);
    
    setPoint(listObjHeroPoint);
-   
-   console.log(listObjHeroPoint);
-   console.log('point: ', point);
+   console.log(point);
+   console.log(cRatioGW);
+   console.log(cRatioED);
 };
 
 function changeMap(x){
@@ -196,16 +196,17 @@ function changeMap(x){
 function changeRGW(x){setRGW(x)}
 function changeRED(x){setRED(x)}
 
+updatePoint();
 
 return html`
 <${partStatic} 
 changeMap=${changeMap} cMap=${cMap} 
 changeRGW=${changeMap} cRatioGW=${cRatioGW}
 changeRED=${changeRED} cRatioED=${cRatioED}
-point = ${point}
+point=${point}
 />
    
-<${Heroes} />
+<${Heroes} point=${point}/>
 <${card}/>
 `;   
 }

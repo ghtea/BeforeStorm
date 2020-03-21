@@ -175,7 +175,10 @@ body {
 }
 
 
-
+#Heroes {
+  /* space for card */
+  margin-bottom: 120px;
+}
 
 #heroesTop, #heroesOthers {
   display: flex;
