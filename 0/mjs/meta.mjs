@@ -166,8 +166,8 @@ return html`
       </div>
       
       <div class="first groupLabel">
-         <div> WinRate: </div>
-         <div> Popularity: </div>
+         <div> ↔ WinRate: </div>
+         <div> ↕ Popularity: </div>
       </div>
       
       <div class="first groupNumber">
