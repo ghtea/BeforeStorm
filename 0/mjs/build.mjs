@@ -28,10 +28,10 @@ function divTabBack() {
 return html`
 <div id="divTabBack" >
 <div id="divTab" >
-      <div id="tabBasic" > Basic </div>
-      <div id="tabTalent" > Talents</div>
+      <!--<div id="tabBasic" > Basic </div> -->
+      <!--<div id="tabTalent" > Talents</div> -->
       <div id="tabBuild" >Builds</div>
-      <div id="tabPick" >Pick</div>
+      <!--<div id="tabPick" >Pick</div>-->
       </div>
       </div>
 `;

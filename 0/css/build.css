@@ -45,7 +45,7 @@ body {
 }
 
 #divTop > div {
-  width: 375px;
+  width: 374px;
   height: 70px;
   display: flex;
   align-items: center;
@@ -81,8 +81,9 @@ body {
 
 #divTab {
   font-size: 1.1rem;
-  color: #ffffff;
-  width: 375px;
+  
+  color: #999999;
+  width: 374px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,16 +93,17 @@ body {
 
 #tabBasic {
   width: 25%;
-  color: #999999;
+  
 }
 
 #tabTalent {
   width: 25%;
-  color: #999999;
+  
 }
 
 #tabBuild {
   width: 25%;
+  color: #ffffff;
   padding-top: 9px;
   padding-bottom: 4px;
   border-bottom: 5px solid #ffffff;
@@ -109,7 +111,7 @@ body {
 
 #tabPick {
   width: 25%;
-  color: #999999;
+  
 }
 
 

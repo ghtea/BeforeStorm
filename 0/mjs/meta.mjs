@@ -3,7 +3,7 @@
 import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
 
 const numHero = Object.keys(objHeroBasic).length
-const numTop = 15;
+const numTop = 13;
 const adjustBarWidth = 75/5;
 const adjustBarHeight = 46/7;
 
@@ -87,7 +87,7 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       <div id="tabMeta" >META</div>
-      <div id="tabAbc" >ABC  (SOON<sup>TM)</sup></div>
+      <div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div>
       </div>
    </div>
    
