@@ -303,7 +303,7 @@ return html`
       
       <div id="cardRight"> 
          <!--<div><a>Basic</a></div>-->
-         <div><a href="https://beforestorm.avantwing.com/heroes/${fHeroId}/Builds">Builds</a></div>
+         <div><a href="https://beforestorm.avantwing.com/heroes/${fHeroId}/builds">Builds</a></div>
          <!--<div><a>Pick</a></div>-->
       </div>
       
