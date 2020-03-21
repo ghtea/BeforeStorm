@@ -180,15 +180,19 @@ body {
   margin-bottom: 120px;
 }
 
-#heroesTop, #heroesOthers {
+#heroes1, #heroesTop, #heroesOthers {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#heroesTop, #heroesOthers {
   flex-wrap: wrap;
 }
 
-#heroesTop > div, #heroesOthers > div {
-  background-color: #ffffff;
+#heroes1 > div, #heroesTop > div, #heroesOthers > div {
+  background-image: linear-gradient(to bottom right, #eeeeee, #ffffff);
+  
   border-radius: 6px;
   padding: 0px;
   
@@ -198,6 +202,16 @@ body {
   margin: 4px;
 }
 
+
+#heroes1 > div {
+  width: 354px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
 #heroesTop > div {
   width: 175px;
   
@@ -205,13 +219,14 @@ body {
   justify-content: flex-start;
   align-items: center;
   
-  
 }
 
 #heroesOthers > div {
   width: 52px;
   
 }
+
+.first.divRank {width: 30px;}
 
 .backHero {
   display: flex;
@@ -225,11 +240,9 @@ body {
   border-radius: 6px;
 }
 
-
-
 .imgHero {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   margin:0px;
   pdding: 0px;
   
@@ -240,7 +253,9 @@ body {
   border-color: red;
 }
 
-
+.first.groupBar {
+  width: 100px;
+}
 
 .groupBar {
   width: 70px;
@@ -252,8 +267,23 @@ body {
   border-radius: 0 4px 4px 0px;
 }
 
+.first.groupLabel {
+  width: 100px;
+  color: #555555;
+}
+
+.first.groupLabel > div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.first.groupNumber {
+  width: 60px;
+}
 
 .groupNumber {
+  color: #555555;
   width: 45px;
   display: flex;
   justify-content: flex-end;

@@ -3,7 +3,9 @@
 import { html, Component, render, useState } from 'https://ghtea.github.io/BeforeStorm/0/common/standalone.module.js';
 
 const numHero = Object.keys(objHeroBasic).length
-const numTop = 12;
+const numTop = 15;
+const adjustBarWidth = 75/5;
+const adjustBarHeight = 46/7;
 
 /* first make of point */
 var listObjHeroPoint = [];
@@ -13,6 +15,29 @@ for (var iHero = 0; iHero < numHero; iHero++) {
          "Point": 0
        })
    }
+/* role */
+function getRoleClass(heroId) {
+   switch(objHeroBasic[heroId]['Role']) {
+   case "Tank":
+      return "roleT";
+      break;
+   case "Bruiser":
+      return "roleB";
+      break;
+   case "Melee Assassin":
+      return "roleMA";
+      break;
+   case "Ranged Assassin":
+      return "roleRA";
+      break;
+   case "Healer":
+      return "roleT";
+      break;
+   case "Support":
+      return "roleS";
+      break;
+   }
+}
 
 /* components */
 
@@ -81,31 +106,38 @@ return html`
 }
 
 
+function hero1({heroId, cMap}) {
 
-function heroTop({heroId, cMap}) {
+var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * 75 / 7;
+var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * 46 / 7;
 
-/* 허용된총너비가 4*std(1 여유해서 5), 중앙이 평균점 */
+if (numWidth < 2) {numWidth = 2;}
+if (numHeight < 2) {numHeight = 2;}
 
-var width = (objHeroMap[cMap][heroId]['zWin'] + 2) * 75 / 5;
-var height = (objHeroMap[cMap][heroId]['zGame'] + 2) * 46 / 5;
-
-if (width < 2) {width = 2;}
-if (width < 2) {width = 2;}
+var numWinRate = objHeroMap[cMap][heroId]['WinRate']
+var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
 return html`
          
    <div> 
-      <div class="backHero roleMA">
+      <div class="first divRank"> 1st </div>
+      
+      <div class="first backHero ${getRoleClass(heroId)}">
       <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
          </div>
          
-      <div class="groupBar">
-         <div style="width:${width}px; height:${height}px;" class="bar1"> </div>
+      <div class="first groupBar">
+         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
       </div>
-         
-      <div class="groupNumber">
-         <div> 55.4% </div>
-         <div> 1 / 15.5 </div>
+      
+      <div class="first groupLabel">
+         <div> WinRate: </div>
+         <div> GameRate: </div>
+      </div>
+      
+      <div class="first groupNumber">
+         <div> ${numWinRate}% </div>
+         <div> ${numGameRate}% </div>
       </div>
          
    </div>
@@ -113,12 +145,66 @@ return html`
 }
 
 
+function heroTop({heroId, cMap}) {
+
+/* 허용된총너비가 6*std(1 여유해서 7), 중앙이 평균점 */
+
+var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
+var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
+
+if (numWidth < 2) {numWidth = 2;}
+if (numHeight < 2) {numHeight = 2;}
+
+var numWinRate = objHeroMap[cMap][heroId]['WinRate']
+var numGameRate = objHeroMap[cMap][heroId]['GameRate']
+
+return html`
+         
+   <div> 
+      <div class="backHero ${getRoleClass(heroId)}">
+      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+         </div>
+         
+      <div class="groupBar">
+         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
+      </div>
+         
+      <div class="groupNumber">
+         <div> ${numWinRate}% </div>
+         <div> ${numGameRate}% </div>
+      </div>
+         
+   </div>
+`;
+}
+
+
+function heroOthers({heroId}) {
+
+return html`
+         
+   <div> 
+      <div class="backHero ${getRoleClass(heroId)}">
+      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+         </div>
+         
+   </div>
+`;
+}
+
+
 function Heroes({point, cMap}) {
-var pointTop = point.slice(0, numTop);
+var pointTop = point.slice(1, numTop);
 var pointOthers = point.slice(numTop,);
 
 return html`
    <div id="Heroes">
+      
+      <div id="heroes1">
+      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap}/>
+      </div>
+      
+       
       <div id="heroesTop"> 
       
 ${pointTop.map((objHero, index)=> html`
@@ -127,18 +213,9 @@ ${pointTop.map((objHero, index)=> html`
       </div>
       
       <div id="heroesOthers"> 
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
-         <div> </div>
+         ${pointOthers.map((objHero, index)=> html`
+   <${heroOthers} heroId=${objHero['HeroID']}/>
+`)}
       </div>
    </div>
 `;
