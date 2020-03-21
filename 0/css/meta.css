@@ -33,6 +33,11 @@ body {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: #111111;
+}
+
 #Header {
   display: flex;
   justify-content: center;
@@ -177,7 +182,7 @@ body {
 
 #Heroes {
   /* space for card */
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 }
 
 #heroes1, #heroesTop, #heroesOthers {
@@ -333,6 +338,7 @@ body {
   }
 }
 
+
 #cardLeft {width: 28%;}
 #carMid {width: 44%;}
 #cardRight {width: 28%;}
@@ -343,6 +349,10 @@ body {
   margin: 4px;
   border-radius: 6px;
   box-shadow: 0px 0px 3px 0px #000000;
+}
+
+#cardLeft > div {
+  font-size: 1.1rem;
 }
 
 #cardMid {
@@ -358,6 +368,7 @@ body {
   height: 30px;
   font-size: 1.2rem;
   font-weight: bold;
+  
 }
 
 #cardMid > div:nth-child(2) {
@@ -369,7 +380,7 @@ body {
 }
 
 #cardMid > div:nth-child(3) {
-
+  margin-left: 3px;
 }
 
 #cardMid > div:nth-child(4) {
@@ -391,13 +402,15 @@ body {
   flex-wrap: wrap;
   
   background-image: linear-gradient(to right, #ffffff, #dddde8);
-  color: #000000;
+  color: #111111;
   box-shadow: 0px 0px 3px 0px #000000;
   border-radius: 4px;
   border: 2px solid #ffffff;
   
 }
-
+#cardRight a {
+  color: #111111;
+}
 
 /* role color */
 .backHero.roleT {

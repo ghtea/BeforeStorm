@@ -15,6 +15,27 @@ for (var iHero = 0; iHero < numHero; iHero++) {
          "Point": 0
        })
    }
+   
+/* difficulty */
+for (var iHero = 0; iHero < numHero; iHero++) {
+   var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
+   var cDiffText = "";
+   
+   if (cDiff > 1.5) {
+      cDiffText = "Very Hard";
+   } else if (cDiff > 0.5) {
+      cDiffText = "Hard";
+   } else if  (cDiff > -0.5) {
+      cDiffText = "Normal";
+   } else if  (cDiff > -1.5) {
+      cDiffText = "Easy";
+   } else {
+      cDiffText = "Very Easy";
+   }
+   objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
+}
+   
+
 /* role */
 function getRoleClass(heroId) {
    var resultClass;
@@ -25,10 +46,10 @@ function getRoleClass(heroId) {
    case "Bruiser":
       resultClass = "roleB";
       break;
-   case "Melee":
+   case "Melee Assassin":
       resultClass = "roleMA";
       break;
-   case "Ranged":
+   case "Ranged Assassin":
       resultClass = "roleRA";
       break;
    case "Healer":
@@ -40,6 +61,7 @@ function getRoleClass(heroId) {
    }
    return resultClass;
 }
+
 
 /* components */
 
@@ -58,14 +80,14 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, 
 return html`
    <div id="Header"> 
       <div>
-         BEFORE STORM: 
+         BEFORE STORM
       </div>
    </div>
    
    <div id="Tab" >
       <div id="TabFront" >
       <div id="tabMeta" >META</div>
-      <div id="tabAbc" >ABC</div>
+      <div id="tabAbc" >ABC  (SOON<sup>TM)</sup></div>
       </div>
    </div>
    
@@ -255,32 +277,34 @@ ${pointTop.map((objHero, index)=> html`
 `;
 }
 
-function card({fHeroId, cMap}) {
+function card({fHeroId, cMap, point}) {
 
 var numWinRate = objHeroMap[cMap][fHeroId]['WinRate'];
 var numGameRate = objHeroMap[cMap][fHeroId]['GameRate'];
+
+var numRank = point.findIndex(x => x['HeroID'] == fHeroId) + 1;
 
 return html`
    <div id="card">
       
       <div id="cardLeft"> 
       <img id="imgHeroCard" src="0/images/heroes/${fHeroId}.png" /> 
-      <div> #1 </div>
+      <div> #${numRank} </div>
       </div>
       
       <div id="cardMid"> 
       <div> ${objHeroBasic[fHeroId]['HeroName']} </div>
-      <div>  ${objHeroBasic[fHeroId]['Role']} </div>
-      <div>  ${objHeroBasic[fHeroId]['Difficulty']}  </div>   
+      <div class="${getRoleClass(fHeroId)}">  ${objHeroBasic[fHeroId]['Role']} </div>
+      <div>  ${objHeroBasic[fHeroId]['DiffText']}  </div>   
       <div> WinRate: ${numWinRate}% </div> 
       <div> Popularity: ${numGameRate}% </div> 
       </div>
 
       
       <div id="cardRight"> 
-         <div><a>Basic</a></div>
-         <div><a>Build</a></div>
-         <div><a>Pick</a></div>
+         <!--<div><a>Basic</a></div>-->
+         <div><a href="https://beforestorm.avantwing.com/heroes/${fHeroId}/Builds">Builds</a></div>
+         <!--<div><a>Pick</a></div>-->
       </div>
       
    </div>
