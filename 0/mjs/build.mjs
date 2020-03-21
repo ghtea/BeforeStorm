@@ -151,7 +151,7 @@ function divTalentInfo ({ currentTalent}) {
 };
 
 function All() {
-const [currentTalent, setTalent] = useState('0');
+   const [currentTalent, setTalent] = useState('0');
    function changeTalent0(x){
     setTalent(x);
    }

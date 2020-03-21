@@ -2,6 +2,13 @@
 
 import { html, Component, render, useState } from 'https://ghtea.github.io/BeforeStorm/0/common/standalone.module.js';
 
+/* manipulate data */
+objHeroBuild.sort(function(a, b) { 
+    return b.WinRate - a.WinRate;
+})
+const listLevel = ['01', '04', '07', '10', '13', '16', '20'];
+
+const HeroID = objHeroBuild[0]['HeroID'];
 
 
 /* components */
