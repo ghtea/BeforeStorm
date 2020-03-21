@@ -1,6 +1,6 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render, useState } from 'https://ghtea.github.io/BeforeStorm/0/common/standalone.module.js';
+import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
 
 const numHero = Object.keys(objHeroBasic).length
 const numTop = 15;
@@ -17,26 +17,28 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    }
 /* role */
 function getRoleClass(heroId) {
+   var resultClass;
    switch(objHeroBasic[heroId]['Role']) {
    case "Tank":
-      return "roleT";
+      resultClass = "roleT";
       break;
    case "Bruiser":
-      return "roleB";
+      resultClass = "roleB";
       break;
-   case "Melee Assassin":
-      return "roleMA";
+   case "Melee":
+      resultClass = "roleMA";
       break;
-   case "Ranged Assassin":
-      return "roleRA";
+   case "Ranged":
+      resultClass = "roleRA";
       break;
    case "Healer":
-      return "roleT";
+      resultClass = "roleH";
       break;
    case "Support":
-      return "roleS";
+      resultClass = "roleS";
       break;
    }
+   return resultClass;
 }
 
 /* components */
@@ -106,10 +108,10 @@ return html`
 }
 
 
-function hero1({heroId, cMap}) {
+function hero1({heroId, cMap, focusHero}) {
 
-var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * 75 / 7;
-var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * 46 / 7;
+var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
+var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
 
 if (numWidth < 2) {numWidth = 2;}
 if (numHeight < 2) {numHeight = 2;}
@@ -117,13 +119,24 @@ if (numHeight < 2) {numHeight = 2;}
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
+var strClassDiv = "first backHero " + getRoleClass(heroId);
+
+function focusHero1(event) {
+   focusHero(event.target.getAttribute('data-heroId'));
+};
+
 return html`
          
    <div> 
       <div class="first divRank"> 1st </div>
       
-      <div class="first backHero ${getRoleClass(heroId)}">
-      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+      <div class="${strClassDiv}">
+      <img
+      data-heroId="${heroId}"
+      class="imgHero" 
+      src="0/images/heroes/${heroId}.png" 
+      onClick=${focusHero1} 
+      />
          </div>
          
       <div class="first groupBar">
@@ -132,7 +145,7 @@ return html`
       
       <div class="first groupLabel">
          <div> WinRate: </div>
-         <div> GameRate: </div>
+         <div> Popularity: </div>
       </div>
       
       <div class="first groupNumber">
@@ -145,7 +158,7 @@ return html`
 }
 
 
-function heroTop({heroId, cMap}) {
+function heroTop({heroId, cMap,focusHero}) {
 
 /* 허용된총너비가 6*std(1 여유해서 7), 중앙이 평균점 */
 
@@ -158,11 +171,22 @@ if (numHeight < 2) {numHeight = 2;}
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
+var strClassDiv = "backHero " + getRoleClass(heroId);
+
+function focusHero1(event) {
+   focusHero(event.target.getAttribute('data-heroId'));
+};
+
 return html`
          
    <div> 
-      <div class="backHero ${getRoleClass(heroId)}">
-      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+      <div class="${strClassDiv}">
+      <img
+      data-heroId="${heroId}"
+      class="imgHero" 
+      src="0/images/heroes/${heroId}.png" 
+      onClick=${focusHero1} 
+      />
          </div>
          
       <div class="groupBar">
@@ -179,13 +203,23 @@ return html`
 }
 
 
-function heroOthers({heroId}) {
+function heroOthers({heroId,focusHero}) {
 
+var strClassDiv = "backHero " + getRoleClass(heroId);
+
+function focusHero1(event) {
+   focusHero(event.target.getAttribute('data-heroId'));
+};
 return html`
          
    <div> 
-      <div class="backHero ${getRoleClass(heroId)}">
-      <img class="imgHero" src="0/images/heroes/${heroId}.png" /> 
+      <div class="${strClassDiv}">
+      <img
+      data-heroId="${heroId}"
+      class="imgHero" 
+      src="0/images/heroes/${heroId}.png" 
+      onClick=${focusHero1} 
+      />
          </div>
          
    </div>
@@ -193,7 +227,7 @@ return html`
 }
 
 
-function Heroes({point, cMap}) {
+function Heroes({point, cMap, focusHero}) {
 var pointTop = point.slice(1, numTop);
 var pointOthers = point.slice(numTop,);
 
@@ -201,41 +235,45 @@ return html`
    <div id="Heroes">
       
       <div id="heroes1">
-      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap}/>
+      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap} focusHero=${focusHero}/>
       </div>
       
        
       <div id="heroesTop"> 
       
 ${pointTop.map((objHero, index)=> html`
-   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap}/>
+   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap} focusHero=${focusHero}/>
 `)}
       </div>
       
       <div id="heroesOthers"> 
          ${pointOthers.map((objHero, index)=> html`
-   <${heroOthers} heroId=${objHero['HeroID']}/>
+   <${heroOthers} heroId=${objHero['HeroID']} focusHero=${focusHero}/>
 `)}
       </div>
    </div>
 `;
 }
 
-function card() {
+function card({fHeroId, cMap}) {
+
+var numWinRate = objHeroMap[cMap][fHeroId]['WinRate'];
+var numGameRate = objHeroMap[cMap][fHeroId]['GameRate'];
+
 return html`
    <div id="card">
       
       <div id="cardLeft"> 
-      <img id="imgHeroCard" src="0/images/heroes/Kerrigan.png" /> 
+      <img id="imgHeroCard" src="0/images/heroes/${fHeroId}.png" /> 
       <div> #1 </div>
       </div>
       
       <div id="cardMid"> 
-      <div> Kerrigan </div>
-      <div> Melee Assassin</div>
-      <div> Difficult </div>   
-      <div> winrate: 55.5% </div> 
-      <div> popularity: 22.3% </div> 
+      <div> ${objHeroBasic[fHeroId]['HeroName']} </div>
+      <div>  ${objHeroBasic[fHeroId]['Role']} </div>
+      <div>  ${objHeroBasic[fHeroId]['Difficulty']}  </div>   
+      <div> WinRate: ${numWinRate}% </div> 
+      <div> Popularity: ${numGameRate}% </div> 
       </div>
 
       
@@ -278,9 +316,6 @@ function updatePoint() {
    listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? -1 : 1);
    
    setPoint(listObjHeroPoint);
-   console.log(point);
-   console.log(cRatioGW);
-   console.log(cRatioED);
 };
 
 function changeMap(x){
@@ -290,16 +325,22 @@ function changeRED(x){setRED(x); updatePoint();}
 
 updatePoint();
 
+const [fHeroId, setFocus] = useState('Alarak');
+function focusHero(x) {
+   setFocus(x);
+}
+
 return html`
 <${partStatic} 
 changeMap=${changeMap} cMap=${cMap} 
 changeRGW=${changeRGW} cRatioGW=${cRatioGW}
 changeRED=${changeRED} cRatioED=${cRatioED}
-point=${point}
+point=${point} 
 />
    
-<${Heroes} point=${point} cMap=${cMap} />
-<${card}/>
+<${Heroes} point=${point} cMap=${cMap}  focusHero=${focusHero}/>
+
+<${card} fHeroId=${fHeroId} point=${point} cMap=${cMap}/>
 `;   
 }
 

@@ -319,7 +319,7 @@ body {
   /*background-image: linear-gradient(to bottom, #792bbc, #2b33ba); */
   color:#ffffff;
   z-index: 1;
-  opacity: 0.90;
+  opacity: 0.95;
   
   border-radius: 10px;
   border: 4px solid #000000;
@@ -395,17 +395,55 @@ body {
   box-shadow: 0px 0px 3px 0px #000000;
   border-radius: 4px;
   border: 2px solid #ffffff;
-  opacity: 0.9;
   
 }
 
 
 /* role color */
-.backHero.roleMA {
-  background-image: linear-gradient(to bottom, #ff0066, #ff0000);
+.backHero.roleT {
+  background-image: linear-gradient(to bottom, #fcea0a, #ff9200);
+}
+#cardMid > div:nth-child(2).roleT {
+  background-image: linear-gradient(to bottom, #fcea0a, #ff9200);
 }
 
-#cardMid > div:nth-child(2) {
-  background-image: linear-gradient(to bottom, #ff0066, #ff0000);
+
+.backHero.roleB {
+  background-image: linear-gradient(to bottom, #ff5c24, #fc3d0a);
+}
+#cardMid > div:nth-child(2).roleB {
+  background-image: linear-gradient(to bottom, #ff5c24, #fc3d0a);
+}
+
+
+.backHero.roleMA {
+  background-image: linear-gradient(to bottom, #ff0066, #7a0000);
+}
+#cardMid > div:nth-child(2).roleMA {
+  background-image: linear-gradient(to bottom, #ff0066, #7a0000);
+}
+
+
+.backHero.roleRA {
+  background-image: linear-gradient(to bottom, #aa35ff, #632ddc);
+}
+#cardMid > div:nth-child(2).roleRA {
+  background-image: linear-gradient(to bottom, #aa35ff, #632ddc);
+}
+
+
+.backHero.roleH {
+  background-image: linear-gradient(to bottom, #12d7ac, #00bb62);
+}
+#cardMid > div:nth-child(2).roleH {
+  background-image: linear-gradient(to bottom, #12d7ac, #00bb62);
+}
+
+
+.backHero.roleS {
+  background-image: linear-gradient(to bottom, #3f98ff, #00cafe);
+}
+#cardMid > div:nth-child(2).roleS {
+  background-image: linear-gradient(to bottom, #3f98ff, #00cafe);
 }
 

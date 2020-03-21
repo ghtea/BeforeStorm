@@ -1,6 +1,6 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render, useState } from 'https://ghtea.github.io/BeforeStorm/0/common/standalone.module.js';
+import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
 
 /* manipulate data */
 objHeroBuild.sort(function(a, b) { 
