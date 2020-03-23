@@ -2,6 +2,20 @@
 
 import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
 
+const infoDate = "2020. 3. 23. (UTC +9)";
+const infoVerHM = "2.49.4.78679";
+const infoVerHH = "2.49";
+
+
+const sourceDataText = "Heroes Profile API";
+const sourceDataLink = "https://api.heroesprofile.com";
+
+const sourceImgText = "Heroes of the Storm Wiki";
+const sourceImgLink = "https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki"
+
+const sourceDiffText = "by Lucifer474";
+const sourceDiffLink ="https://1drv.ms/x/s!Ar0HIinrMYwPhJNzYBCXCPwRtxibQA?e=IZnVHV";
+
 const numHero = Object.keys(objHeroBasic).length
 const numTop = 13;
 const adjustBarWidth = 75/5;
@@ -277,15 +291,16 @@ ${pointTop.map((objHero, index)=> html`
 `;
 }
 
-function card({fHeroId, cMap, point}) {
+function card({fHeroId, cMap, point, visibleF}) {
 
 var numWinRate = objHeroMap[cMap][fHeroId]['WinRate'];
 var numGameRate = objHeroMap[cMap][fHeroId]['GameRate'];
 
 var numRank = point.findIndex(x => x['HeroID'] == fHeroId) + 1;
 
-return html`
-   <div id="card">
+if (visibleF) {
+   return html`
+   <div id="cardFocus" class="card">
       
       <div id="cardLeft"> 
       <img id="imgHeroCard" src="0/images/heroes/${fHeroId}.png" /> 
@@ -308,17 +323,27 @@ return html`
       </div>
       
    </div>
-`;
+   `;
+   }
+
+else {
+   return html`
+   <div id="cardInfo"  class="card">
+      <div> update: ${infoDate} </div> 
+      <div> data: <a href="${sourceDataLink}">${sourceDataText}</a></div>
+      <div> version: v${infoVerHM} (hero-map), v${infoVerHH} (hero-hero)</div>
+      <div> images: <a href="${sourceImgLink}">${sourceImgText}</a></div>
+      <div> hero difficulty: <a href="${sourceDiffLink}">${sourceDiffText}</a></div>
+      
+   </div>
+   `;
+   }
 }
 
-/*
-function partStatic() {
-return html`
-`;
-}
-*/
+
 
 function All() {
+const [visibleF, setVisibleF] = useState(false);
 
 const [cMap, setMap] = useState('All');
 const [cRatioGW, setRGW] = useState(50);
@@ -349,10 +374,13 @@ function changeRED(x){setRED(x); updatePoint();}
 
 updatePoint();
 
-const [fHeroId, setFocus] = useState('Alarak');
+const [fHeroId, setFocus] = useState("Alarak");
+
 function focusHero(x) {
    setFocus(x);
+   setVisibleF(true);
 }
+
 
 return html`
 <${partStatic} 
@@ -364,7 +392,9 @@ point=${point}
    
 <${Heroes} point=${point} cMap=${cMap}  focusHero=${focusHero}/>
 
-<${card} fHeroId=${fHeroId} point=${point} cMap=${cMap}/>
+
+<${card} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
+
 `;   
 }
 
