@@ -335,6 +335,8 @@ a {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  overflow: auto;
+  padding: 10px;
 }
 
 #cardInfo a {
