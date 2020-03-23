@@ -43,10 +43,11 @@ a {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-#Header > div {
+#Header > #BeforeStorm {
   width: 374px;
   height: 55px;
   padding-top: 5px;
@@ -59,6 +60,15 @@ a {
   color: #404040;
 }
 
+
+#Header > #divMessage {
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#divMessage > a{
+  text-decoration: underline;
+}
 
 #Tab {
   
@@ -341,6 +351,7 @@ a {
 
 #cardInfo a {
   color: #ffffff;
+  text-decoration: underline;
 }
 
 #cardFocus {

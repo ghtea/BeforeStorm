@@ -6,6 +6,12 @@ const infoDate = "2020. 3. 23. (UTC +9)";
 const infoVerHM = "2.49.4.78679";
 const infoVerHH = "2.49";
 
+const messages = [
+   html`"Please Use <a href="https://api.heroesprofile.com/upload"> Heroes Profile Uploader </a>"`,
+   html`"Do you have <a href="https://forms.gle/ziWSuQG148dJYmqu7"> any opinions </a> on this website?"`
+];
+let k = 0;
+
 
 const sourceDataText = "Heroes Profile API";
 const sourceDataLink = "https://api.heroesprofile.com";
@@ -80,6 +86,13 @@ function getRoleClass(heroId) {
 /* components */
 
 function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, point}) {
+   
+   const [iMessage, setMessage] = useState(0);
+   
+   function changeMessage() {
+      if (iMessage == messages.length -1) {k = 0;} else {k+=1;}
+      setMessage(k);
+   }
 
    function changeRGW1(event) {
       changeRGW(event.target.value);
@@ -91,17 +104,24 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, 
       changeMap(event.target.value);
    }
    
+   setInterval(changeMessage, 10000);
+   
 return html`
    <div id="Header"> 
-      <div>
+      <div id="BeforeStorm">
          BEFORE STORM
       </div>
+      
+      <div id="divMessage">
+         ${messages[iMessage]}
+      </div>
+      
    </div>
    
    <div id="Tab" >
       <div id="TabFront" >
       <div id="tabMeta" >META</div>
-      <div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div>
+      <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
       </div>
    </div>
    
