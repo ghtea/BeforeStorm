@@ -18,7 +18,7 @@ return html`
    <div id="divTop"> 
       <div>
          <img src="../../0/images/heroes/${HeroID}.png"/>
-         <p> <b>${HeroID}</b> </p>
+         <p> <b>${objHeroBasic[HeroID]['HeroName']}</b> </p>
       </div>
    </div>
 `;
