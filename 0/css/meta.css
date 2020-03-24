@@ -195,8 +195,7 @@ a {
 
 
 #Heroes {
-  /* space for card */
-  margin-bottom: 150px;
+
 }
 
 #heroes1, #heroesTop, #heroesOthers {
@@ -310,9 +309,41 @@ a {
   flex-wrap: wrap;
 }
 
+  
+
+#divInfo {
+  width: 270px;
+  
+  color: #555555;
+  background-color: #eeeeee;
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  
+  border-radius: 10px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#divInfo a {
+  color: #555555;
+  text-decoration: underline;
+}
 
 
-.card {
+
+#cardFocus {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
   width: 362px;
   position: fixed;
   left: 50%;
@@ -334,32 +365,12 @@ a {
   border-radius: 10px;
   border: 4px solid #000000;
 }
+
 @media (min-height: 1000px) {
-  .card {
+  #cardFocus {
     top: 750px;
   }
 }
-
-#cardInfo {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  overflow: auto;
-  padding: 10px;
-}
-
-#cardInfo a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-#cardFocus {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 
 
 

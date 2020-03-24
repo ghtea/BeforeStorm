@@ -6,13 +6,6 @@ const infoDate = "2020. 3. 24. (UTC +9)";
 const infoVerHM = "2.49.4.78679~";
 const infoVerHH = "2.49";
 
-/* not smooth
-const messages = [
-   html`"Please Use <a href="https://api.heroesprofile.com/upload"> Heroes Profile Uploader </a>"`,
-   html`"Do you have <a href="https://forms.gle/ziWSuQG148dJYmqu7"> any opinions </a> on this website?"`
-];
-let k = 0;
-*/
 
 const sourceDataText = "Heroes Profile API";
 const sourceDataLink = "https://api.heroesprofile.com";
@@ -149,7 +142,7 @@ return html`
       
    <div id="divMap">
       <select id="selectMap" value=${cMap} onChange=${changeMap1}>
-      <option value="All" selected >All Map </option>
+      <option value="All" selected >All Battlegrounds </option>
       <option value="Alterac Pass"> Alterac Pass </option>
       <option value="Battlefield of Eternity">Battlefield of Eternity</option>
       <option value="Braxis Holdout">Braxis Holdout</option>
@@ -323,7 +316,7 @@ var numRank = point.findIndex(x => x['HeroID'] == fHeroId) + 1;
 
 if (visibleF) {
    return html`
-   <div id="cardFocus" class="card">
+   <div id="cardFocus">
       
       <div id="cardLeft"> 
       <img id="imgHeroCard" src="0/images/heroes/${fHeroId}.png" /> 
@@ -351,18 +344,28 @@ if (visibleF) {
 
 else {
    return html`
-   <div id="cardInfo"  class="card">
-      <div> update: ${infoDate} </div> 
-      <div> data: <a href="${sourceDataLink}">${sourceDataText}</a></div>
-      <div> version: v${infoVerHM} (hero-map), v${infoVerHH} (hero-hero)</div>
-      <div> images: <a href="${sourceImgLink}">${sourceImgText}</a></div>
-      <div> hero difficulty: <a href="${sourceDiffLink}">${sourceDiffText}</a></div>
-      
-   </div>
+   
    `;
    }
 }
 
+
+function Data() {
+   return html`
+   
+   <div id="divInfo" >
+      <div> update: ${infoDate} </div> 
+      <div> data: <a href="${sourceDataLink}">${sourceDataText}</a></div>
+      <div> hero-map: v${infoVerHM} </div>
+      <div> hero-hero: v${infoVerHH}</div>
+      <div> images: <a href="${sourceImgLink}">${sourceImgText}</a></div>
+      <div> hero difficulty: <a href="${sourceDiffLink}">${sourceDiffText}</a></div>
+      
+   </div>
+   
+   `
+
+}
 
 
 function All() {
@@ -417,6 +420,8 @@ point=${point}
 
 
 <${card} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
+
+<${Data} />
 
 `;   
 }
