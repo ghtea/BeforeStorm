@@ -13,8 +13,8 @@ const sourceDataLink = "https://api.heroesprofile.com";
 const sourceImgText = "Heroes of the Storm Wiki";
 const sourceImgLink = "https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki"
 
-const sourceDiffText = "by Lucifer474";
-const sourceDiffLink ="https://1drv.ms/x/s!Ar0HIinrMYwPhJNzYBCXCPwRtxibQA?e=IZnVHV";
+const sourceDiffText = "Heroes of the Storm Wiki";
+const sourceDiffLink ="https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki";
 
 const numHero = Object.keys(objHeroBasic).length
 const numTop = 13;
@@ -32,9 +32,25 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    
 /* difficulty */
 for (var iHero = 0; iHero < numHero; iHero++) {
-   var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
+   var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"];
+   
+   var stageDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
+   
    var cDiffText = "";
    
+   if (stageDiff == 5) {
+      cDiffText = "Very Hard";
+   } else if (stageDiff == 4) {
+      cDiffText = "Hard";
+   } else if  (stageDiff == 3) {
+      cDiffText = "Medium";
+   } else if  (stageDiff == 2) {
+      cDiffText = "Easy";
+   } else {
+      cDiffText = "Very Easy";
+   }
+   
+   /*
    if (cDiff > 1.5) {
       cDiffText = "Very Hard";
    } else if (cDiff > 0.5) {
@@ -46,6 +62,9 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    } else {
       cDiffText = "Very Easy";
    }
+   
+   */
+   
    objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
 }
    
