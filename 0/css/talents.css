@@ -131,12 +131,38 @@ body {
 
 .colLevel {
   width: 50px;
+  
 }
 
 .textLevel {
   color: #777777;
   font-weight: normal;
 }
+
+.divTalentGroup {
+  height: 520px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+
+
+
+.divTalent {
+  background-color: #ffffff;
+  width: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 5px;
+  
+}
+
 
 .imgTalent {
     width: 44px;

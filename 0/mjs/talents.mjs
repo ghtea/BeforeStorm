@@ -1,11 +1,15 @@
 /* https://github.com/developit/htm */
 import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
 
+const allHDT = 500;
+const minHDT = 44;
 
-const listLevelText = ['01', '04', '07', '10', '13', '16', '20'];
 const listLevel = [1,4,7,10,13,16,20];
+const listLevelText = ['01', '04', '07', '10', '13', '16', '20'];
 
-const talentAll = {};
+var lengthEachLevel = {};
+
+var talentAll = {};
 talentAll['01'] = [];
 talentAll['04'] = [];
 talentAll['07'] = [];
@@ -17,8 +21,6 @@ talentAll['20'] = [];
 const listTalentId = Object.keys(objTalentMeta);
 
 const HeroID = objTalentMeta[listTalentId[0]]['HeroID'];
-
-console.log(listTalentId);
 
 
 /* 특성들 레벨별로 정리*/
@@ -51,6 +53,17 @@ for (var iTalent = 0; iTalent < listTalentId.length; iTalent++) {
    }   
 }
 
+for (var iLevel = 0; iLevel < listLevelText.length; iLevel++) {
+   var cLevel = listLevelText[iLevel];
+   lengthEachLevel[cLevel] = talentAll[cLevel].length;
+   
+   talentAll[cLevel].sort(function(a, b) { 
+    return b.Popularity - a.Popularity;
+})
+}
+
+
+
 /* zfill ex: (1).pad(3) // => "001" */
 Number.prototype.pad = function(size) {
   var s = String(this);
@@ -59,7 +72,18 @@ Number.prototype.pad = function(size) {
 }
 
 
-console.log(talentAll);
+/*  color blend  rgb: [255, 255, 255] */
+function blendColor(ZeroToOne, rgbStart, rgbEnd){
+
+    var wStart = 1 - ZeroToOne;
+    var wEnd = ZeroToOne;
+
+    var rgb = [Math.round(rgbStart[0] * wStart + rgbEnd[0] * wEnd),
+        Math.round(rgbStart[1] * wStart + rgbEnd[1] * wEnd),
+            Math.round(rgbStart[2] * wStart + rgbEnd[2] * wEnd)];
+    return rgb;
+};
+
 
 /* components */
 
@@ -96,8 +120,10 @@ function divMenu() {
 `;
 };
 
-function Talent ({talentId, focusTalent, talentIdF}) {
+function Talent ({talentId, levelText, focusTalent, talentIdF}) {
 
+   console.log(levelText);
+   
    function focusTalent1(event) {
 focusTalent(event.target.getAttribute('data-talentId'));
 
@@ -109,29 +135,60 @@ focusTalent(event.target.getAttribute('data-talentId'));
    } else {
       strImgClass = "imgTalent";
    };
+   
+   
+   var wZeroToOne = 0;
+   
+   if (objTalentMeta[talentId]['WinRate'] < 35) {
+      wZeroToOne = 0;
+   } else if (objTalentMeta[talentId]['WinRate'] > 65) {
+      wZeroToOne = 1;
+   } else {
+      wZeroToOne = (objTalentMeta[talentId]['WinRate'] - 35) / 30;
+   }
+   
+   
+   var rgbListW = blendColor(wZeroToOne, [255,0,0], [0,255,0]);
+   
+   
+   
+  
+   var heigthDivTalent = minHDT + (allHDT - minHDT * lengthEachLevel[levelText]) * objTalentMeta[talentId]['Popularity'] / 100;
   
    return html`
-  <div><img 
+  <div
+   class="divTalent"
+   style="
+      height:${heigthDivTalent};
+      background-color:rgb(${rgbListW[0]}, ${rgbListW[1]}, ${rgbListW[2]});
+      "
+   >
+  
+  <img 
   data-talentId="${talentId}"
   class="${strImgClass}"
   src="../../0/images/talents/${HeroID}/${talentId}.png" 
   onClick=${focusTalent1}
-  /></div>
+  />
+  
+  </div>
 `
 }
 
 
 function Level ({level, focusTalent, talentIdF}) {
 
-  let LevelText = level.pad(2);
+  var levelText = level.pad(2);
   
    return html`
 <div class="colLevel">
-   <div class="textLevel"> ${LevelText}
+   <div class="textLevel"> ${levelText}
    </div>
-   ${talentAll[LevelText].map((talent, index)=> html`
-   <${Talent} talentId=${talent['talentId']} focusTalent=${focusTalent} talentIdF=${talentIdF} />
+   <div class="divTalentGroup">
+   ${talentAll[levelText].map((talent, index)=> html`
+   <${Talent} talentId=${talent['TalentId']} focusTalent=${focusTalent} talentIdF=${talentIdF}  levelText=${levelText} />
    `)}
+   </div>
 </div>
 `
 }
