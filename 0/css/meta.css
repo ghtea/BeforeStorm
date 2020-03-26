@@ -486,10 +486,10 @@ a {
 
 
 .backHero.roleB {
-  background-image: linear-gradient(to bottom, #ff5c24, #fc3d0a);
+  background-image: linear-gradient(to bottom, #ff5c24, #ff0000);
 }
 #cardMid > div:nth-child(2).roleB {
-  background-image: linear-gradient(to bottom, #ff5c24, #fc3d0a);
+  background-image: linear-gradient(to bottom, #ff5c24, #ff0000);
 }
 
 
@@ -502,10 +502,10 @@ a {
 
 
 .backHero.roleRA {
-  background-image: linear-gradient(to bottom, #aa35ff, #632ddc);
+  background-image: linear-gradient(to bottom, #aa35ff, #6666ff);
 }
 #cardMid > div:nth-child(2).roleRA {
-  background-image: linear-gradient(to bottom, #aa35ff, #632ddc);
+  background-image: linear-gradient(to bottom, #aa35ff, #6666ff);
 }
 
 
