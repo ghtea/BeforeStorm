@@ -169,7 +169,6 @@ a {
   -ms-appearance: none;
   appearance: none;
   box-shadow: none;
-  -webkit-box-shadow: none;
   border: 0 !important;
 }
 /* Remove IE arrow */
@@ -188,9 +187,10 @@ a {
   font-size: 1rem;
   text-indent: 10px;
   
-  color: #555555;
-  background-color: #f8f8f8;
+  color: #000000;
+  background-image: linear-gradient(to bottom, #ffffff, #dddddd);
   cursor: pointer;
+  
 }
 
 
@@ -265,9 +265,11 @@ a {
   pdding: 0px;
   
   border-radius: 5px;
-  cursor: pointer;
 }
 
+.imgHero.roleMA {
+  border-color: red;
+}
 
 .first.groupBar {
   width: 100px;
@@ -393,7 +395,7 @@ a {
 
 #cardLeft {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
 }
@@ -401,8 +403,8 @@ a {
 #closeCard {
   width: 90%;
   height: 20px;
+  margin-top: 4px;
   margin-bottom: 4px;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -413,8 +415,6 @@ a {
   box-shadow: 0px 0px 3px 0px #000000;
   border-radius: 4px;
   border: 2px solid #cc0000;
-  
-  cursor: pointer;
 }
 
 #cardMid {
@@ -468,8 +468,6 @@ a {
   box-shadow: 0px 0px 3px 0px #000000;
   border-radius: 4px;
   border: 2px solid #ffffff;
-  
-  cursor: pointer;
   
 }
 #cardRight a {
