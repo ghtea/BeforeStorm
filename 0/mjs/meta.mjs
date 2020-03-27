@@ -128,7 +128,7 @@ return html`
       </div>
       
       <div id="divMessage">
-      "Do you have <a href="https://forms.gle/ziWSuQG148dJYmqu7"> any opinions </a> on this website?"
+      "Website Will Update Soon"
       </div>
       
    </div>
@@ -363,7 +363,8 @@ if (visibleF) {
       
       <div id="cardRight"> 
          <!--<div><a>Basic</a></div>-->
-         <div><a href="https://beforestorm.avantwing.com/heroes/${fHeroId}/builds">Builds</a></div>
+         <div><a href="heroes/${fHeroId}/talents.html">Talents</a></div>
+         <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
          <!--<div><a>Pick</a></div>-->
       </div>
       

@@ -28,9 +28,9 @@ function divTabBack() {
 return html`
 <div id="divTabBack" >
 <div id="divTab" >
-      <!--<div id="tabBasic" > Basic </div> -->
-      <!--<div id="tabTalent" > Talents</div> -->
-      <div id="tabBuild" >Builds</div>
+<!--<div id="tabBasic" > Basic </div> -->
+      <div id="tabTalent" > <a href="talents.html"> Talents </a> </div> 
+      <div id="tabBuild" > <a href="builds.html"> Builds </a> </div>
       <!--<div id="tabPick" >Pick</div>-->
       </div>
       </div>

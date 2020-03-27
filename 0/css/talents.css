@@ -327,6 +327,11 @@ body {
   flex-wrap: wrap;
 }
 
+#textTalentF {
+  overflow: hide;
+  overflow-y: scroll;
+}
+
 /*
 
 .colS {

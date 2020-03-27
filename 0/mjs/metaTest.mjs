@@ -158,6 +158,18 @@ return html`
       </div>
          
    </div>
+
+   <div id="settingRole">
+      <div> All </div>
+      <div> Tank </div>
+      <div> Bruiser </div>
+      <div> Melee </div>
+      <div> Ranged </div>
+      <div> Healer </div>
+      <div> Support </div>
+      <div> None </div>
+   
+   </div>
       
    <div id="divMap">
       <select id="selectMap" value=${cMap} onChange=${changeMap1}>
