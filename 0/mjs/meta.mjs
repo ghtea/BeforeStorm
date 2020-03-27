@@ -128,7 +128,7 @@ return html`
       </div>
       
       <div id="divMessage">
-      "Website Will Update Soon"
+      "Talents pages added!"
       </div>
       
    </div>
