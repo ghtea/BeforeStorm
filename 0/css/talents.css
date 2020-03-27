@@ -32,6 +32,12 @@ body {
   width: 100%;
 }
 
+
+
+[data-displaying="None"] {
+  display: None;
+}
+
 #divMenu {
   position: fixed;
   top:0;
@@ -117,11 +123,29 @@ body {
   
 }
 
+#divGuide {
+  margin-top: 110px;
+  margin-bottom: 15px;
+  height: 48px;
+  
+  background-image: linear-gradient(to bottom, #777777, #999999);
+  color: #ffffff;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#divGuide > div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
 
 #divContent {
-  margin-top: 130px;
-  margin-bottom: 100px; /* to make space for divTalentInfo */
+  /* margin-top: 130px; */
   
   display: flex;
   justify-content: space-evenly;
@@ -129,18 +153,27 @@ body {
   
 }
 
+
 .colLevel {
   width: 50px;
-  
 }
 
+#colInfo {
+  width: 300px;
+}
+
+
+
 .textLevel {
-  color: #777777;
+  color: #555555;
   font-weight: normal;
+  font-size: 1.1rem;
+  
+  height: 30px;
 }
 
 .divTalentGroup {
-  height: 520px;
+  height: 420px; /* 400 + 20 */
 
   display: flex;
   justify-content: space-between;
@@ -160,7 +193,11 @@ body {
   align-items: center;
   
   border-radius: 5px;
+  box-sizing: border-box;
   
+  border: 2px solid rgba(255,255,255,0.8);
+  
+  box-shadow: 0px 0px 3px 0px #cccccc;
 }
 
 
@@ -177,6 +214,120 @@ body {
   width: 38px !important;
   
 }
+
+
+#cardTalent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  
+  box-sizing: border-box;
+  width: 300px;
+  height: 420px;
+ 
+  border-radius: 8px;
+  
+  
+  background-image: linear-gradient(to bottom, #111111, #333333);
+  color:#ffffff;
+  z-index: 1;
+  opacity: 0.95;
+
+  border: 4px solid #000000;
+  box-shadow: 0px 0px 3px 0px #cccccc;
+}
+
+
+.closeCard {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  background-image: linear-gradient(to right, #ee0000, #990000);
+  color: #ffdddd;
+  box-shadow: 0px 0px 3px 0px #000000;
+  
+  border: 2px solid #cc0000;
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+
+#contentCard {height: 340px;}
+
+#ccBasic {height: 60px;}
+#metaTalentF {height: 80px;}
+#textTalentF {height: 180px;}
+
+#ccBasic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#badgeLevelF {
+  width: 30px;
+}
+
+#imgTalentF {
+  width: 50px;
+  height: 50px;
+  border-radius: 7px;
+}
+
+#nameTalentF {
+  width: 200px;
+  font-weight: bold; 
+  font-size: 1.1rem;
+  
+  display: flex;
+  justify-content: flex-start;
+}
+
+#metaTalentF {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#groupBar {width: 125px;}
+#groupLabel {width: 85px;}
+#groupNumber {width: 55px;}
+
+#groupBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#groupBar > div {
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  border-radius: 0 4px 4px 0px;
+}
+
+#groupLabel {
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#groupNumber {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*
 
 .colS {
   width:50px;
@@ -209,45 +360,27 @@ body {
   background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
   border-radius: 0 4px 4px 0px;
 }
+*/
 
-
-
-#divTalentInfo {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20px;
-  
-  height: 100px;
+/*
+#ca {
+  width: 300px;
+  height: 420px;
   overflow: hide;
   overflow-y: scroll;
-  width: 370px  ;
   
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   color:#ffffff;
-  z-index: 1;
   opacity: 0.95;
   
   border-radius: 10px;
   border: 4px solid #4530BB ;
-  visibility: hidden;
 }
 
-@media (min-height: 1000px) {
-  #divTalentInfo {
-    top: 750px;
-  }
-}
 
-.allVisible{
-  visibility: visible !important;
-}
 
-.divTalentName {
-  font-weight: bold;
-  margin: 2px;  
-  font-size: 1.1rem;
-}
+*/
+
 
 
 
