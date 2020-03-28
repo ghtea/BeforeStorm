@@ -124,12 +124,13 @@ a {
 }
 
 #Setting > div {
-  width: 374px;
+  width: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
   
   font-size: 0.9rem;
+  
 }
 
 #Setting > div:nth-child(1) {
@@ -144,6 +145,8 @@ a {
   height: 40px;
 }
 
+
+
 #Setting > div:nth-child(2) > div:nth-child(1), #Setting > div:nth-child(2) > div:nth-child(3), #Setting > div:nth-child(3) > div:nth-child(1), #Setting > div:nth-child(3) > div:nth-child(3) {
   width: 16%;
 }
@@ -152,18 +155,35 @@ a {
   width: 40%;
 }
 
-#settingRole {
-  width: 100%;
-  height: 30px;
-  
-  margin: 0px;
-  margin-bottom: 10px;
-  
-  
+
+
+#divRole {
   display: flex;
-  align-items: space-between;
+  align-items: center;
   justify-content: center;
+  font-size: 1rem !important;
+  
+  height: 35px;
+  margin-bottom: 15px;
+  
+  background-image: linear-gradient(to bottom, #777777, #999999);
+  color: #ffffff;
+  
+  cursor: pointer;
+
 }
+
+#divRole > div {
+  border-right: 2px solid #dddddd;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#divRole > div:nth-last-child(1) {
+  border-style: none !important;
+}
+
+
 
 #divMap {
   margin-bottom: 10px;

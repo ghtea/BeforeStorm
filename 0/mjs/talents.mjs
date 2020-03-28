@@ -129,7 +129,7 @@ function divGuide() {
    <div id="divGuide">
       <div>
          <div> color: WinRate</div>
-         <div> ↕: Popularity</div>
+         <div> ↕ height: Popularity</div>
       </div>
    </div>
 `;
