@@ -1,8 +1,8 @@
 /* https://github.com/developit/htm */
 
-import { html, Component, render, useState } from 'https://ghtea.github.io/combiname/common/standalone.module.js';
+import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
-const infoDate = "2020. 3. 24. (UTC +9)";
+const infoDate = "2020. 3. 28. (UTC +9)";
 const infoVerHM = "2.49.4.78679~";
 const infoVerHH = "2.49";
 
@@ -21,6 +21,11 @@ const numTop = 13;
 const adjustBarWidth = 75/5;
 const adjustBarHeight = 46/7;
 
+const allRoles = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
+var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
+
+var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
+
 /* first make of point */
 var listObjHeroPoint = [];
 for (var iHero = 0; iHero < numHero; iHero++) {
@@ -32,7 +37,7 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    
 /* difficulty */
 for (var iHero = 0; iHero < numHero; iHero++) {
-   var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"];
+   /* var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; */
    
    var stageDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
    
@@ -69,36 +74,11 @@ for (var iHero = 0; iHero < numHero; iHero++) {
 }
    
 
-/* role */
-function getRoleClass(heroId) {
-   var resultClass;
-   switch(objHeroBasic[heroId]['Role']) {
-   case "Tank":
-      resultClass = "roleT";
-      break;
-   case "Bruiser":
-      resultClass = "roleB";
-      break;
-   case "Melee Assassin":
-      resultClass = "roleMA";
-      break;
-   case "Ranged Assassin":
-      resultClass = "roleRA";
-      break;
-   case "Healer":
-      resultClass = "roleH";
-      break;
-   case "Support":
-      resultClass = "roleS";
-      break;
-   }
-   return resultClass;
-}
-
-
 /* components */
 
-function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, point}) {
+function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRoles, changeMap, cMap, point, numRerender}) {
+   
+   
    /*
    not smooth
    const [iMessage, setMessage] = useState(0);
@@ -115,9 +95,42 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeMap, cMap, 
    function changeRED1(event) {
       changeRED(event.target.value);
    }
+   
+   
+   function changeRoles1(event) {
+      var cRoleEach = event.target.getAttribute('data-role');
+      if (cRoleEach == "All") {
+         cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']
+      } else if (cRoleEach == "None") {
+         cRolesGlobal = [];
+      } else {
+         var index = cRolesGlobal.indexOf(cRoleEach);
+         if (index > -1) { cRolesGlobal.splice(index, 1);}
+         else { cRolesGlobal.push(cRoleEach); }
+      }
+      
+      
+      changeRoles(cRolesGlobal);
+      
+      /* for button's data-onoff */
+      for (var iRole = 0; iRole < allRoles.length; iRole++) {
+         var cRole = allRoles[iRole];
+         if (cRolesGlobal.includes(cRole)) {
+            cRoleButtonsGlobal[cRole] = "on";
+         } else {
+            cRoleButtonsGlobal[cRole] = "off";
+         }
+      }
+      
+      console.log("cRoles: ", cRoles);
+   }
+   
+   
+   
    function changeMap1(event) {
       changeMap(event.target.value);
    }
+   
    
    /*setInterval(changeMessage, 10000);*/
    
@@ -128,15 +141,17 @@ return html`
       </div>
       
       <div id="divMessage">
-      "Talents pages added!"
+      "🎉 Role Filter added!"
       </div>
       
    </div>
    
    <div id="Tab" >
       <div id="TabFront" >
-      <div id="tabMeta" >META</div>
+      
+      <div id="tab1"><a href="https://forms.gle/iYcMrUcJ52f8my5n6" > GIVE ME FEEDBACK </a> </div>
       <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
+      
       </div>
    </div>
    
@@ -157,18 +172,63 @@ return html`
       <div>Hard</div>
       </div>
          
-   </div>  
-   
-   
-   <div id="divRole">
-      <div> All </div>
-      <div> Tank </div>
-      <div> Bruiser </div>
-      <div> Melee </div>
-      <div> Ranged </div>
-      <div> Healer </div>
-      <div> Support </div>
-      <div> None </div>
+   </div>
+      
+
+   <div id="divRole" >
+      <div
+         data-role="All"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > All </div>
+      
+      <div
+         data-onoff="${cRoleButtonsGlobal['Tank']}"
+         data-role="Tank"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > T </div>
+         
+      <div
+         data-onoff="${cRoleButtonsGlobal['Bruiser']}"
+         data-role="Bruiser"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > B </div>
+         
+      <div
+         data-onoff="${cRoleButtonsGlobal['Melee Assassin']}"
+         data-role="Melee Assassin"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > M </div>
+         
+      <div
+         data-onoff="${cRoleButtonsGlobal['Ranged Assassin']}"
+         data-role="Ranged Assassin"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > R </div>
+         
+      <div
+         data-onoff="${cRoleButtonsGlobal['Healer']}"
+         data-role="Healer"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > H </div>
+         
+      <div
+         data-onoff="${cRoleButtonsGlobal['Support']}"
+         data-role="Support"
+         class="buttonRole"
+         onClick=${changeRoles1}
+         > S </div>
+         
+      <div
+         data-role="None"
+         class="buttonRole"
+         onClick=${changeRoles1}
+      > None </div>
    </div>
    
       
@@ -192,7 +252,10 @@ return html`
 }
 
 
-function hero1({heroId, cMap, focusHero}) {
+function hero1({heroId, cMap, focusHero, cRoles}) {
+
+if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
+else { var onoff = "off";}
 
 var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
 var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
@@ -203,7 +266,7 @@ if (numHeight < 2) {numHeight = 2;}
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
-var strClassDiv = "first backHero " + getRoleClass(heroId);
+
 
 function focusHero1(event) {
    focusHero(event.target.getAttribute('data-heroId'));
@@ -211,12 +274,15 @@ function focusHero1(event) {
 
 return html`
          
-   <div> 
+   <div data-onoff="${onoff}">
       <div class="first divRank"> 1st </div>
       
-      <div class="${strClassDiv}">
+      <div 
+      class="first backHero"
+      data-role="${objHeroBasic[heroId]['Role']}">
       <img
       data-heroId="${heroId}"
+      
       class="imgHero" 
       src="0/images/heroes/${heroId}.png" 
       onClick=${focusHero1} 
@@ -242,7 +308,11 @@ return html`
 }
 
 
-function heroTop({heroId, cMap,focusHero}) {
+function heroTop({heroId, cMap,focusHero, cRoles}) {
+
+var onoff;
+if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { onoff = "on";}
+else { onoff = "off";}
 
 /* 허용된총너비가 6*std(1 여유해서 7), 중앙이 평균점 */
 
@@ -255,7 +325,6 @@ if (numHeight < 2) {numHeight = 2;}
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
-var strClassDiv = "backHero " + getRoleClass(heroId);
 
 function focusHero1(event) {
    focusHero(event.target.getAttribute('data-heroId'));
@@ -263,10 +332,14 @@ function focusHero1(event) {
 
 return html`
          
-   <div> 
-      <div class="${strClassDiv}">
+   <div data-onoff="${onoff}">
+      <div 
+      class="backHero"
+      data-role="${objHeroBasic[heroId]['Role']}">
       <img
       data-heroId="${heroId}"
+      data-role="${objHeroBasic[heroId]['Role']}"
+      
       class="imgHero" 
       src="0/images/heroes/${heroId}.png" 
       onClick=${focusHero1} 
@@ -287,19 +360,27 @@ return html`
 }
 
 
-function heroOthers({heroId,focusHero}) {
+function heroOthers({heroId,focusHero, cRoles}) {
 
-var strClassDiv = "backHero " + getRoleClass(heroId);
+var onoff;
+if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { onoff = "on";}
+else { onoff = "off";}
+
+
 
 function focusHero1(event) {
    focusHero(event.target.getAttribute('data-heroId'));
 };
 return html`
          
-   <div> 
-      <div class="${strClassDiv}">
+   <div data-onoff="${onoff}">
+      <div 
+      class="backHero"
+      data-role="${objHeroBasic[heroId]['Role']}">
       <img
       data-heroId="${heroId}"
+      data-role="${objHeroBasic[heroId]['Role']}"
+      
       class="imgHero" 
       src="0/images/heroes/${heroId}.png" 
       onClick=${focusHero1} 
@@ -311,28 +392,30 @@ return html`
 }
 
 
-function Heroes({point, cMap, focusHero}) {
+function Heroes({point, cMap, focusHero, cRoles, numRerender}) {
 var pointTop = point.slice(1, numTop);
 var pointOthers = point.slice(numTop,);
+
+
 
 return html`
    <div id="Heroes">
       
       <div id="heroes1">
-      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap} focusHero=${focusHero}/>
+      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap} focusHero=${focusHero} cRoles=${cRoles}/>
       </div>
       
        
       <div id="heroesTop"> 
       
 ${pointTop.map((objHero, index)=> html`
-   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap} focusHero=${focusHero}/>
+   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap} focusHero=${focusHero} cRoles=${cRoles}/>
 `)}
       </div>
       
       <div id="heroesOthers"> 
          ${pointOthers.map((objHero, index)=> html`
-   <${heroOthers} heroId=${objHero['HeroID']} focusHero=${focusHero}/>
+   <${heroOthers} heroId=${objHero['HeroID']} focusHero=${focusHero} cRoles=${cRoles}/>
 `)}
       </div>
    </div>
@@ -367,7 +450,7 @@ if (visibleF) {
       
       <div id="cardMid"> 
       <div> ${objHeroBasic[fHeroId]['HeroName']} </div>
-      <div class="${getRoleClass(fHeroId)}">  ${objHeroBasic[fHeroId]['Role']} </div>
+      <div data-role="${objHeroBasic[fHeroId]['Role']}">  ${objHeroBasic[fHeroId]['Role']} </div>
       <div>  ${objHeroBasic[fHeroId]['DiffText']}  </div>   
       <div> WinRate: ${numWinRate}% </div> 
       <div> Popularity: ${numGameRate}% </div> 
@@ -385,11 +468,7 @@ if (visibleF) {
    `;
    }
 
-else {
-   return html`
-   
-   `;
-   }
+else {return html``;}
 }
 
 
@@ -410,13 +489,23 @@ function Data() {
 
 }
 
-
 function All() {
+
+const [numRerender, setRerender] = useState(0);
+function forceRerender() {
+   setRerender(numRerender + 1);
+}
+
+
 const [visibleF, setVisibleF] = useState(false);
 
-const [cMap, setMap] = useState('All');
 const [cRatioGW, setRGW] = useState(50);
 const [cRatioED, setRED] = useState(50);
+
+const [cMap, setMap] = useState('All');
+
+const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);
+
 
 const [point, setPoint] = useState(listObjHeroPoint);
 
@@ -428,16 +517,26 @@ function updatePoint() {
        listObjHeroPoint[iHero]['Point'] =
            (100 - cRatioGW) * objHeroMap[cMap][cHero]['zGame']
            + cRatioGW * objHeroMap[cMap][cHero]['zWin']
-           + (cRatioED - 50) * objHeroBasic[cHero]["Difficulty"]
+           + (cRatioED - 50) * objHeroBasic[cHero]["zDiff"]
    }
    
    listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? -1 : 1);
    
    setPoint(listObjHeroPoint);
+   
 };
+
+
 
 function changeMap(x){
    setMap(x); updatePoint();}
+   
+function changeRoles(x) {
+   setRoles(x);
+   forceRerender();
+}
+
+   
 function changeRGW(x){setRGW(x); updatePoint();}
 function changeRED(x){setRED(x); updatePoint();}
 
@@ -456,15 +555,25 @@ function focusHero(x) {
 
 
 return html`
+
 <${partStatic} 
 changeMap=${changeMap} cMap=${cMap} 
 changeRGW=${changeRGW} cRatioGW=${cRatioGW}
 changeRED=${changeRED} cRatioED=${cRatioED}
 point=${point} 
+changeRoles=${changeRoles}
+cRoles=${cRoles}
+numRerender=${numRerender}
 />
-   
-<${Heroes} point=${point} cMap=${cMap}  focusHero=${focusHero}/>
 
+   
+<${Heroes} 
+point=${point} 
+cMap=${cMap}  
+focusHero=${focusHero} 
+cRoles=${cRoles}
+numRerender=${numRerender}
+/>
 
 <${Card} focusHero=${focusHero} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
 
@@ -474,3 +583,5 @@ point=${point}
 }
 
 render(html`<${All}/>`, document.body);
+
+

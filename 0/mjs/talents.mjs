@@ -153,20 +153,20 @@ focusTalent(event.target.getAttribute('data-talentId'));
    
    var wZeroToOne = 0;
    
-   if (objTalentMeta[talentId]['WinRate'] < 40) {
+   if (objTalentMeta[talentId]['WinRate'] < 37) {
       wZeroToOne = -1;
-   } else if (objTalentMeta[talentId]['WinRate'] > 60) {
+   } else if (objTalentMeta[talentId]['WinRate'] > 63) {
       wZeroToOne = 1;
    } else {
-      wZeroToOne = (objTalentMeta[talentId]['WinRate'] - 50) / 10;
+      wZeroToOne = (objTalentMeta[talentId]['WinRate'] - 50) / 13;
    }
    
    
    
    if (wZeroToOne >= 0) {
-      var rgbListW = blendColor(wZeroToOne, [255,255,255], [0,240,64]);
+      var rgbListW = blendColor(wZeroToOne, [255,255,255], [0,200,50]);
    } else {
-      var rgbListW = blendColor(-wZeroToOne, [255,255,255], [240,0,64]);
+      var rgbListW = blendColor(-wZeroToOne, [255,255,255], [200,0,50]);
    }
   
    var heigthDivTalent = minHDT + (allHDT - minHDT * lengthEachLevel[levelText]) * objTalentMeta[talentId]['Popularity'] / 100;
