@@ -398,6 +398,7 @@ a {
   box-shadow: 0px 0px 1px 0px #cccccc;
   
   margin-top: 40px;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
@@ -405,16 +406,33 @@ a {
   border-radius: 10px;
   
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #divInfo a {
   color: #555555;
   text-decoration: underline;
 }
+
+#divInfo > div:nth-child(1) {
+  width: 30%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#divInfo > div:nth-child(2) {
+  width: 66%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 
 
 
@@ -562,6 +580,8 @@ a {
   border-style: none !important;
   color:#ffffff !important;
 }
+
+
 
 /* role color */
 .backHero[data-role="Tank"]

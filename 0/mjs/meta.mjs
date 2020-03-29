@@ -476,13 +476,26 @@ function Data() {
    return html`
    
    <div id="divInfo" >
-      <div> update: ${infoDate} </div> 
-      <div> data: <a href="${sourceDataLink}">${sourceDataText}</a></div>
-      <div> hero-map: v${infoVerHM} </div>
-      <div> hero-hero: v${infoVerHH}</div>
-      <div> images: <a href="${sourceImgLink}">${sourceImgText}</a></div>
-      <div> hero difficulty: <a href="${sourceDiffLink}">${sourceDiffText}</a></div>
+      <div>
+      <div> update:  </div> 
+      <div> data source: </div>
+      <div> version: </div>
+      <div> match-up: </div>
+      <div> images: </div>
       
+      <!-- <div> hero difficulty: </div>-->
+      </div> 
+   
+      <div>
+      <div> ${infoDate} </div> 
+      <div> <a href="${sourceDataLink}">${sourceDataText}</a></div>
+      <div> v${infoVerHM} </div>
+      <div> v${infoVerHH}</div>
+      <div> <a href="${sourceImgLink}">${sourceImgText}</a></div>
+      
+      <!-- <div> <a href="${sourceDiffLink}">${sourceDiffText}</a></div> -->
+      
+      </div>
    </div>
    
    `
