@@ -356,12 +356,38 @@ a {
 
 .groupBar {
   width: 70px;
+  position: relative;
 }
 
-.bar1 {
+.barMain {
   background-color: green;
   background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
   border-radius: 0 4px 4px 0px;
+  
+  z-index: 2;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  
+}
+
+.bar50 {
+  background-color: #e0e0e0;
+  width: 2px;
+  height: 43px;
+  border-radius: 1px;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  z-index: 1;
+
+  
+  left: 40px;
+  
 }
 
 .first.groupLabel {

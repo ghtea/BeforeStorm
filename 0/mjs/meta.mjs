@@ -19,7 +19,7 @@ const sourceDiffLink ="https://heroesofthestorm.gamepedia.com/Heroes_of_the_Stor
 const numHero = Object.keys(objHeroBasic).length
 const numTop = 13;
 const adjustBarWidth = 75/5;
-const adjustBarHeight = 46/7;
+const adjustBarHeight = 44/7;
 
 const allRoles = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
 var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
@@ -122,7 +122,6 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
          }
       }
       
-      console.log("cRoles: ", cRoles);
    }
    
    
@@ -263,6 +262,9 @@ var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
 if (numWidth < 2) {numWidth = 2;}
 if (numHeight < 2) {numHeight = 2;}
 
+var widthBar50 = 2;
+var numLeft50 = 2 * adjustBarWidth - widthBar50 / 2;
+
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
 
@@ -290,8 +292,10 @@ return html`
          </div>
          
       <div class="first groupBar">
-         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
+         <div style="width:${numWidth}px; height:${numHeight}px;" class="barMain"> </div>
+         <div style="left:${numLeft50}px;" class="bar50"></div>
       </div>
+      
       
       <div class="first groupLabel">
          <div> ↔ WinRate: </div>
@@ -319,11 +323,15 @@ else { onoff = "off";}
 var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
 var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
 
-if (numWidth < 2) {numWidth = 2;}
-if (numHeight < 2) {numHeight = 2;}
+var widthBar50 = 2;
+var numLeft50 = 2 * adjustBarWidth - widthBar50 / 2;
 
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
 var numGameRate = objHeroMap[cMap][heroId]['GameRate']
+
+if (numWidth < 2) {numWidth = 2;}
+if (numHeight < 2) {numHeight = 2;}
+
 
 
 function focusHero1(event) {
@@ -347,7 +355,8 @@ return html`
          </div>
          
       <div class="groupBar">
-         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
+         <div style="width:${numWidth}px; height:${numHeight}px;" class="barMain"> </div>
+         <div style="left:${numLeft50}px;" class="bar50"></div>
       </div>
          
       <div class="groupNumber">

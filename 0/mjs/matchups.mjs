@@ -31,7 +31,7 @@ for (var iHero = 0; iHero < numHero; iHero++) {
 
 /* difficulty */
 for (var iHero = 0; iHero < numHero; iHero++) {
-   /* var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; */
+   var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; 
    
    var stageDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
    
@@ -66,31 +66,7 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
 }
    
-/* role */
-function getRoleClass(heroId) {
-   var resultClass;
-   switch(objHeroBasic[heroId]['Role']) {
-   case "Tank":
-      resultClass = "roleT";
-      break;
-   case "Bruiser":
-      resultClass = "roleB";
-      break;
-   case "Melee Assassin":
-      resultClass = "roleMA";
-      break;
-   case "Ranged Assassin":
-      resultClass = "roleRA";
-      break;
-   case "Healer":
-      resultClass = "roleH";
-      break;
-   case "Support":
-      resultClass = "roleS";
-      break;
-   }
-   return resultClass;
-}
+
 
 
 /* components */
