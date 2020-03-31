@@ -1,21 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Barlow:wght@400;700&display=swap');
 
-@media (max-width: 375px) {
-  html {
-    font-size: 13px;
-    zoom: 85%;
-  }
-}
+
 
 html {
-  font-family:'Barlow', Helvetica, Arial, sans-serif !important;
+  font-family:'Barlow', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   font-size: 16px;
 }
 
-a {
-  color: #eeeeee;
+@media (max-width: 410px) {
+  html {font-size: 15px; zoom: 95%;}
 }
 
+@media (max-width: 390px) {
+  html {font-size: 14px; zoom: 90%;}
+}
+
+@media (max-width: 370px) {
+  html {font-size: 13px; zoom: 85%;}
+}
 
 body {
   /*position: relative;*/
@@ -32,15 +35,13 @@ body {
   width: 100%;
 }
 
-
-
-[data-displaying="None"] {
-  display: None;
+a {
+  color: #eeeeee;
+  text-decoration: none;
 }
 
+
 #divMenu {
-  position: fixed;
-  top:0;
   width:100%;
 }
 
@@ -57,7 +58,7 @@ body {
   align-items: center;
 }
 
-#divTop img {
+#divTop > div > img {
   width: 50px;
   height: 50px;
   margin-right: 5px;
@@ -65,12 +66,14 @@ body {
   border-radius: 5px;
 }
 
-#divTop p {
+#divTop > div > div {
+  font-weight: 700;
+  font-family: 'Barlow', Helvetica, Arial, sans-serif !important;
+  
   display: inline-block;
   margin-right: 5px;
   margin-left: 5px;
   font-size: 1.3rem;
-  
 }
 
 
@@ -78,8 +81,6 @@ body {
 
   width: 100%;
   height: 40px;
-   /* same with height of divTop */
-  margin-bottom: 20px;
   /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   /* box-shadow: 0px 15px 10px -8px  #777777; */
@@ -107,10 +108,7 @@ body {
 
 #tabTalents {
   width: 25%;
-  color: #ffffff;
-  padding-top: 9px;
-  padding-bottom: 4px;
-  border-bottom: 5px solid #ffffff;
+  
 }
 
 #tabBuilds {
@@ -120,13 +118,70 @@ body {
 
 #tabMatchups {
   width: 25%;
+  color: #ffffff;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
+}
+
+
+
+
+
+
+
+
+#Setting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  color: #dddddd;
+  
+  width: 100%;
+  height: 120px;
+   
+  background-image: linear-gradient(to bottom, #111111, #333333);
+}
+
+#Setting > div {
+  width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 0.9rem;
   
 }
 
-#divGuide {
-  margin-top: 110px;
+#Setting > div:nth-child(1) {
+  height: 20px;
+}
+
+#Setting > div:nth-child(2) {
+  height: 40px;
+}
+
+#Setting > div:nth-child(3) {
+  height: 40px;
+}
+
+
+
+#Setting > div:nth-child(2) > div:nth-child(1), #Setting > div:nth-child(2) > div:nth-child(3), #Setting > div:nth-child(3) > div:nth-child(1), #Setting > div:nth-child(3) > div:nth-child(3) {
+  width: 16%;
+}
+
+#Setting > div:nth-child(2) > div:nth-child(2), #Setting > div:nth-child(3) > div:nth-child(2) {
+  width: 40%;
+}
+
+
+#divAboutBan {
   margin-bottom: 15px;
-  height: 48px;
+  height: 40px;
   
   background-image: linear-gradient(to bottom, #777777, #999999);
   color: #ffffff;
@@ -136,113 +191,377 @@ body {
   align-items: center;
 }
 
-#divGuide > div {
+#divAboutBan #buttonAboutBan {
+  margin-left: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  
+  height: 24px;
+  
+  color: #222222;
+  
+  background-color: #eeeeee;
+  border-radius: 12px;
+  
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
+  
+  cursor: pointer;
 }
+
+
+
+
+#divRole {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem !important;
+  
+  height: 36px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  
+  /*
+  background-image: linear-gradient(to bottom, #777777, #999999); */
+  color: #111111;
+  
+  cursor: pointer;
+
+}
+
+#divRole > div {
+  width: 34px;
+  height: 34px;
+  
+  margin-right: 4px;
+  margin-left: 4px;
+  
+  border-radius: 17px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  box-sizing: border-box;
+  border: 2px dashed #aaaaaa;
+}
+
+#divRole > div:nth-last-child(1), #divRole > div:nth-child(1){
+  border-style: none !important;
+  width: 50px !important;
+  background-color: #ffffff;
+}
+
 
 
 #divContent {
-  /* margin-top: 130px; */
-  
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+}
+
+#colFriend, #colCounter {
+  width: 47%;
+}
+
+#titleFriend, #titleCounter {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+#colFriend .Heroes, #colCounter .Heroes {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  
+  background-color: #ccccdf;
+  /* background-image: linear-gradient(to bottom, #dddde8, #dddde8);*/
+  
+  border-radius: 10px;
+}
+
+#colFriend .Heroes {
+  
+}
+
+#colCounter .Heroes {
   
 }
 
 
-.colLevel {
-  width: 50px;
+.Heroes div[data-onoff="off"] {
+  display: none;
 }
 
-#colInfo {
-  width: 300px;
-}
-
-
-
-.textLevel {
-  color: #555555;
-  font-weight: normal;
-  font-size: 1.1rem;
-  
-  height: 30px;
-}
-
-.divTalentGroup {
-  height: 420px; /* 400 + 20 */
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  
-}
-
-
-
-.divTalent {
-  background-color: #ffffff;
-  width: 50px;
-  
+.heroesTop, .heroesOthers {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.heroesTop, .heroesOthers {
+  flex-wrap: wrap;
+}
+
+.heroesTop > div, .heroesOthers > div {
+  background-image: linear-gradient(to bottom right, #eeeeee, #ffffff);
+  
+  border-radius: 6px;
+  padding: 0px;
+  
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  height: 52px;
+  margin: 4px;
+}
+
+
+
+.heroesTop > div {
+  width: 175px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.heroesOthers > div {
+  width: 52px;
+  
+}
+
+.first.divRank {width: 30px;}
+
+.backHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 52px;
+  height: 52px;
+  margin:0px;
+  pdding: 0px;
+  border-radius: 6px;
+}
+
+.imgHero {
+  width: 48px;
+  height: 48px;
+  margin:0px;
+  pdding: 0px;
   
   border-radius: 5px;
-  box-sizing: border-box;
-  
-  border: 2px solid rgba(255,255,255,0.8);
-  
-  box-shadow: 0px 0px 3px 0px #cccccc;
+  cursor: pointer;
 }
 
 
-.imgTalent {
-    width: 44px;
-    height: 44px;
-    border-radius: 5px;
+.first.groupBar {
+  width: 100px;
 }
 
-.imgEffect {
-  border-radius: 0px;
-  border: 4px solid yellow;
-  height: 38px !important;
-  width: 38px !important;
+.groupBar {
+  width: 70px;
+  position: relative;
+}
+
+
+.barMain {
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  border-radius: 0 4px 4px 0px;
+  
+  z-index: 2;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#colFriend .barMain {
+  background-image: linear-gradient(to bottom right, #0cf, #09e);
+}
+
+
+#colCounter .barMain {
+  background-image: linear-gradient(to bottom right, #f66, #e22);
+}
+
+
+.bar50 {
+  background-color: #e0e0e0;
+  width: 2px;
+  height: 43px;
+  border-radius: 1px;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  z-index: 1;
+
+  
+  left: 40px;
   
 }
 
 
-#cardTalent {
+.groupNumber {
+  color: #555555;
+  text-shadow: 
+    1px 1px 0 #fafafa,
+    -1px 1px 0 #fafafa,
+    1px -1px 0 #fafafa,
+    -1px -1px 0 #fafafa,
+    0px 1px 0 #fafafa,
+    0px -1px 0 #fafafa,
+    -1px 0px 0 #fafafa,
+    1px 0px 0 #fafafa/* ,
+    2px 2px 0 #fafafa,
+    -2px 2px 0 #fafafa,
+    2px -2px 0 #fafafa,
+    -2px -2px 0 #fafafa,
+    0px 2px 0 #fafafa,
+    0px -2px 0 #fafafa,
+    -2px 0px 0 #fafafa,
+    2px 0px 0 #fafafa,
+    1px 2px 0 #fafafa,
+    -1px 2px 0 #fafafa,
+    1px -2px 0 #fafafa,
+    -1px -2px 0 #fafafa,
+    2px 1px 0 #fafafa,
+    -2px 1px 0 #fafafa,
+    2px -1px 0 #fafafa,
+    -2px -1px 0 #fafafa*/;
+  width: 45px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  z-index: 3;
+}
+
+  
+
+#divInfo {
+  width: 300px;
+  
+  color: #555555;
+  background-color: #eeeeee;
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  
+  border-radius: 10px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#divInfo a {
+  color: #555555;
+  text-decoration: underline;
+}
+
+#divInfo > div:nth-child(1) {
+  width: 30%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+#divInfo > div:nth-child(2) {
+  width: 66%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+
+
+#cardFocus {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 362px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  
+  height: 120px;
+  overflow: hide;
+  overflow-y: scroll;
+  width: 370px  ;
+  
+  padding: 6px;
+  
+  background-image: linear-gradient(to bottom, #111111, #333333);
+  color:#ffffff;
+  z-index: 10;
+  opacity: 0.95;
+  
+  border-radius: 10px;
+  border: 4px solid #000000;
+}
+
+@media (min-height: 1000px) {
+  #cardFocus {
+    top: 750px;
+  }
+}
+
+#cardFocus[data-which="friend"] {
+  border: 4px solid #09e !important;
+}
+#cardFocus[data-which="counter"] {
+  border: 4px solid #e22 !important;
+}
+
+
+#cardLeft {
+  width: 20%;
+}
+
+#cardMid {width: 58%;}
+#cardRight {width: 20%;}
+
+#imgHeroCard {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 2px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px 0px #000000;
+}
+
+#cardLeft > div {
+  font-size: 1.1rem;
+}
+
+#cardLeft {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  
-  box-sizing: border-box;
-  width: 300px;
-  height: 420px;
- 
-  border-radius: 8px;
-  
-  
-  background-image: linear-gradient(to bottom, #111111, #333333);
-  color:#ffffff;
-  z-index: 1;
-  opacity: 0.95;
-
-  border: 4px solid #000000;
-  box-shadow: 0px 0px 3px 0px #cccccc;
 }
 
-
-.closeCard {
-  box-sizing: border-box;
-  width: 100%;
-  height: 30px;
+#closeCard {
+  width: 90%;
+  height: 20px;
+  margin-bottom: 4px;
   
   display: flex;
   justify-content: center;
@@ -252,140 +571,129 @@ body {
   background-image: linear-gradient(to right, #ee0000, #990000);
   color: #ffdddd;
   box-shadow: 0px 0px 3px 0px #000000;
-  
+  border-radius: 4px;
   border: 2px solid #cc0000;
-  border-radius: 5px;
   
   cursor: pointer;
 }
 
-#contentCard {height: 340px;}
-
-#ccBasic {height: 60px;}
-#metaTalentF {height: 80px;}
-#textTalentF {height: 180px;}
-
-#ccBasic {
+#cardMid {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-#badgeLevelF {
-  width: 30px;
-}
 
-#imgTalentF {
-  width: 50px;
-  height: 50px;
-  border-radius: 7px;
-}
-
-#nameTalentF {
-  width: 200px;
-  font-weight: bold; 
-  font-size: 1.1rem;
+#cardMid > div:nth-child(1) {
+  width: 100%;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
   
-  display: flex;
-  justify-content: flex-start;
 }
 
-#metaTalentF {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#cardMid > div:nth-child(2) {
+  border-radius: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
-
-#groupBar {width: 125px;}
-#groupLabel {width: 85px;}
-#groupNumber {width: 55px;}
-
-#groupBar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+#cardMid > div:nth-child(3) {
+  margin-left: 3px;
 }
 
-#groupBar > div {
-  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
-  border-radius: 0 4px 4px 0px;
+#cardMid > div:nth-child(4) {
+  width: 100%;
 }
 
-#groupLabel {
-  font-size: 0.95rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
+#cardMid > div:nth-child(5) {
+  width: 100%;
 }
 
-#groupNumber {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#textTalentF {
-  overflow: hide;
-  overflow-y: scroll;
-}
-
-/*
-
-.colS {
-  width:50px;
-}
-
-
-.divWinRate {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 40px;
+#cardRight > div {
+  font-size: 0.9rem;
+  
+  width: 100%;
+  height: 20px;
   margin-top: 4px;
-  background-color: #f0f0f0;
-  border-radius: 0 0 10px 10px;
-}
-
-.divWinRate div {
-  display: inline-block;
-  margin-left: 10px;
-  padding-bottom: 2px;
-}
-
-.divWinRate div:nth-child(1) {
-  color: #777777;
-}
-
-
-.barWinRate {
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   
-  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
-  border-radius: 0 4px 4px 0px;
+  background-image: linear-gradient(to right, #ffffff, #dddde8);
+  color: #111111;
+  box-shadow: 0px 0px 3px 0px #000000;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  
+  cursor: pointer;
+  
 }
-*/
-
-/*
-#ca {
-  width: 300px;
-  height: 420px;
-  overflow: hide;
-  overflow-y: scroll;
-  
-  background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
-  color:#ffffff;
-  opacity: 0.95;
-  
-  border-radius: 10px;
-  border: 4px solid #4530BB ;
+#cardRight a {
+  color: #111111;
 }
 
 
+.buttonRole[data-onoff="on"] {
+  border-style: none !important;
+  box-sizing: border-box;
+  
+  /* border: 2px solid rgba(255,255,255,1) !important; */
+  color:#ffffff !important;
+}
 
-*/
 
 
+/* role color */
+.backHero[data-role="Tank"]
+, #cardMid > div[data-role="Tank"] 
+, .buttonRole[data-role="Tank"][data-onoff="on"] 
+{
+  background-image: linear-gradient(to bottom, #fcea0a, #ff9200);
+}
 
+
+.backHero[data-role="Bruiser"] 
+, #cardMid > div[data-role="Bruiser"] 
+, .buttonRole[data-role="Bruiser"][data-onoff="on"] 
+{
+  background-image: linear-gradient(to bottom, #ff5c24, #ff0000);
+}
+
+
+.backHero[data-role="Melee Assassin"]
+, #cardMid > div[data-role="Melee Assassin"] 
+, .buttonRole[data-role="Melee Assassin"][data-onoff="on"]  
+{
+  background-image: linear-gradient(to bottom, #ff0066, #7a0000);
+}
+
+
+.backHero[data-role="Ranged Assassin"] 
+, #cardMid > div[data-role="Ranged Assassin"] 
+, .buttonRole[data-role="Ranged Assassin"][data-onoff="on"]  
+{
+  background-image: linear-gradient(to bottom, #aa35ff, #6666ff);
+}
+
+
+.backHero[data-role="Healer"] 
+, #cardMid > div[data-role="Healer"] 
+, .buttonRole[data-role="Healer"][data-onoff="on"]  
+{
+  background-image: linear-gradient(to bottom, #12d7ac, #00bb62);
+}
+
+
+.backHero[data-role="Support"] 
+, #cardMid > div[data-role="Support"] 
+, .buttonRole[data-role="Support"][data-onoff="on"]  
+{
+  background-image: linear-gradient(to bottom, #3f98ff, #00cafe);
+}
 

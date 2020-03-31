@@ -95,7 +95,7 @@ return html`
    <div id="divTop"> 
       <div>
          <img src="../../0/images/heroes/${HeroID}.png"/>
-         <p> <b>${objHeroBasic[HeroID]['HeroName']}</b> </p>
+         <div> ${objHeroBasic[HeroID]['HeroName']}</div>
       </div>
    </div>
 `;

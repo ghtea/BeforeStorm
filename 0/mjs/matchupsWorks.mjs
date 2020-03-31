@@ -2,39 +2,42 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
-const infoDate = "2020. 3. 28. (UTC +9)";
-const infoVerHM = "2.49.4.78679~";
-const infoVerHH = "2.49";
 
 
-const sourceDataText = "Heroes Profile API";
-const sourceDataLink = "https://api.heroesprofile.com";
+const mainHeroID = objMatchupFriend[Object.keys(objMatchupFriend)[0]]['mainHeroID'];
 
-const sourceImgText = "Heroes of the Storm Wiki";
-const sourceImgLink = "https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki"
-
-const sourceDiffText = "Heroes of the Storm Wiki";
-const sourceDiffLink ="https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki";
+console.log(mainHeroID);
 
 const numHero = Object.keys(objHeroBasic).length
-const numTop = 13;
+const numTop = 6;
 const adjustBarWidth = 75/5;
-const adjustBarHeight = 46/7;
+const adjustBarHeight = 44/11;
 
 const allRoles = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
 var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'];
 
 var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
 
-/* first make of point */
-var listObjHeroPoint = [];
+   
+/* 0:Friend, 1:Counter */
+var bothPoint = [[],[]];
+
+for (var iPoint=0; iPoint < bothPoint.length; iPoint++) {
+
 for (var iHero = 0; iHero < numHero; iHero++) {
-       listObjHeroPoint.push({
+
+   if ( mainHeroID != objHeroBasic[Object.keys(objHeroBasic)[iHero]]["HeroID"] ) 
+   
+   {
+       bothPoint[iPoint].push({
          "HeroID": objHeroBasic[Object.keys(objHeroBasic)[iHero]]["HeroID"],
          "Point": 0
-       })
+       })   
    }
-   
+}
+
+}
+ 
 /* difficulty */
 for (var iHero = 0; iHero < numHero; iHero++) {
    /* var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; */
@@ -69,26 +72,53 @@ for (var iHero = 0; iHero < numHero; iHero++) {
    }
    
    */
-   
    objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
+   
+   
 }
    
-
 /* components */
+function divTop() {
+return html`
+   <div id="divTop"> 
+      <div>
+         <img src="../../0/images/heroes/${mainHeroID}.png"/>
+         <div> ${objHeroBasic[mainHeroID]['HeroName']}</div>
+      </div>
+   </div>
+`;
+}
 
-function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRoles, changeMap, cMap, point, numRerender}) {
-   
-   
-   /*
-   not smooth
-   const [iMessage, setMessage] = useState(0);
-   
-   function changeMessage() {
-      if (iMessage == messages.length -1) {k = 0;} else {k+=1;}
-      setMessage(k);
-   }
-   */
+function divTabBack() {
+return html`
+<div id="divTabBack" >
+<div id="divTab" >
+      <!--<div id="tabBasic" > Basic </div> -->
+      <div id="tabTalents" > <a href="talents.html"> Talents </a> </div> 
+      <div id="tabBuilds" > <a href="builds.html"> Builds </a> </div>
+      <div id="tabMatchups" > <a href="matchups.html"> Match-Ups </a> </div>
+      </div>
+      </div>
+`;
+};
 
+function divMenu() {
+   return html`
+   <div id="divMenu">
+      <${divTop} />
+      <${divTabBack} />
+   </div>
+`;
+};
+
+function partStatic({
+changeRGW, cRatioGW, 
+changeRED, cRatioED, 
+changeRoles, cRoles, 
+pointFriend, pointCounter, numRerender}) {
+   
+   
+   
    function changeRGW1(event) {
       changeRGW(event.target.value);
    }
@@ -122,38 +152,10 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
          }
       }
       
-      console.log("cRoles: ", cRoles);
    }
    
-   
-   
-   function changeMap1(event) {
-      changeMap(event.target.value);
-   }
-   
-   
-   /*setInterval(changeMessage, 10000);*/
    
 return html`
-   <div id="Header"> 
-      <div id="BeforeStorm">
-         BEFORE STORM
-      </div>
-      
-      <div id="divMessage">
-      "🎉 Role Filter added!"
-      </div>
-      
-   </div>
-   
-   <div id="Tab" >
-      <div id="TabFront" >
-      
-      <div id="tab1"><a href="https://forms.gle/iYcMrUcJ52f8my5n6" > GIVE ME FEEDBACK </a> </div>
-      <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
-      
-      </div>
-   </div>
    
    
    <div id="Setting" >
@@ -232,83 +234,24 @@ return html`
    </div>
    
       
-   <div id="divMap">
-      <select id="selectMap" value=${cMap} onChange=${changeMap1}>
-      <option value="All" selected >All Battlegrounds </option>
-      <option value="Alterac Pass"> Alterac Pass </option>
-      <option value="Battlefield of Eternity">Battlefield of Eternity</option>
-      <option value="Braxis Holdout">Braxis Holdout</option>
-      <option value="Cursed Hollow">Cursed Hollow</option>
-      <option value="Dragon Shire">Dragon Shire</option>
-      <option value="Hanamura Temple">Hanamura Temple</option>
-      <option value="Infernal Shrines">Infernal Shrines</option>
-      <option value="Sky Temple">Sky Temple</option>
-      <option value="Tomb of the Spider Queen">Tomb of the Spider Queen</option>
-      <option value="Towers of Doom">Towers of Doom</option>
-      <option value="Volskaya Foundry">Volskaya Foundry</option>
-      </select>
-   </div>
+   
 `;
 }
 
 
-function hero1({heroId, cMap, focusHero, cRoles}) {
-
-if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
-else { var onoff = "off";}
-
-var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
-var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
-
-if (numWidth < 2) {numWidth = 2;}
-if (numHeight < 2) {numHeight = 2;}
-
-var numWinRate = objHeroMap[cMap][heroId]['WinRate']
-var numGameRate = objHeroMap[cMap][heroId]['GameRate']
-
-
-
-function focusHero1(event) {
-   focusHero(event.target.getAttribute('data-heroId'));
-};
-
-return html`
-         
-   <div data-onoff="${onoff}">
-      <div class="first divRank"> 1st </div>
-      
-      <div 
-      class="first backHero"
-      data-role="${objHeroBasic[heroId]['Role']}">
-      <img
-      data-heroId="${heroId}"
-      
-      class="imgHero" 
-      src="0/images/heroes/${heroId}.png" 
-      onClick=${focusHero1} 
-      />
-         </div>
-         
-      <div class="first groupBar">
-         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
-      </div>
-      
-      <div class="first groupLabel">
-         <div> ↔ WinRate: </div>
-         <div> ↕ Popularity: </div>
-      </div>
-      
-      <div class="first groupNumber">
-         <div> ${numWinRate}% </div>
-         <div> ${numGameRate}% </div>
-      </div>
-         
-   </div>
-`;
+function heroTop({heroId, focusHero, cRoles, which}) {
+   
+   var obj;
+   var iPoint;
+   
+if (which == "friend") {
+   obj = objMatchupFriend;
+   iPoint = 0;
+} else {
+   obj = objMatchupCounter;
+   iPoint = 1;
 }
 
-
-function heroTop({heroId, cMap,focusHero, cRoles}) {
 
 var onoff;
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { onoff = "on";}
@@ -316,18 +259,24 @@ else { onoff = "off";}
 
 /* 허용된총너비가 6*std(1 여유해서 7), 중앙이 평균점 */
 
-var numWidth = (objHeroMap[cMap][heroId]['zWin'] + 2) * adjustBarWidth;
-var numHeight = (objHeroMap[cMap][heroId]['zGame'] + 2) * adjustBarHeight;
+var numWidth = (obj[heroId]['zWin'] + 2) * adjustBarWidth;
+var numHeight = (obj[heroId]['zPlay'] + 2) * adjustBarHeight;
+
+var widthBar50 = 2;
+var numLeft50 = 2 * adjustBarWidth - widthBar50 / 2;
+
+var numWinRate = obj[heroId]['WinRate']
+var numTryRate = obj[heroId]['TryRate']
+
+var numPlayRate = obj[heroId]['PlayRate']
+var numPlays = obj[heroId]['Plays'];;
 
 if (numWidth < 2) {numWidth = 2;}
 if (numHeight < 2) {numHeight = 2;}
 
-var numWinRate = objHeroMap[cMap][heroId]['WinRate']
-var numGameRate = objHeroMap[cMap][heroId]['GameRate']
-
 
 function focusHero1(event) {
-   focusHero(event.target.getAttribute('data-heroId'));
+   focusHero(event.target.getAttribute('data-heroId'), event.target.getAttribute('data-which'));
 };
 
 return html`
@@ -341,18 +290,21 @@ return html`
       data-role="${objHeroBasic[heroId]['Role']}"
       
       class="imgHero" 
-      src="0/images/heroes/${heroId}.png" 
+      src="../../0/images/heroes/${heroId}.png" 
+      
+      data-which="${which}"
       onClick=${focusHero1} 
       />
          </div>
          
       <div class="groupBar">
-         <div style="width:${numWidth}px; height:${numHeight}px;" class="bar1"> </div>
+         <div style="width:${numWidth}px; height:${numHeight}px;" class="barMain"> </div>
+         <div style="left:${numLeft50}px;" class="bar50"></div>
       </div>
          
       <div class="groupNumber">
          <div> ${numWinRate}% </div>
-         <div> ${numGameRate}% </div>
+         <div> ${numPlayRate}% </div>
       </div>
          
    </div>
@@ -360,16 +312,16 @@ return html`
 }
 
 
-function heroOthers({heroId,focusHero, cRoles}) {
+function heroOthers({heroId,focusHero, cRoles, which}) {
 
 var onoff;
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { onoff = "on";}
 else { onoff = "off";}
 
 
-
 function focusHero1(event) {
-   focusHero(event.target.getAttribute('data-heroId'));
+   focusHero(event.target.getAttribute('data-heroId'), event.target.getAttribute('data-which'));
+   
 };
 return html`
          
@@ -382,7 +334,9 @@ return html`
       data-role="${objHeroBasic[heroId]['Role']}"
       
       class="imgHero" 
-      src="0/images/heroes/${heroId}.png" 
+      src="../../0/images/heroes/${heroId}.png" 
+      
+      data-which="${which}"
       onClick=${focusHero1} 
       />
          </div>
@@ -392,48 +346,88 @@ return html`
 }
 
 
-function Heroes({point, cMap, focusHero, cRoles, numRerender}) {
-var pointTop = point.slice(1, numTop);
-var pointOthers = point.slice(numTop,);
+function Heroes({pointFriend, pointCounter, focusHero, cRoles, numRerender, which}) {
+
+   var obj;
+   var iPoint;
+   
+if (which == "friend") {
+   obj = objMatchupFriend;
+   iPoint = 0;
+   
+} else {
+   obj = objMatchupCounter;
+   iPoint = 1;
+}
+   
+var pointTop = bothPoint[iPoint].slice(0, numTop);
+var pointOthers = bothPoint[iPoint].slice(numTop,numHero);
 
 
 
 return html`
-   <div id="Heroes">
+   <div class="Heroes">
       
-      <div id="heroes1">
-      <${hero1} heroId=${point[0]['HeroID']} cMap=${cMap} focusHero=${focusHero} cRoles=${cRoles}/>
-      </div>
-      
-       
-      <div id="heroesTop"> 
+      <div class="heroesTop"> 
       
 ${pointTop.map((objHero, index)=> html`
-   <${heroTop} heroId=${objHero['HeroID']} cMap=${cMap} focusHero=${focusHero} cRoles=${cRoles}/>
+   <${heroTop} 
+      heroId=${objHero['HeroID']} 
+      focusHero=${focusHero} 
+      cRoles=${cRoles} 
+      which=${which} 
+      />
 `)}
       </div>
       
-      <div id="heroesOthers"> 
+      <div class="heroesOthers"> 
          ${pointOthers.map((objHero, index)=> html`
-   <${heroOthers} heroId=${objHero['HeroID']} focusHero=${focusHero} cRoles=${cRoles}/>
+   <${heroOthers} 
+      heroId=${objHero['HeroID']} 
+      focusHero=${focusHero} 
+      cRoles=${cRoles}
+      which=${which}
+      />
 `)}
       </div>
    </div>
 `;
 }
 
-function Card({focusHero, fHeroId, cMap, point, visibleF}) {
 
-var numWinRate = objHeroMap[cMap][fHeroId]['WinRate'];
-var numGameRate = objHeroMap[cMap][fHeroId]['GameRate'];
+function Card({focusHero, fHeroId, visibleF, which}) {
+console.log("fHeroId: ", fHeroId);
 
-var numRank = point.findIndex(x => x['HeroID'] == fHeroId) + 1;
+var obj;
+var iPoint;
+var conjunction;
+
+if (which == "friend") {
+      obj = objMatchupFriend;
+      iPoint = 0;
+      conjunction = "with"; 
+   } else {
+      obj = objMatchupCounter;
+      iPoint = 1;
+      conjunction = "vs";
+   }
+
+var numWinRate = obj[fHeroId]['WinRate'];
+var numTryRate = obj[fHeroId]['TryRate'];
+
+var numPlayRate = obj[fHeroId]['PlayRate'];
+var numPlays = obj[fHeroId]['Plays'];
+
+
+var numRank = bothPoint[iPoint].findIndex(x => x['HeroID'] == fHeroId) + 1;
 
 function closeCard() {
-   focusHero("None");
+   focusHero("None", "friend");
 };
 
 if (visibleF) {
+   console.log(visibleF);
+   
    return html`
    <div id="cardFocus">
       
@@ -442,65 +436,41 @@ if (visibleF) {
       <div id="closeCard" onClick=${closeCard} > close </div>
       
       <div>
-      <img id="imgHeroCard" src="0/images/heroes/${fHeroId}.png" /> 
+      <img id="imgHeroCard" src="../../0/images/heroes/${fHeroId}.png" /> 
       <div> #${numRank} </div>
       </div>
       
       </div>
       
-      <div id="cardMid"> 
+      
+   <div id="cardMid"> 
       <div> ${objHeroBasic[fHeroId]['HeroName']} </div>
-      <div data-role="${objHeroBasic[fHeroId]['Role']}">  ${objHeroBasic[fHeroId]['Role']} </div>
-      <div>  ${objHeroBasic[fHeroId]['DiffText']}  </div>   
+      <div data-conjunction="${which}">  ${conjunction} </div>
+      <div> ${objHeroBasic[mainHeroID]['HeroName']} </div>   
       <div> WinRate: ${numWinRate}% </div> 
-      <div> Popularity: ${numGameRate}% </div> 
+      <div> Frequency: ${numPlayRate}% </div> 
       </div>
 
       
-      <div id="cardRight"> 
-         <!--<div><a>Basic</a></div>-->
+   <div id="cardRight"> 
+    
+      <!--<div><a>Basic</a></div>-->
          <div><a href="heroes/${fHeroId}/talents.html">Talents</a></div>
          <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
          <!--<div><a>Pick</a></div>-->
-      </div>
+      </div>  
+      
+      
       
    </div>
    `;
    }
 
-else {return html``;}
+else {
+   return html``;
+   }
 }
 
-
-function Data() {
-   return html`
-   
-   <div id="divInfo" >
-      <div>
-      <div> update:  </div> 
-      <div> data source: </div>
-      <div> version: </div>
-      <div> match-up: </div>
-      <div> images: </div>
-      
-      <!-- <div> hero difficulty: </div>-->
-      </div> 
-   
-      <div>
-      <div> ${infoDate} </div> 
-      <div> <a href="${sourceDataLink}">${sourceDataText}</a></div>
-      <div> v${infoVerHM} </div>
-      <div> v${infoVerHH}</div>
-      <div> <a href="${sourceImgLink}">${sourceImgText}</a></div>
-      
-      <!-- <div> <a href="${sourceDiffLink}">${sourceDiffText}</a></div> -->
-      
-      </div>
-   </div>
-   
-   `
-
-}
 
 function All() {
 
@@ -515,86 +485,138 @@ const [visibleF, setVisibleF] = useState(false);
 const [cRatioGW, setRGW] = useState(50);
 const [cRatioED, setRED] = useState(50);
 
-const [cMap, setMap] = useState('All');
-
 const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);
 
 
-const [point, setPoint] = useState(listObjHeroPoint);
+const [pointFriend, setPointFriend] = useState(bothPoint[0]);
+const [pointCounter, setPointCounter] = useState(bothPoint[1]);
+
+const [fHeroId, setFocus] = useState("None");
+const [fWhich, setWhich] = useState("friend");
 
 
-function updatePoint() {
-   for (var iHero = 0; iHero < numHero; iHero++) {
-       var cHero = listObjHeroPoint[iHero]['HeroID']
-       
-       listObjHeroPoint[iHero]['Point'] =
-           (100 - cRatioGW) * objHeroMap[cMap][cHero]['zGame']
-           + cRatioGW * objHeroMap[cMap][cHero]['zWin']
+
+/* 한 쪽만 따로 */
+function updatePoint(which) {
+
+   var obj;
+   var iPoint;
+   
+if (which == "friend") {
+   obj = objMatchupFriend;
+   iPoint = 0;
+   
+} else {
+   obj = objMatchupCounter;
+   iPoint = 1;
+}
+   
+   /* 자기자신 제외! */
+   for (var iHero = 0; iHero < (numHero - 1); iHero++) {
+       var cHero = bothPoint[iPoint][iHero]['HeroID']
+       bothPoint[iPoint][iHero]['Point'] =
+           (100 - cRatioGW) * obj[cHero]['zPlay']
+           + cRatioGW * obj[cHero]['zWin']
            + (cRatioED - 50) * objHeroBasic[cHero]["zDiff"]
    }
    
-   listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? -1 : 1);
+   bothPoint[iPoint] = bothPoint[iPoint].sort((a, b) => (a.Point > b.Point) ? -1 : 1);
    
-   setPoint(listObjHeroPoint);
+   
+   if (which == "friend") {
+   setPointFriend(bothPoint[iPoint]);
+   } 
+   
+   else {
+   setPointCounter(bothPoint[iPoint]);
+   }
    
 };
 
 
 
-function changeMap(x){
-   setMap(x); updatePoint();}
-   
+
+
 function changeRoles(x) {
    setRoles(x);
    forceRerender();
 }
 
    
-function changeRGW(x){setRGW(x); updatePoint();}
-function changeRED(x){setRED(x); updatePoint();}
+function changeRGW(x){setRGW(x); updatePoint("friend");
+updatePoint("counter");}
 
-updatePoint();
+function changeRED(x){setRED(x); updatePoint("friend");
+updatePoint("counter");}
 
-const [fHeroId, setFocus] = useState("Alarak");
 
-function focusHero(x) {   
+updatePoint("friend");
+updatePoint("counter");
+
+
+function focusHero(x, which) {   
    if (x == "None") {
       setVisibleF(false);
    } else {
       setFocus(x);
       setVisibleF(true);
+      setWhich(which);
    }
 }
 
 
 return html`
+<${divMenu}/>
 
-<${partStatic} 
-changeMap=${changeMap} cMap=${cMap} 
+<${partStatic}  
 changeRGW=${changeRGW} cRatioGW=${cRatioGW}
 changeRED=${changeRED} cRatioED=${cRatioED}
-point=${point} 
+pointFriend=${pointFriend}  pointCounter=${pointCounter} 
 changeRoles=${changeRoles}
 cRoles=${cRoles}
 numRerender=${numRerender}
 />
 
-   
+
+<div id="divContent">
+
+<div id="colFriend">
+<div id="titleFriend"> Best Friends </div>
 <${Heroes} 
-point=${point} 
-cMap=${cMap}  
+pointFriend=${pointFriend} 
+pointCounter=${pointCounter} 
 focusHero=${focusHero} 
 cRoles=${cRoles}
 numRerender=${numRerender}
+which=${"friend"}
 />
+</div>
 
-<${Card} focusHero=${focusHero} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
+<div id="colCounter">
+<div id="titleCounter"> Best Counters </div>
+<${Heroes} 
+pointFriend=${pointFriend} 
+pointCounter=${pointCounter} 
+focusHero=${focusHero} 
+cRoles=${cRoles}
+numRerender=${numRerender}
+which=${"counter"}
+/>
+</div>
 
-<${Data} />
+</div>
+
+<${Card} 
+focusHero=${focusHero} 
+fHeroId=${fHeroId}  
+visibleF=${visibleF} 
+which=${fWhich}
+/>
 
 `;   
 }
 
 render(html`<${All}/>`, document.body);
+
 
 

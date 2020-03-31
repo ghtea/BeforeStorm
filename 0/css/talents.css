@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Barlow:wght@400;700&display=swap');
 
-@media (max-width: 375px) {
-  html {
-    font-size: 13px;
-    zoom: 85%;
-  }
-}
 
 html {
-  font-family:'Barlow', Helvetica, Arial, sans-serif !important;
+  font-family:'Barlow', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   font-size: 16px;
+}
+
+@media (max-width: 410px) {
+  html {font-size: 15px; zoom: 95%;}
+}
+
+@media (max-width: 390px) {
+  html {font-size: 14px; zoom: 90%;}
+}
+
+@media (max-width: 370px) {
+  html {font-size: 13px; zoom: 85%;}
 }
 
 a {
@@ -39,7 +46,6 @@ body {
 }
 
 #divMenu {
-  position: fixed;
   top:0;
   width:100%;
 }
@@ -57,7 +63,7 @@ body {
   align-items: center;
 }
 
-#divTop img {
+#divTop > div > img {
   width: 50px;
   height: 50px;
   margin-right: 5px;
@@ -65,12 +71,14 @@ body {
   border-radius: 5px;
 }
 
-#divTop p {
+#divTop > div > div {
+  font-weight: 700 !important; 
+  font-family: 'Barlow', Helvetica, Arial, sans-serif !important;
+  
   display: inline-block;
   margin-right: 5px;
   margin-left: 5px;
   font-size: 1.3rem;
-  
 }
 
 
@@ -78,8 +86,7 @@ body {
 
   width: 100%;
   height: 40px;
-   /* same with height of divTop */
-  margin-bottom: 20px;
+  
   /* background-color: #5027aa; */
   background-image: linear-gradient(to bottom, #792bbc, #2b33ba);
   /* box-shadow: 0px 15px 10px -8px  #777777; */
@@ -124,7 +131,6 @@ body {
 }
 
 #divGuide {
-  margin-top: 110px;
   margin-bottom: 15px;
   height: 48px;
   
@@ -283,7 +289,7 @@ body {
 
 #nameTalentF {
   width: 200px;
-  font-weight: bold; 
+  font-weight: 700; 
   font-size: 1.1rem;
   
   display: flex;
