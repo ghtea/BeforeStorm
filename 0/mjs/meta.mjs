@@ -140,7 +140,7 @@ return html`
       </div>
       
       <div id="divMessage">
-      "🎉 Role Filter added!"
+      "🎉 Match-Ups pages added!"
       </div>
       
    </div>
@@ -467,10 +467,12 @@ if (visibleF) {
 
       
       <div id="cardRight"> 
-         <!--<div><a>Basic</a></div>-->
+         
          <div><a href="heroes/${fHeroId}/talents.html">Talents</a></div>
          <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
-         <!--<div><a>Pick</a></div>-->
+         
+         <div><a href="heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
+         
       </div>
       
    </div>

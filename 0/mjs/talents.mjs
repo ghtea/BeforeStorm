@@ -105,10 +105,11 @@ function divTabBack() {
 return html`
 <div id="divTabBack" >
 <div id="divTab" >
-      <!--<div id="tabBasic" > Basic </div> -->
-      <div id="tabTalent" > <a href="talents.html"> Talents </a> </div> 
-      <div id="tabBuild" > <a href="builds.html"> Builds </a> </div>
-      <!--<div id="tabPick" >Pick</div>-->
+      
+      <div id="tabTalents" > <a href="talents.html"> Talents </a> </div> 
+      <div id="tabBuilds" > <a href="builds.html"> Builds </a> </div>
+      <div id="tabMatchups" > <a href="matchups.html"> Match-Ups </a> </div>
+      
       </div>
       </div>
 `;

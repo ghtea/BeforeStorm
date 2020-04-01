@@ -92,10 +92,11 @@ function divTabBack() {
 return html`
 <div id="divTabBack" >
 <div id="divTab" >
-      <!--<div id="tabBasic" > Basic </div> -->
+
       <div id="tabTalents" > <a href="talents.html"> Talents </a> </div> 
       <div id="tabBuilds" > <a href="builds.html"> Builds </a> </div>
       <div id="tabMatchups" > <a href="matchups.html"> Match-Ups </a> </div>
+      
       </div>
       </div>
 `;
@@ -471,11 +472,12 @@ if (visibleF) {
 
       
    <div id="cardRight"> 
-    
-      <!--<div><a>Basic</a></div>-->
-         <div><a href="talents.html">Talents</a></div>
-         <div><a href="builds.html">Builds</a></div>
-         <div><a href="matchups.html">Match-Ups</a></div>
+         
+         <div><a href="heroes/${fHeroId}/talents.html">Talents</a></div>
+         <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
+         
+         <div><a href="heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
+         
       </div>  
       
       
