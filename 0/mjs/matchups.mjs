@@ -381,7 +381,7 @@ if (which == "friend") {
 }
    
 var pointTop = bothPoint[iPoint].slice(0, numTop);
-var pointOthers = bothPoint[iPoint].slice(numTop,numHero);
+var pointOthers = bothPoint[iPoint].slice(numTop,(numHero-1));
 
 
 

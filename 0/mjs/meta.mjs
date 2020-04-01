@@ -11,12 +11,12 @@ const sourceDataText = "Heroes Profile API";
 const sourceDataLink = "https://api.heroesprofile.com";
 
 const sourceImgText = "Heroes of the Storm Wiki";
-const sourceImgLink = "https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki"
+const sourceImgLink = "https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki";
 
 const sourceDiffText = "Heroes of the Storm Wiki";
 const sourceDiffLink ="https://heroesofthestorm.gamepedia.com/Heroes_of_the_Storm_Wiki";
 
-const numHero = Object.keys(objHeroBasic).length
+const numHero = Object.keys(objHeroBasic).length;
 const numTop = 13;
 const adjustBarWidth = 75/5;
 const adjustBarHeight = 44/7;
@@ -588,7 +588,7 @@ cRoles=${cRoles}
 numRerender=${numRerender}
 />
 
-   
+<div id="divContent">
 <${Heroes} 
 point=${point} 
 cMap=${cMap}  
@@ -597,9 +597,10 @@ cRoles=${cRoles}
 numRerender=${numRerender}
 />
 
-<${Card} focusHero=${focusHero} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
-
 <${Data} />
+</div>
+
+<${Card} focusHero=${focusHero} fHeroId=${fHeroId} point=${point} cMap=${cMap} visibleF=${visibleF} />
 
 `;   
 }

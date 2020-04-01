@@ -20,8 +20,21 @@ html {
   html {font-size: 13px; zoom: 85%;}
 }
 
+#divContent {
+  width: 100%;
+}
+
+@media (min-width: 820px) {
+  #divContent {
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+}
+
 
 body {
+  width: 100%;
   /*position: relative;*/
   color: #111111;
   background-color: #dddde8;
@@ -33,7 +46,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
-  width: 100%;
+  
 }
 
 a {
