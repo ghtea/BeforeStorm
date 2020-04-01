@@ -477,10 +477,10 @@ if (visibleF) {
       
    <div id="cardRight"> 
          
-         <div><a href="heroes/${fHeroId}/talents.html">Talents</a></div>
-         <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
+         <div><a href="../../heroes/${fHeroId}/talents.html">Talents</a></div>
+         <div><a href="../../heroes/${fHeroId}/builds.html">Builds</a></div>
          
-         <div><a href="heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
+         <div><a href="../../heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
          
       </div>  
       
