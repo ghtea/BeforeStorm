@@ -120,12 +120,12 @@ body {
   text-decoration: none;
 }
 
-#tabBasic {
+#tabBasics {
   width: 25%;
   
 }
 
-#tabTalent {
+#tabTalents {
   width: 25%;
   color: #ffffff;
   padding-top: 9px;
@@ -133,12 +133,12 @@ body {
   border-bottom: 5px solid #ffffff;
 }
 
-#tabBuild {
+#tabBuilds {
   width: 25%;
   
 }
 
-#tabPick {
+#tabMatchups {
   width: 25%;
   
 }
