@@ -16,10 +16,14 @@ const HeroID = objHeroBuild[0]['HeroID'];
 function divTop() {
 return html`
    <div id="divTop"> 
+   
       <div>
          <img src="../../0/images/heroes/${HeroID}.png"/>
          <div> ${objHeroBasic[HeroID]['HeroName']}</div>
       </div>
+         
+      <div> <a href="https://beforestorm.avantwing.com/meta"> HOME </a> </div>
+         
    </div>
 `;
 }

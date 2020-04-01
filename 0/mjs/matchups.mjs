@@ -80,10 +80,14 @@ for (var iHero = 0; iHero < numHero; iHero++) {
 function divTop() {
 return html`
    <div id="divTop"> 
+   
       <div>
          <img src="../../0/images/heroes/${mainHeroID}.png"/>
          <div> ${objHeroBasic[mainHeroID]['HeroName']}</div>
       </div>
+         
+      <div> <a href="https://beforestorm.avantwing.com/meta"> HOME </a> </div>
+         
    </div>
 `;
 }
