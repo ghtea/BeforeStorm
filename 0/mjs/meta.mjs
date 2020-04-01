@@ -3,7 +3,7 @@
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
 const infoDate = "2020. 3. 28. (UTC +9)";
-const infoVerHM = "2.49.4.78679~";
+const infoVerHM = "2.49.4.78725";
 const infoVerHH = "2.49";
 
 
