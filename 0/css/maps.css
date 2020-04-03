@@ -1,0 +1,204 @@
+@import url("0/heroes.css");
+
+
+#tabMaps {
+  color: #ffffff;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
+}
+
+
+#Setting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  color: #dddddd;
+  
+  width: 100%;
+  height: 100px;
+   
+  background-image: linear-gradient(to bottom, #111111, #333333);
+}
+
+#Setting > div {
+  width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 0.9rem;
+  
+}
+
+#Setting > div:nth-child(1) {
+  height: 20px;
+}
+
+#Setting > div:nth-child(2) {
+  height: 40px;
+}
+
+
+
+#Setting > div:nth-child(2) > div:nth-child(1), 
+#Setting > div:nth-child(2) > div:nth-child(3) {
+  width: 16%;
+}
+
+#Setting > div:nth-child(2) > div:nth-child(2) {
+  width: 40%;
+}
+
+
+#divAboutBan {
+  margin-bottom: 15px;
+  height: 40px;
+  
+  background-image: linear-gradient(to bottom, #777777, #999999);
+  color: #ffffff;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#divAboutBan #buttonAboutBan {
+  margin-left: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  
+  height: 24px;
+  
+  color: #222222;
+  
+  background-color: #eeeeee;
+  border-radius: 12px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+}
+
+
+
+#divContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.map {
+  background-image: linear-gradient(to bottom right, #eeeeee, #ffffff);
+  
+  border-radius: 6px;
+  padding: 0px;
+  
+  box-shadow: 0px 0px 1px 0px #cccccc;
+  
+  height: 72px;
+  margin: 4px;
+  width: 370px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.map > .nameMap {width: 110px;}
+.map > .groupBar {width: 90px;}
+.map > .groupLabel {width: 90px;}
+.map > .groupNumber {width: 50px;}
+
+
+.nameMap {
+  padding-left: 10px;
+  font-size: 1.1rem;
+  text-align:left;
+}
+
+.groupBar {
+  position: relative;
+}
+
+.barsMain {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  
+  z-index: 2 !important;
+}
+
+.barPlays, .barBans {
+  border-radius: 0 3px 3px 0px;
+}
+
+.barPlays {
+  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
+  
+}
+
+.barBans {
+  background-image: linear-gradient(to bottom right, #ccc, #aaa);
+  
+}
+
+.bar50 {
+  background-color: #e0e0e0;
+  width: 2px;
+  height: 50px;
+  border-radius: 1px;
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  z-index: 0;
+  
+}
+
+
+.groupLabel {
+  color: #555555;
+  
+  font-size: 0.9rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  
+  z-index: 3;
+}
+
+.groupNumber {
+  color: #555555;
+  
+  font-size: 0.9rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  
+
+  
+  z-index: 3;
+}
+
+.groupNumber > div:nth-child(2),
+.groupNumber > div:nth-child(3)
+{
+  margin-right: 10px;
+}

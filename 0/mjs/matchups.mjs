@@ -100,6 +100,7 @@ return html`
       <div id="tabTalents" > <a href="talents.html"> Talents </a> </div> 
       <div id="tabBuilds" > <a href="builds.html"> Builds </a> </div>
       <div id="tabMatchups" > <a href="matchups.html"> Match-Ups </a> </div>
+      <div id="tabMaps" > <a href="maps.html"> Maps </a> </div>
       
       </div>
       </div>
@@ -481,6 +482,7 @@ if (visibleF) {
          <div><a href="../../heroes/${fHeroId}/builds.html">Builds</a></div>
          
          <div><a href="../../heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
+         <div><a href="../../heroes/${fHeroId}/maps.html">Maps</a></div>
          
       </div>  
       
@@ -506,7 +508,7 @@ function forceRerender() {
 
 const [visibleF, setVisibleF] = useState(false);
 
-const [cRatioGW, setRGW] = useState(50);
+const [cRatioGW, setRGW] = useState(66);
 const [cRatioED, setRED] = useState(50);
 
 const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);

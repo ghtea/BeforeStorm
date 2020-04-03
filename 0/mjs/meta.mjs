@@ -2,6 +2,9 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
+
+const message = '"🎉 Maps pages added!"';
+
 const infoDate = "2020. 4. 1. (UTC +9)";
 const infoVerHM = "2.49.4.78725";
 const infoVerHH = "2.49";
@@ -140,7 +143,7 @@ return html`
       </div>
       
       <div id="divMessage">
-      "🎉 Match-Ups pages added!"
+      ${message}
       </div>
       
    </div>
@@ -472,6 +475,7 @@ if (visibleF) {
          <div><a href="heroes/${fHeroId}/builds.html">Builds</a></div>
          
          <div><a href="heroes/${fHeroId}/matchups.html">Match-Ups</a></div>
+         <div><a href="heroes/${fHeroId}/maps.html">Maps</a></div>
          
       </div>
       

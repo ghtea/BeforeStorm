@@ -36,6 +36,7 @@ return html`
       <div id="tabTalents" > <a href="talents.html"> Talents </a> </div> 
       <div id="tabBuilds" > <a href="builds.html"> Builds </a> </div>
       <div id="tabMatchups" > <a href="matchups.html"> Match-Ups </a> </div>
+      <div id="tabMaps" > <a href="maps.html"> Maps </a> </div>
       
       </div>
       </div>
@@ -125,6 +126,7 @@ objHeroBuild[iBuild]['01'], objHeroBuild[iBuild]['04'], objHeroBuild[iBuild]['07
 };
 
 /*  arrow function makes error */
+
 function divContent({changeTalent1, currentTalent}){
 return html`
    <div id="divContent">
