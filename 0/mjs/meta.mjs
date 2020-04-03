@@ -269,7 +269,7 @@ var widthBar50 = 2;
 var numLeft50 = 2 * adjustBarWidth - widthBar50 / 2;
 
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
-var numGameRate = objHeroMap[cMap][heroId]['GameRate']
+var numTryRate = objHeroMap[cMap][heroId]['GameRate']
 
 
 
@@ -307,7 +307,7 @@ return html`
       
       <div class="first groupNumber">
          <div> ${numWinRate}% </div>
-         <div> ${numGameRate}% </div>
+         <div> ${numTryRate}% </div>
       </div>
          
    </div>
@@ -330,7 +330,7 @@ var widthBar50 = 2;
 var numLeft50 = 2 * adjustBarWidth - widthBar50 / 2;
 
 var numWinRate = objHeroMap[cMap][heroId]['WinRate']
-var numGameRate = objHeroMap[cMap][heroId]['GameRate']
+var numTryRate = objHeroMap[cMap][heroId]['GameRate']
 
 if (numWidth < 2) {numWidth = 2;}
 if (numHeight < 2) {numHeight = 2;}
@@ -364,7 +364,7 @@ return html`
          
       <div class="groupNumber">
          <div> ${numWinRate}% </div>
-         <div> ${numGameRate}% </div>
+         <div> ${numTryRate}% </div>
       </div>
          
    </div>
@@ -437,7 +437,8 @@ ${pointTop.map((objHero, index)=> html`
 function Card({focusHero, fHeroId, cMap, point, visibleF}) {
 
 var numWinRate = objHeroMap[cMap][fHeroId]['WinRate'];
-var numGameRate = objHeroMap[cMap][fHeroId]['GameRate'];
+var numTryRate = objHeroMap[cMap][fHeroId]['GameRate'];
+var numTrys = Math.round(objHeroMap[cMap][fHeroId]['Trys']);
 
 var numRank = point.findIndex(x => x['HeroID'] == fHeroId) + 1;
 
@@ -465,7 +466,7 @@ if (visibleF) {
       <div data-role="${objHeroBasic[fHeroId]['Role']}">  ${objHeroBasic[fHeroId]['Role']} </div>
       <div>  ${objHeroBasic[fHeroId]['DiffText']}  </div>   
       <div> WinRate: ${numWinRate}% </div> 
-      <div> Popularity: ${numGameRate}% </div> 
+      <div> Play+Ban: ${numTryRate}% (${numTrys}) </div> 
       </div>
 
       

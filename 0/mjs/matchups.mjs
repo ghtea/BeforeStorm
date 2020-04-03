@@ -472,7 +472,7 @@ if (visibleF) {
       <div data-conjunction="${which}">  ${conjunction} </div>
       <div> ${objHeroBasic[mainHeroID]['HeroName']} </div>   
       <div> WinRate: ${numWinRate}% </div> 
-      <div> MatchRate: ${numPlayRate}% </div> 
+      <div> MatchRate: ${numPlayRate}% (${numPlays}) </div> 
       </div>
 
       
