@@ -8,6 +8,20 @@
   border-bottom: 5px solid #ffffff;
 }
 
+#divContent {
+  width: 100%;
+}
+
+@media (min-width: 414px) {
+  #divContent {
+    width: 414px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+}
+
+
+
 
 #Setting {
   display: flex;
@@ -88,6 +102,9 @@
 
 
 #divContent {
+  margin-top: 30px;
+  margin-bottom: 150px;
+
   display: flex;
   justify-content: center;
   align-items: center;

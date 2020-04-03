@@ -19,17 +19,6 @@ html {
   html {font-size: 13px; zoom: 85%;}
 }
 
-#divContent {
-  width: 100%;
-}
-
-@media (min-width: 414px) {
-  #divContent {
-    width: 414px;
-    margin-left: auto;
-    margin-right: auto;
-    }
-}
 
 a {
   color: #eeeeee;
@@ -165,8 +154,4 @@ body {
 
 
 
-#divContent {
-  margin-top: 30px;
-  margin-bottom: 150px; /* to make space for divTalentInfo */
-}
 

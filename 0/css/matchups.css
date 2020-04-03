@@ -1,23 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Barlow:wght@400;700&display=swap');
+@import url("0/heroes.css");
 
-
-
-html {
-  font-family:'Barlow', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-@media (max-width: 410px) {
-  html {font-size: 15px; zoom: 95%;}
-}
-
-@media (max-width: 390px) {
-  html {font-size: 14px; zoom: 90%;}
-}
-
-@media (max-width: 370px) {
-  html {font-size: 13px; zoom: 85%;}
+ 
+#tabMatchups {
+  color: #ffffff;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
 }
 
 

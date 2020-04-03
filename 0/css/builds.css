@@ -10,6 +10,18 @@
 }
 
 
+#divContent {
+  width: 100%;
+}
+
+@media (min-width: 414px) {
+  #divContent {
+    width: 414px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+}
+
 
 
 #divContent {
