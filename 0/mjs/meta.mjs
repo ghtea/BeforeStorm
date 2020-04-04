@@ -2,6 +2,7 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
+new ClipboardJS('.btn');
 
 const message = '"🎉 Maps pages added!"';
 
@@ -151,8 +152,12 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div id="tab1"><a href="https://forms.gle/iYcMrUcJ52f8my5n6" > GIVE ME FEEDBACK </a> </div>
+      <div> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  FEEDBACK </a> </div>
       <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
+      
+      <div> <button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
+    COPY LINK
+</button> </div>
       
       </div>
    </div>
