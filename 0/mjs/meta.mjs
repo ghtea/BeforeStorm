@@ -4,7 +4,13 @@ import { html, Component, render, useState} from 'https://beforestorm.avantwing.
 
 new ClipboardJS('.btn');
 
-const message = '"🎉 Maps pages added!"';
+function Message() {
+return html`
+   <div id="divMessage">
+   ❕<a href="https://api.heroesprofile.com/upload" > Please Upload Replays </a>❕
+   </div>
+`;
+}
 
 const infoDate = "2020. 4. 4. (UTC +9)";
 const infoVerHM = "2.49.4.78725";
@@ -143,9 +149,7 @@ return html`
          BEFORE STORM
       </div>
       
-      <div id="divMessage">
-      ${message}
-      </div>
+   <${Message}/>
       
    </div>
    
