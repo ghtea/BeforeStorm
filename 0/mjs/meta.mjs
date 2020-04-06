@@ -12,7 +12,7 @@ return html`
 `;
 }
 
-const infoDate = "2020. 4. 4. (UTC +9)";
+const infoDate = "2020. 4. 7. (UTC +9)";
 const infoVerHM = "2.49.4.78725";
 const infoVerHH = "2.49";
 
