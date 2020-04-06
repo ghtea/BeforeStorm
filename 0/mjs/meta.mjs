@@ -156,7 +156,7 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  FEEDBACK </a> </div>
+      <div> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  TELL ME </a> </div>
       <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
       
       <div> <button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
