@@ -136,15 +136,20 @@ if (numHeightBan < 2) {numHeightBan = 2;}
 var widthBar50 = 2;
 var numLeft50 = 2 * adjustBarWidth;
 
+var numHeightMap = 64;
 var numWinRate = obj1HeroMaps[cMap]['WinRate']
 var numPlays = obj1HeroMaps[cMap]['Plays']
 var numBans = Math.round(obj1HeroMaps[cMap]['Bans'])
 
-
+if ((numHeight + numHeightBan) > 58) {
+   numHeightMap = numHeight + numHeightBan + 6;
+}
 
 return html`
          
-   <div class="map">
+   <div class="map"
+      style="height:${numHeightMap}px;"
+   >
       
       <div 
       class="nameMap"
