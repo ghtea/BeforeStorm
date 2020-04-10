@@ -9,15 +9,15 @@ html {
 }
 
 @media (max-width: 410px) {
-  html {font-size: 15px; zoom: 95%;}
+  html {zoom: 95%;}
 }
 
 @media (max-width: 390px) {
-  html {font-size: 14px; zoom: 90%;}
+  html {zoom: 90%;}
 }
 
 @media (max-width: 370px) {
-  html {font-size: 13px; zoom: 85%;}
+  html {zoom: 85%;}
 }
 
 #divContent {
