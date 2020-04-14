@@ -2,6 +2,8 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
+import {Shield, Dynamite, Knife} from '../svgs/style/scoreIcons.mjs';
+
 
 
 const infoDate = "2020. 4. 14. (UTC +9)";
@@ -30,7 +32,6 @@ var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Hea
 var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
 
 
-   
 
 /* components */
 
@@ -171,23 +172,11 @@ return html`
    `;}
    
 
-function Shield() {
 
-return html`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
 
-class="styleIcon"
-style="height: 40px; width: 40px;">
 
-<path d="M0 0h512v512H0z" fill="blue" fill-opacity="1"></path>
 
-<g class="" transform="translate(0,0)" style="touch-action: none;">
-<path d="M48.906 19.656v10.782c0 103.173 10.53 206.07 41.313 289.53 30.78 83.463 82.763 148.094 164.53 170.563l2.188.626 2.25-.5c89.686-19.12 142.322-84.028 171.187-168.344 28.865-84.315 35.406-188.656 35.406-291.875v-10.78l-10.655 1.53C323.26 39.954 191.452 40 59.595 21.188l-10.69-1.53zM67.75 41.03c63.242 8.536 126.495 12.792 189.75 12.782v184.532h174.78c-4.905 27.572-11.31 53.747-19.592 77.937-27.348 79.884-73.757 137.33-155.157 155.564-.008-.003-.02.003-.03 0v-233.5H86.53c-12.87-60.99-18.277-128.81-18.78-197.313z" fill="#fff" fill-opacity="1">
-</path>
-</g>
-</svg>
-`  
-}
+
 
 
 function hero1({heroId, focusHero, cRoles}) {
@@ -208,21 +197,25 @@ return html`
    <div class="divEachHero" data-onoff="${onoff}">
       
       <div 
-      class="first backHero"
+      class="backHero"
       data-role="${objHeroBasic[heroId]['Role']}">
       
-      <img
-      data-heroId="${heroId}"
-      class="imgHero" 
-      src="0/images/heroes/${heroId}.png" 
-      onClick=${focusHero1} 
-      />
-         </div>
-         
-      <div class="">
-         <${Shield} />
+         <img
+         data-heroId="${heroId}"
+         class="imgHero" 
+         src="0/images/heroes/${heroId}.png" 
+         onClick=${focusHero1} 
+         />
       </div>
+         
+      <div class="groupScoreIcon">
+         <${Shield} />
+         <${Dynamite} />
+         <${Knife} />
+      </div>
+     
 
+   
    </div>
 `;
 }

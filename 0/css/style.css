@@ -300,32 +300,20 @@ a {
 }
 
 
-#heroes1 > div {
-  width: 354px;
-  
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  
-}
-
-#heroesTop > div {
-  width: 175px;
-  
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  
-}
-
-#heroesOthers > div {
-  width: 52px;
-  
-}
 
 
 .divEachHero {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.backHero {
+  
+  width: 52px;
+  height: 52px;
+
 }
 
 
@@ -334,14 +322,21 @@ a {
   justify-content: center;
   align-items: center;
 
-  width: 52px;
-  height: 52px;
   margin:0px;
   pdding: 0px;
   border-radius: 6px;
 }
 
-.imgHero 
+.groupScoreIcon {
+  
+  height: 52px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.imgHero {
   width: 48px;
   height: 48px;
   margin:0px;
@@ -352,8 +347,13 @@ a {
 }
 
 
-.roleIcon {
+.divScoreIcon {
+  width: 52px;
+  height: 52px;
   
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
 
