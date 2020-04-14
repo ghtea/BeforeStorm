@@ -263,48 +263,19 @@ a {
 
 
 
-#divMap {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Reset Select */
-#selectMap {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border: 0 !important;
-}
-/* Remove IE arrow */
-#selectMap::-ms-expand {
-  display: none;
-}
-
-/* Custom Select */
-#selectMap {
-  
-  width: 240px;
-  height: 30px;
-  overflow: hidden;
-  border-radius: 15px;
-  
-  font-size: 1rem;
-  text-indent: 10px;
-  
-  color: #555555;
-  background-color: #f8f8f8;
-  cursor: pointer;
-}
 
 
 #Heroes div[data-onoff="off"] {
   display: none;
 }
+
+
+
+
+
+
+
+
 
 #heroes1, #heroesTop, #heroesOthers {
   display: flex;
@@ -352,7 +323,11 @@ a {
   
 }
 
-.first.divRank {width: 30px;}
+
+.divEachHero {
+  display: flex;
+}
+
 
 .backHero {
   display: flex;
@@ -366,7 +341,7 @@ a {
   border-radius: 6px;
 }
 
-.imgHero {
+.imgHero 
   width: 48px;
   height: 48px;
   margin:0px;
@@ -377,75 +352,19 @@ a {
 }
 
 
-.first.groupBar {
-  width: 100px;
-}
-
-.groupBar {
-  width: 70px;
-  position: relative;
-}
-
-.barMain {
-  background-color: green;
-  background-image: linear-gradient(to bottom right, #54f66c, #2fd28e);
-  border-radius: 0 4px 4px 0px;
-  
-  z-index: 2;
-  
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.roleIcon {
   
   
 }
 
-.bar50 {
-  background-color: #e0e0e0;
-  width: 2px;
-  height: 43px;
-  border-radius: 1px;
-  
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  z-index: 1;
 
-  
-  left: 40px;
-  
-}
 
-.first.groupLabel {
-  width: 100px;
-  color: #555555;
-  
-  z-index: 3;
-}
 
-.first.groupLabel > div {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 
-.first.groupNumber {
-  width: 60px;
-}
 
-.groupNumber {
-  color: #555555;
-  width: 45px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
-  
-  z-index: 3;
-}
 
-  
+
+
 
 #divInfo {
   width: 300px;
