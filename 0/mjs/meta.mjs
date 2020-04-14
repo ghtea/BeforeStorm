@@ -12,7 +12,7 @@ return html`
 `;
 }
 
-const infoDate = "2020. 4. 10. (UTC +9)";
+const infoDate = "2020. 4. 14. (UTC +9)";
 const infoVerHM = "2.49.4.78725";
 const infoVerHH = "2.49";
 
@@ -146,7 +146,7 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
 return html`
    <div id="Header"> 
       <div id="BeforeStorm">
-         BEFORE STORM
+         BEFORE STORM: META
       </div>
       
    <${Message}/>
