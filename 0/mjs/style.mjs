@@ -2,7 +2,7 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
-import {Shield, Dynamite, Knife} from '../svgs/style/scoreIcons.mjs';
+import {OneIcon} from '../svgs/style/scoreIcons.mjs';
 
 
 
@@ -181,6 +181,7 @@ return html`
 
 function hero1({heroId, focusHero, cRoles}) {
 
+
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
 else { var onoff = "off";}
 
@@ -209,9 +210,26 @@ return html`
       </div>
          
       <div class="groupScoreIcon">
-         <${Shield} />
-         <${Dynamite} />
-         <${Knife} />
+         <${OneIcon} 
+            x=${-1.6}
+            whichScore=${"Shield"}
+         />
+         <${OneIcon} 
+            x=${-1.6}
+            whichScore=${"Dynamite"}
+         />
+         <${OneIcon} 
+            x=${-1.6}
+            whichScore=${"Shield"}
+         />
+         <${OneIcon} 
+            x=${-1.6}
+            whichScore=${"Shield"}
+         />
+         <${OneIcon} 
+            x=${-1.6}
+            whichScore=${"Shield"}
+         />
       </div>
      
 
@@ -258,13 +276,14 @@ numRerender=${numRerender}
 />
 
 
-
 <div id="divContent">
+   <div id="Heroes">
    <${hero1}
       heroId=${"Alarak"}
-      focusHero=${"focusHero"}
-      cRoles=${"cRoles"}
-   />
+      focusHero=${focusHero}
+      cRoles=${cRoles}
+/>
+   </div>
 </div>
 
 
