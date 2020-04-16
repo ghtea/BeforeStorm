@@ -86,7 +86,7 @@ return html`
          <div> ${objHeroBasic[mainHeroID]['HeroName']}</div>
       </div>
          
-      <div> <a href="https://beforestorm.avantwing.com/meta"> HOME </a> </div>
+      <div> <a href="../../meta.html"> HOME </a> </div>
          
    </div>
 `;

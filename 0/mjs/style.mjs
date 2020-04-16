@@ -2,7 +2,7 @@
 
 import { html, Component, render, useState} from 'https://beforestorm.avantwing.com/0/common/standalone.module.js';
 
-import {OneIcon} from '../svgs/style/scoreIcons.mjs';
+import {Dynamite, Knife, OneIcon} from '../svgs/style/scoreIcons.mjs';
 
 
 
@@ -210,25 +210,24 @@ return html`
       </div>
          
       <div class="groupScoreIcon">
+         
+         <${Dynamite}
+            x=${-1.2}
+         />
+         <${Knife} 
+            x=${1.9}
+         />
          <${OneIcon} 
-            x=${-1.6}
+            x=${-1}
             whichScore=${"Shield"}
          />
          <${OneIcon} 
-            x=${-1.6}
-            whichScore=${"Dynamite"}
+            x=${0}
+            whichScore=${"Timer"}
          />
          <${OneIcon} 
-            x=${-1.6}
-            whichScore=${"Shield"}
-         />
-         <${OneIcon} 
-            x=${-1.6}
-            whichScore=${"Shield"}
-         />
-         <${OneIcon} 
-            x=${-1.6}
-            whichScore=${"Shield"}
+            x=${-2}
+            whichScore=${"Shoes"}
          />
       </div>
      

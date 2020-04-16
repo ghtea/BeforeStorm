@@ -7,9 +7,18 @@ new ClipboardJS('.btn');
 function Message() {
 return html`
    <div id="divMessage">
+   Tassdar Rework❕(talents, builds)
+   </div>
+`;
+
+/*
+return html`
+   <div id="divMessage">
    ❕<a href="https://api.heroesprofile.com/upload" > Please Upload Replays </a>❕
    </div>
 `;
+*/
+
 }
 
 const infoDate = "2020. 4. 14. (UTC +9)";
@@ -44,6 +53,7 @@ for (var iHero = 0; iHero < numHero; iHero++) {
          "Point": 0
        })
    }
+   
    
 /* difficulty */
 for (var iHero = 0; iHero < numHero; iHero++) {
@@ -549,6 +559,8 @@ const [point, setPoint] = useState(listObjHeroPoint);
 
 
 function updatePoint() {
+   
+   
    for (var iHero = 0; iHero < numHero; iHero++) {
        var cHero = listObjHeroPoint[iHero]['HeroID']
        

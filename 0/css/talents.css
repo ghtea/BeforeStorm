@@ -220,9 +220,10 @@
 #groupLabel {
   font-size: 0.95rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  
 }
 
 #groupNumber {

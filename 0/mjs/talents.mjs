@@ -99,7 +99,7 @@ return html`
          <div> ${objHeroBasic[HeroID]['HeroName']}</div>
       </div>
          
-      <div> <a href="https://beforestorm.avantwing.com/meta"> HOME </a> </div>
+      <div> <a href="../../meta.html"> HOME </a> </div>
          
    </div>
 `;
@@ -135,7 +135,7 @@ function divGuide() {
    <div id="divGuide">
       <div>
          <div> color: WinRate</div>
-         <div> ↕ height: Popularity</div>
+         <div> ↕ height: Games</div>
       </div>
    </div>
 `;
@@ -256,7 +256,7 @@ else {
    console.log(barWidth, " x ", barHeight);
    
    var textWinRate = objTalentMeta[talentIdF]['WinRate']
-   var textGameRate = objTalentMeta[talentIdF]['Popularity']
+   var textPlays = objTalentMeta[talentIdF]['Games']
    
    
    var strTalentName= objHeroTalent[talentIdF]['TalentName'];
@@ -305,13 +305,13 @@ else {
    
    <div id="groupLabel">
       <div> ↔ WinRate: </div>
-      <div> ↕ Popularity: </div>
+      <div> ↕ Games: </div>
    </div>
    
          
    <div id="groupNumber">
       <div> ${textWinRate}% </div>
-      <div> ${textGameRate}% </div>
+      <div> ${textPlays} </div>
    </div>
    
 </div> <!-- metaTalentF -->
