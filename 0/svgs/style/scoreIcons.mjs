@@ -253,6 +253,83 @@ style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
 
 
 
+function Timer({x}) {
+
+let descriptionScore;
+let gradientWhich;
+let positionIcon;
+const sizeIconMax=48;
+let colorFont = "#dddde8";
+let sizeText = 0.9;
+
+if (x > 2.5) {
+    positionIcon = 36;
+}
+else if (x < -2.5) {
+    positionIcon = 0;
+}
+else if (x >= -2.5 && x <=2.5) {
+    positionIcon = (x+2.5) / 5 * 36;
+}
+
+
+if (x<1 && x>-1) {
+    sizeText = 0;
+}
+
+
+
+
+if (x >= 0) {
+    descriptionScore = "late game";
+} 
+else if (x<0) {
+    descriptionScore = "early game";
+}
+
+gradientWhich = "#gradientShield";
+
+return html`
+<div class="divScoreIcon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 500" 
+
+class="scoreIcon"
+style="height: 48px; width: 12px; z-index:1; ">
+
+<g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none; margin-left: ${positionIcon}px;">
+
+<path fill="#f8f8f8" stroke="" 
+    d="
+      M 0,250
+      C 0,0 0,0 62.5,0
+        125,0 125,0 125,250
+        125,500 125,500 62.5,500
+        0,500 0,500 0,250
+    "
+></path>    
+    
+</g></svg>
+
+
+
+    <div
+        class="textIcon"
+        style="
+    font-size: ${sizeText}rem; 
+    line-height: ${sizeText*0.9}rem; 
+    z-index:2;
+    color: ${colorFont};
+    "
+    >
+        ${descriptionScore}
+    </div>
+
+</div>
+`  
+}
+
+
+
 function OneIcon({x, whichScore}) {
 
 const listOneIcon = ["Shield", "Dynamite", "Knife"];
@@ -350,13 +427,13 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
 
 <linearGradient id="gradientShield">
-    <stop offset="10%" stop-color="#456" />
-    <stop offset="90%" stop-color="#333" />
+    <stop offset="10%" stop-color="#567" />
+    <stop offset="90%" stop-color="#444" />
 </linearGradient>
 
 <linearGradient id="gradientTimer">
-    <stop offset="10%" stop-color="#456" />
-    <stop offset="90%" stop-color="#333" />
+    <stop offset="10%" stop-color="#567" />
+    <stop offset="90%" stop-color="#444" />
 </linearGradient>
 
 <linearGradient id="gradientShoes">
@@ -396,4 +473,4 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
 
 
-export {Dynamite, Knife, Shield, OneIcon};
+export {Dynamite, Knife, Shield, Timer, OneIcon};
