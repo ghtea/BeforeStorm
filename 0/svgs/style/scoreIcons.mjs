@@ -197,7 +197,7 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}px; z-index:1;">
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
-<path fill="#dddde8" stroke="" 
+<path fill="#f8f8f8" stroke="" 
     d="
       M 0,250
       C 0,0 0,0 250,0
