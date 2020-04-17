@@ -254,7 +254,7 @@ let gradientWhich;
 let positionIcon;
 const sizeIconMax=48;
 
-let colorFont = "#dddde8";
+let colorFont = "#333";
 let sizeText = 0.9;
 
 if (x > 2.5) {
@@ -358,6 +358,15 @@ style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
     line-height: ${sizeText*0.9}rem; 
     z-index:5;
     color: ${colorFont};
+    text-shadow: 
+    1px 1px 0 #f8f8f8,
+    -1px 1px 0 #f8f8f8,
+    1px -1px 0 #f8f8f8,
+    -1px -1px 0 #f8f8f8,
+    0px 1px 0 #f8f8f8,
+    0px -1px 0 #f8f8f8,
+    -1px 0px 0 #f8f8f8,
+    1px 0px 0 #f8f8f8;
     "
     >
         ${descriptionScore}
