@@ -7,7 +7,7 @@ new ClipboardJS('.btn');
 function Message() {
 return html`
    <div id="divMessage">
-   Tassadar Rework❕(talents, builds)
+   update: Tassadar (talents, builds)
    </div>
 `;
 
@@ -108,6 +108,12 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
       setMessage(k);
    }
    */
+   
+const versionEntireMap = "(new version)";
+const versionEachMap = "(old version)";
+const widthMap = 270; /* 240 or 270 */
+   
+   
 
    function changeRGW1(event) {
       changeRGW(event.target.value);
@@ -254,19 +260,22 @@ return html`
    
       
    <div id="divMap">
-      <select id="selectMap" value=${cMap} onChange=${changeMap1}>
-      <option value="All" selected >All Battlegrounds </option>
-      <option value="Alterac Pass"> Alterac Pass </option>
-      <option value="Battlefield of Eternity">Battlefield of Eternity</option>
-      <option value="Braxis Holdout">Braxis Holdout</option>
-      <option value="Cursed Hollow">Cursed Hollow</option>
-      <option value="Dragon Shire">Dragon Shire</option>
-      <option value="Hanamura Temple">Hanamura Temple</option>
-      <option value="Infernal Shrines">Infernal Shrines</option>
-      <option value="Sky Temple">Sky Temple</option>
-      <option value="Tomb of the Spider Queen">Tomb of the Spider Queen</option>
-      <option value="Towers of Doom">Towers of Doom</option>
-      <option value="Volskaya Foundry">Volskaya Foundry</option>
+      <select id="selectMap" value=${cMap} onChange=${changeMap1}
+      style="width:${widthMap}px;"
+      
+      >
+      <option value="All" selected >All Battlegrounds ${versionEntireMap} </option>
+      <option value="Alterac Pass"> Alterac Pass ${versionEachMap}</option>
+      <option value="Battlefield of Eternity">Battlefield of Eternity ${versionEachMap}</option>
+      <option value="Braxis Holdout">Braxis Holdout ${versionEachMap}</option>
+      <option value="Cursed Hollow">Cursed Hollow ${versionEachMap}</option>
+      <option value="Dragon Shire">Dragon Shire ${versionEachMap}</option>
+      <option value="Hanamura Temple">Hanamura Temple ${versionEachMap}</option>
+      <option value="Infernal Shrines">Infernal Shrines ${versionEachMap}</option>
+      <option value="Sky Temple">Sky Temple ${versionEachMap}</option>
+      <option value="Tomb of the Spider Queen">Tomb of the Spider Queen ${versionEachMap}</option>
+      <option value="Towers of Doom">Towers of Doom ${versionEachMap}</option>
+      <option value="Volskaya Foundry">Volskaya Foundry ${versionEachMap}</option>
       </select>
    </div>
 `;
