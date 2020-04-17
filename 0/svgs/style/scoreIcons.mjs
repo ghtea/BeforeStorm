@@ -215,12 +215,6 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}px; z-index:1;">
 class="scoreIcon"
 style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
 
-<defs>
-<linearGradient id="gradientKnife">
-    <stop offset="10%" stop-color="#e33" />
-    <stop offset="90%" stop-color="#b00" />
-</linearGradient>
-</defs>
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
@@ -259,6 +253,7 @@ let descriptionScore;
 let gradientWhich;
 let positionIcon;
 const sizeIconMax=48;
+
 let colorFont = "#dddde8";
 let sizeText = 0.9;
 
@@ -276,6 +271,7 @@ else if (x >= -2.5 && x <=2.5) {
 if (x<1 && x>-1) {
     sizeText = 0;
 }
+console.log(positionIcon);
 
 
 
@@ -293,12 +289,15 @@ return html`
 <div class="divScoreIcon">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 500" 
 
-class="scoreIcon"
-style="height: 48px; width: 12px; z-index:1; ">
+class=""
+style="height: 44px; width: 11px; z-index:2;
+position: absolute;
+left:${positionIcon}px;
+ ">
 
-<g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none; margin-left: ${positionIcon}px;">
+<g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
-<path fill="#f8f8f8" stroke="" 
+<path fill="url("${gradientWhich}")" stroke="" 
     d="
       M 0,250
       C 0,0 0,0 62.5,0
@@ -311,13 +310,53 @@ style="height: 48px; width: 12px; z-index:1; ">
 </g></svg>
 
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" 
+
+class="scoreIcon"
+style="height: ${sizeIconMax -6}px; width: ${sizeIconMax -6}px; z-index:1;">
+
+<g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
+
+<path fill="#f8f8f8" stroke="" 
+    d="
+      M 0,250
+      C 0,0 0,0 250,0
+        500,0 500,0 500,250
+        500,500 500,500 250,500
+        0,500 0,500 0,250
+    "
+></path>    
+    
+</g></svg>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" 
+
+class="scoreIcon"
+style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
+
+
+<g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
+
+<path fill="url("${gradientWhich}")" stroke="" 
+    d="
+      M 0,250
+      C 0,0 0,0 250,0
+        500,0 500,0 500,250
+        500,500 500,500 250,500
+        0,500 0,500 0,250
+    "
+></path>    
+    
+</g></svg>
+
 
     <div
         class="textIcon"
         style="
     font-size: ${sizeText}rem; 
     line-height: ${sizeText*0.9}rem; 
-    z-index:2;
+    z-index:5;
     color: ${colorFont};
     "
     >
