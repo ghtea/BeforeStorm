@@ -26,17 +26,13 @@ else if (x >= -2.5 && x <=2.5) {
     sizeIcon = (x+2.5) / 5 * 48;
 }
 
-if (x<1 && x>-1) {
-    sizeText = 0;
-}
 
-
-if (x >= 0) {
+if (x >= 0.9) {
     descriptionScore = "clear minions";
     colorFont ="#f8f8f8";
     colorFontOutline ="#53b";
 } 
-else if (x<0) {
+else if (x<0.9) {
     descriptionScore = "";
     colorFont ="";
     colorFontOutline ="";
@@ -150,17 +146,15 @@ else if (x >= -2.5 && x <=2.5) {
     sizeIcon = (x+2.5) / 5 * 48;
 }
 
-if (x<1 && x>-1) {
-    sizeText = 0;
-}
 
 
-if (x >= 0) {
+
+if (x >= 0.9) {
     descriptionScore = "kill heroes";
     colorFont ="#f8f8f8"
     colorFontOutline ="#c22";
 } 
-else if (x<0) {
+else if (x<0.9) {
     descriptionScore = "";
     colorFont ="";
     colorFontOutline ="";

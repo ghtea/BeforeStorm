@@ -90,13 +90,13 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  TELL ME </a> </div>
+      <div id="tabFeedback"> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  TELL ME </a> </div>
       
-      <div> <a href="meta.html" >  META </a> </div>
+      <div id="tabMeta"> <a href="meta.html" >  META </a> </div>
       
-      <div> <a href="style.html" >  STYLE </a> </div>
+      <div id="tabStyle"> <a href="style.html" >  STYLE </a> </div>
 
-      <div> <button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
+      <div id="tabLink"><button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
     COPY LINK
 </button> </div>
       
