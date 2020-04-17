@@ -32,6 +32,15 @@ var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Hea
 var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
 
 
+/* first make of point */
+var listObjHeroPoint = [];
+for (var iHero = 0; iHero < numHero; iHero++) {
+       listObjHeroPoint.push({
+         "HeroID": objHeroBasic[Object.keys(objHeroBasic)[iHero]]["HeroID"],
+         "Point": 0
+       })
+   }
+
 
 /* components */
 
@@ -185,10 +194,6 @@ function hero1({heroId, focusHero, cRoles}) {
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
 else { var onoff = "off";}
 
-
-
-
-
 function focusHero1(event) {
    focusHero(event.target.getAttribute('data-heroId'));
 };
@@ -197,6 +202,10 @@ return html`
          
    <div class="divEachHero" data-onoff="${onoff}">
       
+      <div 
+         class="leftEachHero"
+         data-role="${objHeroBasic[heroId]['Role']}"
+         >
       <div 
       class="backHero"
       data-role="${objHeroBasic[heroId]['Role']}">
@@ -208,27 +217,35 @@ return html`
          onClick=${focusHero1} 
          />
       </div>
-         
+      </div>
+      
+      <div class="rightEachHero">
       <div class="groupScoreIcon">
+         <${Shield} 
+            x=${objHeroFactorScoreZ[heroId]["Shield"]}
+         />
          
          <${Dynamite}
-            x=${-1.2}
+            x=${objHeroFactorScoreZ[heroId]["Dynamite"]}
          />
          <${Knife} 
-            x=${1.9}
+            x=${objHeroFactorScoreZ[heroId]["Knife"]}
          />
-         <${Shield} 
-            x=${-1.9}
-         />
-         <${Timer} 
-            x=${-1.3}
-         />
+         
+         
          <${Shoes} 
-            x=${-2}
+            x=${objHeroFactorScoreZ[heroId]["Shoes"]}
+         />
+         
+         <${Timer} 
+            x=${objHeroFactorScoreZ[heroId]["Timer"]}
          />
       </div>
-     
-
+      
+      <div class="groupOtherScoreIcon">
+         <div> silence </div>
+      </div>
+      </div>
    
    </div>
 `;
@@ -242,9 +259,14 @@ function forceRerender() {
    setRerender(numRerender + 1);
 }
 
+const [point, setPoint] = useState(listObjHeroPoint);
+
+
 const [visibleF, setVisibleF] = useState(false);
 
 const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);
+
+
 
 function changeRoles(x) {
    setRoles(x);
@@ -274,11 +296,16 @@ numRerender=${numRerender}
 
 <div id="divContent">
    <div id="Heroes">
-   <${hero1}
-      heroId=${"Alarak"}
-      focusHero=${focusHero}
-      cRoles=${cRoles}
-/>
+   
+   ${point.map((objHero, index)=> html`
+   <${hero1} 
+   heroId=${objHero['HeroID']} 
+   focusHero=${focusHero}
+   cRoles=${cRoles}
+   />
+   `)}
+   
+   
    </div>
 </div>
 

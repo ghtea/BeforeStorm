@@ -34,7 +34,7 @@ if (x<1 && x>-1) {
 if (x >= 0) {
     descriptionScore = "clear minions";
     colorFont ="#f8f8f8";
-    colorFontOutline ="#333";
+    colorFontOutline ="#53b";
 } 
 else if (x<0) {
     descriptionScore = "";
@@ -50,7 +50,7 @@ return html`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" 
 
 class="scoreIcon"
-style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
+style="height: ${sizeIcon}px; width: ${sizeIcon}px; z-index:3;">
 
 <defs>
 <linearGradient id="gradientDynamite">
@@ -74,8 +74,10 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 </g></svg>
 
     <div
-        class="textIcon"
-        style="
+    class="textIcon"
+    
+    style="
+    z-index:5;
     font-size: ${sizeText}rem; 
     line-height: ${sizeText*0.9}rem;
     color: ${colorFont};
@@ -92,7 +94,34 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
     >
         ${descriptionScore}
     </div>
+    
+<!--
+<svg xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 500 500"
+class="scoreIcon"
+style="height: ${sizeIconMax-4}px; width: ${sizeIconMax-4}px; z-index:0;">
+ 
+<g class="" transform="scale(0.94, 0.94) translate(15,15)" style="touch-action: none;">
 
+<path  
+    fill="#f8f8f8"
+    stroke="#64c" 
+    stroke-width="20" 
+    
+    d="
+      M 0,250
+      C 0,0 0,0 250,0
+        500,0 500,0 500,250
+        500,500 500,500 250,500
+        0,500 0,500 0,250
+    "
+></path>    
+    
+</g></svg>
+-->
+
+
+    
 </div>
 `  
 }
@@ -168,8 +197,9 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 </g></svg>
 
     <div
-        class="textIcon"
-        style="
+    class="textIcon"
+    style="
+    z-index:5;
     font-size: ${sizeText}rem; 
     line-height: ${sizeText*0.9}rem;
     color: ${colorFont};
@@ -200,7 +230,10 @@ let descriptionScore;
 let gradientWhich;
 let sizeIcon;
 const sizeIconMax=48;
+
 let colorFont;
+let colorFontOutline;
+
 let sizeText = 0.9;
 
 if (x > 2.5) {
@@ -209,43 +242,31 @@ if (x > 2.5) {
 else if (x < -2.5) {
     sizeIcon = 48;
 }
-else if (x >= -2.5 && x <=2.5) {
+else if (x <= 2.5 && x >= -2.5) {
     sizeIcon = (2.5-x) / 5 * 48;
 }
 
 
-if (x<1 && x>-1) {
-    sizeText = 0;
-}
-
-/*
-if (x > 2.5) {
-    sizeText = 0.9;
+if (x <= -1) {
+    descriptionScore = "avoid damage";
 }
 else if (x >= 1) {
-    sizeText = 0.9 * 1/2.5 + (x-1) / (2.5-1) * 0.9 * (1 - 1/2.5);
-    
-} 
-else if (x < -2.5) {
-    sizeText = 0.9;
+    descriptionScore = "bear damage";
 }
-else if (x <= -1) {
-    sizeText = 0.9 * 1/2.5 + (-1-x) / (2.5-1) * 0.9 * (1 - 1/2.5);
-} 
-else {
-    sizeText = 0;
+else if (x<1 && x>-1) {
+    descriptionScore = "medium";
 }
-*/
 
 
 if (x >= 0) {
-    descriptionScore = "strong body";
-    colorFont = "#dddde8";
+    colorFont = "#f8f8f8";
+    colorFontOutline = "#667";
 } 
 else if (x<0) {
-    descriptionScore = "weak body";
-    colorFont = "#333";
+    colorFont = "#667";
+    colorFontOutline = "#f8f8f8";
 }
+
 
 gradientWhich = "#gradientShield";
 
@@ -258,8 +279,8 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}px; z-index:1;">
 
 <defs>
 <linearGradient id="gradientShield">
-    <stop offset="10%" stop-color="#567" />
-    <stop offset="90%" stop-color="#444" />
+    <stop offset="10%" stop-color="#aab" />
+    <stop offset="90%" stop-color="#334" />
 </linearGradient>
 </defs>
 
@@ -299,12 +320,21 @@ style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
     
 </g></svg>
     <div
-        class="textIcon"
-        style="
+    class="textIcon"
+    style="
+    z-index:5;
     font-size: ${sizeText}rem; 
-    line-height: ${sizeText*0.9}rem; 
-    z-index:2;
+    line-height: ${sizeText*0.9}rem;
     color: ${colorFont};
+        text-shadow: 
+    1px 1px 0 ${colorFontOutline},
+    -1px 1px 0 ${colorFontOutline},
+    1px -1px 0 ${colorFontOutline},
+    -1px -1px 0 ${colorFontOutline},
+    0px 1px 0 ${colorFontOutline},
+    0px -1px 0 ${colorFontOutline},
+    -1px 0px 0 ${colorFontOutline},
+    1px 0px 0 ${colorFontOutline};
     "
     >
         ${descriptionScore}
@@ -327,33 +357,29 @@ let colorFont = "#333";
 let colorFontOutline ="#f8f8f8";
 let sizeText = 0.9;
 
+
 if (x > 2.5) {
-    positionIcon = 36;
+    positionIcon = 33;
 }
 else if (x < -2.5) {
-    positionIcon = 0;
+    positionIcon = 3;
 }
 else if (x >= -2.5 && x <=2.5) {
-    positionIcon = (x+2.5) / 5 * 36;
+    positionIcon = 3 + (x+2.5) / 5 * 33;
 }
 
 
-if (x<1 && x>-1) {
-    sizeText = 0;
-}
-console.log(positionIcon);
-
-
-
-
-if (x >= 0) {
-    descriptionScore = "late game";
-} 
-else if (x<0) {
+if (x <= -1) {
     descriptionScore = "early game";
 }
+else if (x >= 1) {
+    descriptionScore = "late game";
+}
+else if (x<1 && x>-1) {
+    descriptionScore = "normal game";
+}
 
-gradientWhich = "#gradientShield";
+gradientWhich = "#gradientTimer";
 
 return html`
 <div class="divScoreIcon">
@@ -392,7 +418,7 @@ left:${positionIcon}px;
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" 
 
 class="scoreIcon"
-style="height: ${sizeIconMax -6}px; width: ${sizeIconMax -6}px; z-index:1;">
+style="height: ${sizeIconMax -4}px; width: ${sizeIconMax -4}px; z-index:1;">
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 

@@ -291,11 +291,33 @@ a {
   justify-content: flex-start;
   align-items: center;
   
+  margin: 10px;
+  
   background-image: linear-gradient(to bottom right, #eeeeee, #ffffff);
-  height: 52px;
-  width: 360px;
+  height: 90px;
+  width: 370px;
+  
+  border-radius: 10px;
 }
 
+.leftEachHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  height: 90px;
+  width: 70px;
+  
+  border-radius: 10px 0 0 10px;
+}
+
+.rightEachHero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
 .backHero {
   
@@ -328,7 +350,7 @@ a {
 
 
 .groupScoreIcon {
-  
+  margin-left: 2px;
   
   width: 300px;
   height: 52px;
@@ -336,11 +358,7 @@ a {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  
-  
 }
-
-
 
 
 .divScoreIcon {
@@ -352,7 +370,6 @@ a {
   align-items: center;
   
   position: relative;
-  
 }
 
 .textIcon {
@@ -372,6 +389,19 @@ a {
   transform: translate(-50%, -50%);
   
   color: #dddde8;
+}
+
+.groupOtherScoreIcon {
+  margin-left: 8px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.groupOtherScoreIcon > div {
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 
@@ -577,7 +607,7 @@ a {
 
 
 /* role color */
-.backHero[data-role="Tank"]
+.leftEachHero[data-role="Tank"]
 , #cardMid > div[data-role="Tank"] 
 , .buttonRole[data-role="Tank"][data-onoff="on"] 
 {
@@ -585,15 +615,14 @@ a {
 }
 
 
-.backHero[data-role="Bruiser"] 
+.leftEachHero[data-role="Bruiser"] 
 , #cardMid > div[data-role="Bruiser"] 
 , .buttonRole[data-role="Bruiser"][data-onoff="on"] 
 {
   background-image: linear-gradient(to bottom, #ff5c24, #ff0000);
 }
 
-
-.backHero[data-role="Melee Assassin"]
+.leftEachHero[data-role="Melee Assassin"]
 , #cardMid > div[data-role="Melee Assassin"] 
 , .buttonRole[data-role="Melee Assassin"][data-onoff="on"]  
 {
@@ -601,7 +630,7 @@ a {
 }
 
 
-.backHero[data-role="Ranged Assassin"] 
+.leftEachHero[data-role="Ranged Assassin"] 
 , #cardMid > div[data-role="Ranged Assassin"] 
 , .buttonRole[data-role="Ranged Assassin"][data-onoff="on"]  
 {
@@ -609,7 +638,7 @@ a {
 }
 
 
-.backHero[data-role="Healer"] 
+.leftEachHero[data-role="Healer"] 
 , #cardMid > div[data-role="Healer"] 
 , .buttonRole[data-role="Healer"][data-onoff="on"]  
 {
@@ -617,7 +646,7 @@ a {
 }
 
 
-.backHero[data-role="Support"] 
+.leftEachHero[data-role="Support"] 
 , #cardMid > div[data-role="Support"] 
 , .buttonRole[data-role="Support"][data-onoff="on"]  
 {
