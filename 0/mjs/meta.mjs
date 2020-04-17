@@ -7,7 +7,7 @@ new ClipboardJS('.btn');
 function Message() {
 return html`
    <div id="divMessage">
-   Tassdar Rework❕(talents, builds)
+   Tassadar Rework❕(talents, builds)
    </div>
 `;
 
