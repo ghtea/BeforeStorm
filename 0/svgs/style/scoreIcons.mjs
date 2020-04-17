@@ -5,28 +5,45 @@ import { html, Component, render, useState} from 'https://beforestorm.avantwing.
 
 function Dynamite({x}) {
 
-let descriptionScore = "clear minions";
+
+let descriptionScore;
 let gradientWhich;
 let sizeIcon;
-let sizeText;
+const sizeIconMax=48;
 
-if (x < -2.5) {
-    sizeIcon = 10;
+let colorFont;
+let colorFontOutline;
+let sizeText = 0.9;
+
+
+if (x > 2.5) {
+    sizeIcon = 48;
 }
-else if (x > 2.5) {
-    sizeIcon = 50;
-    sizeText = 0.9;
-} else if (x >= -2) {
-    sizeIcon = 10 + (x+2.5)/5 * 40;
-    sizeText = 0.18 + (x+2.5)/5 * 0.72;
+else if (x < -2.5) {
+    sizeIcon = 0;   
+}
+else if (x >= -2.5 && x <=2.5) {
+    sizeIcon = (x+2.5) / 5 * 48;
 }
 
-if (x<0) {
+if (x<1 && x>-1) {
+    sizeText = 0;
+}
+
+
+if (x >= 0) {
+    descriptionScore = "clear minions";
+    colorFont ="#f8f8f8";
+    colorFontOutline ="#333";
+} 
+else if (x<0) {
     descriptionScore = "";
+    colorFont ="";
+    colorFontOutline ="";
 }
-
 
 gradientWhich = "#gradientDynamite";
+
 
 return html`
 <div class="divScoreIcon">
@@ -58,7 +75,20 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
     <div
         class="textIcon"
-        style="font-size: ${sizeText}rem; line-height: ${sizeText*0.9}rem;"
+        style="
+    font-size: ${sizeText}rem; 
+    line-height: ${sizeText*0.9}rem;
+    color: ${colorFont};
+    text-shadow: 
+    1px 1px 0 ${colorFontOutline},
+    -1px 1px 0 ${colorFontOutline},
+    1px -1px 0 ${colorFontOutline},
+    -1px -1px 0 ${colorFontOutline},
+    0px 1px 0 ${colorFontOutline},
+    0px -1px 0 ${colorFontOutline},
+    -1px 0px 0 ${colorFontOutline},
+    1px 0px 0 ${colorFontOutline};
+    "
     >
         ${descriptionScore}
     </div>
@@ -74,21 +104,39 @@ function Knife({x}) {
 let descriptionScore;
 let gradientWhich;
 let sizeIcon;
-let sizeText;
+const sizeIconMax=48;
 
-if (x < -2) {
-    sizeIcon = 25;
-    sizeText = 0.45;
+let colorFont;
+let colorFontOutline;
+let sizeText = 0.9;
+
+
+if (x > 2.5) {
+    sizeIcon = 48;
 }
-else if (x > 2) {
-    sizeIcon = 50;
-    sizeText = 0.9;
-} else if (x >= -2) {
-    sizeIcon = 25 + (x+2)/4 * 25;
-    sizeText = 0.45 + (x+2)/4 * 0.45;
+else if (x < -2.5) {
+    sizeIcon = 0;   
+}
+else if (x >= -2.5 && x <=2.5) {
+    sizeIcon = (x+2.5) / 5 * 48;
 }
 
-descriptionScore = "kill heroes";
+if (x<1 && x>-1) {
+    sizeText = 0;
+}
+
+
+if (x >= 0) {
+    descriptionScore = "kill heroes";
+    colorFont ="#f8f8f8"
+    colorFontOutline ="#c22";
+} 
+else if (x<0) {
+    descriptionScore = "";
+    colorFont ="";
+    colorFontOutline ="";
+}
+
 gradientWhich = "#gradientKnife";
 
 return html`
@@ -121,7 +169,20 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
     <div
         class="textIcon"
-        style="font-size: ${sizeText}rem; line-height: ${sizeText*0.9}rem;"
+        style="
+    font-size: ${sizeText}rem; 
+    line-height: ${sizeText*0.9}rem;
+    color: ${colorFont};
+        text-shadow: 
+    1px 1px 0 ${colorFontOutline},
+    -1px 1px 0 ${colorFontOutline},
+    1px -1px 0 ${colorFontOutline},
+    -1px -1px 0 ${colorFontOutline},
+    0px 1px 0 ${colorFontOutline},
+    0px -1px 0 ${colorFontOutline},
+    -1px 0px 0 ${colorFontOutline},
+    1px 0px 0 ${colorFontOutline};
+    "
     >
         ${descriptionScore}
     </div>
@@ -195,6 +256,14 @@ return html`
 class="scoreIcon"
 style="height: ${sizeIcon}px; width: ${sizeIcon}px; z-index:1;">
 
+<defs>
+<linearGradient id="gradientShield">
+    <stop offset="10%" stop-color="#567" />
+    <stop offset="90%" stop-color="#444" />
+</linearGradient>
+</defs>
+
+
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
 <path fill="#f8f8f8" stroke="" 
@@ -255,6 +324,7 @@ let positionIcon;
 const sizeIconMax=48;
 
 let colorFont = "#333";
+let colorFontOutline ="#f8f8f8";
 let sizeText = 0.9;
 
 if (x > 2.5) {
@@ -294,6 +364,15 @@ style="height: 44px; width: 11px; z-index:2;
 position: absolute;
 left:${positionIcon}px;
  ">
+ 
+ <defs>
+ <linearGradient id="gradientTimer">
+    <stop offset="10%" stop-color="#567" />
+    <stop offset="90%" stop-color="#444" />
+</linearGradient>
+ </defs>
+ 
+ 
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
@@ -359,14 +438,14 @@ style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
     z-index:5;
     color: ${colorFont};
     text-shadow: 
-    1px 1px 0 #f8f8f8,
-    -1px 1px 0 #f8f8f8,
-    1px -1px 0 #f8f8f8,
-    -1px -1px 0 #f8f8f8,
-    0px 1px 0 #f8f8f8,
-    0px -1px 0 #f8f8f8,
-    -1px 0px 0 #f8f8f8,
-    1px 0px 0 #f8f8f8;
+    1px 1px 0 ${colorFontOutline},
+    -1px 1px 0 ${colorFontOutline},
+    1px -1px 0 ${colorFontOutline},
+    -1px -1px 0 ${colorFontOutline},
+    0px 1px 0 ${colorFontOutline},
+    0px -1px 0 ${colorFontOutline},
+    -1px 0px 0 ${colorFontOutline},
+    1px 0px 0 ${colorFontOutline};
     "
     >
         ${descriptionScore}
@@ -377,81 +456,44 @@ style="height: ${sizeIconMax}px; width: ${sizeIconMax}px; z-index:0;">
 }
 
 
-
-function OneIcon({x, whichScore}) {
-
-const listOneIcon = ["Shield", "Dynamite", "Knife"];
-const listTwoIcon = ["Timer", "Shoes"];
+function Shoes({x}) {
 
 let descriptionScore;
 let gradientWhich;
 let sizeIcon;
-let sizeText;
+const sizeIconMax=48;
 
-if (listOneIcon.includes(whichScore)){
-if (x < -2) {
-    sizeIcon = 25;
-    sizeText = 0.5;
+let colorFont;
+let colorFontOutline;
+let sizeText = 0.9;
+
+if (x > 2.5) {
+    sizeIcon = 48;
 }
-else if (x > 2) {
-    sizeIcon = 50;
-    sizeText = 1;
-} else if (x >= -2) {
-    sizeIcon = 25 + (x+2)/4 * 25;
-    sizeText = 0.5 + (x+2)/4 * 0.5;
+else if (x < -2.5) {
+    sizeIcon = 0;   
 }
+else if (x >= -2.5 && x <=2.5) {
+    sizeIcon = (x+2.5) / 5 * 48;
 }
 
-
-if (listTwoIcon.includes(whichScore)){
-if (x == 0) {
-    sizeIcon = 25;
-    sizeText = 0.5;
-}
-else if (x > 2) {
-    sizeIcon = 50;
-    sizeText = 1;
-} else if (x > 0) {
-    sizeIcon = 25 + x/2 * 25;
-    sizeText = 0.5 + x/2 * 0.5;
-} else if (x < -2) {
-    sizeIcon = 50;
-    sizeText = 1;
-} else if (x < 0) {
-    sizeIcon = 25 + -x/2 * 25;
-    sizeText = 0.5 + -x/2 * 0.5;
-}
+if (x<1 && x>-1) {
+    sizeText = 0;
 }
 
 
-if (whichScore == "Shield") {
-    descriptionScore = "bear damage";
-    gradientWhich = "#gradientShield";
+if (x >= 0) {
+    descriptionScore = "go around";
+    colorFont ="#f8f8f8";
+    colorFontOutline ="#333";
+} 
+else if (x<0) {
+    descriptionScore = "stay around";
+    colorFont ="#333";
+    colorFontOutline ="#f8f8f8";
 }
 
-else if (whichScore == "Dynamite") {
-    descriptionScore = "kill minions";
-    gradientWhich = "#gradientDynamite";
-}
-
-else if (whichScore == "Knife") {
-    descriptionScore = "kill heroes";
-    gradientWhich = "#gradientKnife";
-}
-
-else if (whichScore == "Timer") {
-    descriptionScore = "late game";
-    gradientWhich = "#gradientTimer";
-}
-else if (whichScore == "Shoes") {
-    if (x >= 0) { 
-        descriptionScore = "go around";
-    } else if (x < 0) {
-        descriptionScore = "stay around";
-    }
-    gradientWhich = "#gradientTimer";
-}
-
+gradientWhich = "#gradientShoes";
 
 return html`
 <div class="divScoreIcon">
@@ -461,34 +503,10 @@ class="scoreIcon"
 style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
 <defs>
-
-
-<linearGradient id="gradientDynamite">
-    <stop offset="10%" stop-color="#75d" />
-    <stop offset="90%" stop-color="#42a" />
-</linearGradient>
-
-<linearGradient id="gradientKnife">
-    <stop offset="10%" stop-color="#e33" />
-    <stop offset="90%" stop-color="#b00" />
-</linearGradient>
-
-
-<linearGradient id="gradientShield">
-    <stop offset="10%" stop-color="#567" />
-    <stop offset="90%" stop-color="#444" />
-</linearGradient>
-
-<linearGradient id="gradientTimer">
-    <stop offset="10%" stop-color="#567" />
-    <stop offset="90%" stop-color="#444" />
-</linearGradient>
-
 <linearGradient id="gradientShoes">
-    <stop offset="10%" stop-color="#fff" />
-    <stop offset="90%" stop-color="#fff" />
+    <stop offset="10%" stop-color="#567" />
+    <stop offset="90%" stop-color="#444" />
 </linearGradient>
-
 </defs>
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
@@ -507,7 +525,20 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
     <div
         class="textIcon"
-        style="font-size: ${sizeText}rem; line-height: ${sizeText*0.9}rem;"
+        style="
+        font-size: ${sizeText}rem; 
+        line-height: ${sizeText*0.9}rem;
+        color: ${colorFont};
+        text-shadow: 
+    1px 1px 0 ${colorFontOutline},
+    -1px 1px 0 ${colorFontOutline},
+    1px -1px 0 ${colorFontOutline},
+    -1px -1px 0 ${colorFontOutline},
+    0px 1px 0 ${colorFontOutline},
+    0px -1px 0 ${colorFontOutline},
+    -1px 0px 0 ${colorFontOutline},
+    1px 0px 0 ${colorFontOutline};
+    "
     >
         ${descriptionScore}
     </div>
@@ -520,5 +551,4 @@ style="height: ${sizeIcon}px; width: ${sizeIcon}pxpx;">
 
 
 
-
-export {Dynamite, Knife, Shield, Timer, OneIcon};
+export {Dynamite, Knife, Shield, Timer, Shoes};
