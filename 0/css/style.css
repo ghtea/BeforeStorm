@@ -143,7 +143,6 @@ a {
 }
 
 
-
 #tabFeedback { width: 25%; }
 #tabMeta { width: 25%; }
 #tabStyle { width: 25%; }
@@ -156,8 +155,6 @@ a {
   padding-bottom: 4px;
   border-bottom: 5px solid #ffffff;
 }
-
-
 
 
 #TabFront > div {
@@ -173,21 +170,21 @@ a {
 }
 
 #tabMeta > a{
-  color: #999999;
+  color: #ffffff;
 }
 
 
-#tabFeedback > a,  #tabLink #btnCopy {
+#tabFeedback > a {
   
   color: #ffffff;
-  font-size: 0.9rem !important;
+  font-size: 1.7rem !important;
   
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 3px !important;
 }
 
-#btnCopy {
+#tabLink #btnCopy {
+  font-size: 1.9rem !important;
+  border: none;
+
   background-color: transparent;
   
   text-decoration: none;

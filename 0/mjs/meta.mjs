@@ -172,11 +172,12 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  TELL ME </a> </div>
-      <!--<div id="tabAbc" >ABC  (SOON<sup>TM</sup>)</div> -->
+      <div id="tabFeedback"> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  📨 </a> </div>
       
-      <div> <button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
-    COPY LINK
+      <div id="tabMeta"> <a href="meta.html" >  META </a> </div>
+      
+      <div id="tabLink"><button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
+    🔗
 </button> </div>
       
       </div>

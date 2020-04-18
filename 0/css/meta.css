@@ -125,15 +125,37 @@ a {
 }
 
 #TabFront {
-  font-size: 1rem;
-  color: #ffffff;
+
+  font-size: 1.1rem;
+  
+  color: #999999;
   width: 374px;
-  
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
+#TabFront a {
+  text-decoration: none;
+}
+
+
+#tabFeedback { width: 25%; }
+#tabMeta { width: 25%; }
+#tabStyle { width: 25%; }
+#tabLink { width: 25%; }
+  
+  
+#tabMeta {
+  color: #ffffff;
+  padding-top: 9px;
+  padding-bottom: 4px;
+  border-bottom: 5px solid #ffffff;
+}
+
 
 #TabFront > div {
   display: flex;
@@ -141,15 +163,28 @@ a {
   justify-content: center;
 }
 
-#TabFront > div > a,  #TabFront #btnCopy {
-  
+
+
+#tabStyle > a{
   color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 3px !important;
 }
 
-#btnCopy {
+#tabMeta > a{
+  color: #ffffff;
+}
+
+
+#tabFeedback > a {
+  
+  color: #ffffff;
+  font-size: 1.7rem !important;
+  
+}
+
+#tabLink #btnCopy {
+  font-size: 1.9rem !important;
+  border: none;
+
   background-color: transparent;
   
   text-decoration: none;
@@ -160,14 +195,6 @@ a {
 }
 
 
-/*
-#tabMeta {
-  width: 50%;
-  padding-top: 9px;
-  padding-bottom: 4px;
-  border-bottom: 5px solid #ffffff;
-}
-*/
 
 
 

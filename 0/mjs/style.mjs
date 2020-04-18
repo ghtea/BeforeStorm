@@ -90,14 +90,14 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div id="tabFeedback"> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  TELL ME </a> </div>
+      <div id="tabFeedback"> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  📨 </a> </div>
       
       <div id="tabMeta"> <a href="meta.html" >  META </a> </div>
       
       <div id="tabStyle"> <a href="style.html" >  STYLE </a> </div>
 
       <div id="tabLink"><button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
-    COPY LINK
+    🔗
 </button> </div>
       
       </div>
@@ -194,6 +194,20 @@ function hero1({heroId, focusHero, cRoles}) {
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
 else { var onoff = "off";}
 
+let listOtherScore = [];
+
+for (let iOtherScore = 0; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
+   let cScore = objHeroOtherScoreZ[heroId][Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]]
+   
+   if (cScore >= 1) {
+      listOtherScore.push(Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore])
+      
+   }
+}
+
+
+
+
 function focusHero1(event) {
    focusHero(event.target.getAttribute('data-heroId'));
 };
@@ -232,7 +246,6 @@ return html`
             x=${objHeroFactorScoreZ[heroId]["Knife"]}
          />
          
-         
          <${Shoes} 
             x=${objHeroFactorScoreZ[heroId]["Shoes"]}
          />
@@ -243,8 +256,18 @@ return html`
       </div>
       
       <div class="groupOtherScoreIcon">
-         <div> silence </div>
+      
+      ${listOtherScore.map((nameScore) => html`
+   <div
+      data-score="${nameScore}"
+      class="divOtherScore"
+   >
+      ${nameScore}
+   </div>
+   `)}
+      
       </div>
+      
       </div>
    
    </div>
@@ -304,7 +327,6 @@ numRerender=${numRerender}
    cRoles=${cRoles}
    />
    `)}
-   
    
    </div>
 </div>
