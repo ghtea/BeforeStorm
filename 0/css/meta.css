@@ -474,7 +474,7 @@ a {
   
 
 #divInfo {
-  width: 300px;
+  width: 330px;
   
   color: #555555;
   background-color: #eeeeee;
@@ -484,7 +484,7 @@ a {
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
+  padding: 10px;
   
   border-radius: 10px;
   
@@ -499,7 +499,7 @@ a {
 }
 
 #divInfo > div:nth-child(1) {
-  width: 30%;
+  width: 26%;
   
   display: flex;
   justify-content: center;
@@ -508,7 +508,7 @@ a {
 }
 
 #divInfo > div:nth-child(2) {
-  width: 66%;
+  width: 70%;
   
   display: flex;
   justify-content: center;

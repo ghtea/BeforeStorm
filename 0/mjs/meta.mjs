@@ -22,8 +22,8 @@ return html`
 }
 
 const infoDate = "2020. 4. 14. (UTC +9)";
-const infoVerHM = "2.49.4.78725";
-const infoVerHH = "2.49";
+const infoVerHM = "v2.49.4.78725, v2.50.0.79155";
+const infoVerHH = "v2.49";
 
 
 const sourceDataText = "Heroes Profile API";
@@ -523,9 +523,9 @@ function Data() {
    <div id="divInfo" >
       <div>
       <div> update:  </div> 
-      <div> data source: </div>
+      <div> data: </div>
       <div> version: </div>
-      <div> match-up: </div>
+      <div>  (match-ups) </div>
       <div> images: </div>
       
       <!-- <div> hero difficulty: </div>-->
@@ -534,8 +534,8 @@ function Data() {
       <div>
       <div> ${infoDate} </div> 
       <div> <a href="${sourceDataLink}">${sourceDataText}</a></div>
-      <div> v${infoVerHM} </div>
-      <div> v${infoVerHH}</div>
+      <div> ${infoVerHM} </div>
+      <div> ${infoVerHH}</div>
       <div> <a href="${sourceImgLink}">${sourceImgText}</a></div>
       
       <!-- <div> <a href="${sourceDiffLink}">${sourceDiffText}</a></div> -->
