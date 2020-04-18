@@ -27,13 +27,24 @@ else if (x >= -2.5 && x <=2.5) {
 }
 
 
-if (x >= 0.9) {
+if (x >= 2) {
+    descriptionScore = "clear minions best";
+} 
+else if (x >= 1) {
+    descriptionScore = "clear minions well";
+} 
+else if (x > 0) {
     descriptionScore = "clear minions";
+} 
+else {
+    descriptionScore = "";
+}
+    
+if (x >= 0) {
     colorFont ="#f8f8f8";
     colorFontOutline ="#53b";
-} 
-else if (x<0.9) {
-    descriptionScore = "";
+}    
+else {
     colorFont ="";
     colorFontOutline ="";
 }
@@ -147,18 +158,29 @@ else if (x >= -2.5 && x <=2.5) {
 }
 
 
-
-
-if (x >= 0.9) {
-    descriptionScore = "kill heroes";
-    colorFont ="#f8f8f8"
-    colorFontOutline ="#c22";
+if (x >= 2) {
+    descriptionScore = "kill heroes best";
 } 
-else if (x<0.9) {
+else if (x >= 1) {
+    descriptionScore = "kill heroes well";
+} 
+else if (x > 0) {
+    descriptionScore = "kill heroes";
+} 
+else {
     descriptionScore = "";
+}
+    
+if (x >= 0) {
+    colorFont ="#f8f8f8";
+    colorFontOutline ="#c22";
+}    
+else {
     colorFont ="";
     colorFontOutline ="";
 }
+
+
 
 gradientWhich = "#gradientKnife";
 
@@ -241,14 +263,21 @@ else if (x <= 2.5 && x >= -2.5) {
 }
 
 
+
 if (x <= -1) {
+    descriptionScore = "avoid damage well";
+}
+else if (x <= -0) {
     descriptionScore = "avoid damage";
 }
-else if (x >= 1) {
+else if (x >= 1.5) {
+    descriptionScore = "bear damage well";
+}
+else if (x >= 0.5) {
     descriptionScore = "bear damage";
 }
-else if (x<1 && x>-1) {
-    descriptionScore = "medium";
+else if (x<0.5 && x>0) {
+    descriptionScore = "";
 }
 
 
@@ -363,14 +392,36 @@ else if (x >= -2.5 && x <=2.5) {
 }
 
 
-if (x <= -1) {
+if (x >= 2) {
+    descriptionScore = "clear minions best";
+} 
+else if (x >= 1) {
+    descriptionScore = "clear minions well";
+} 
+else if (x > 0) {
+    descriptionScore = "clear minions";
+} 
+else {
+    descriptionScore = "";
+}
+
+
+
+
+if (x <= -1.5) {
+    descriptionScore = "very early game";
+}
+else if (x <= -0.5) {
     descriptionScore = "early game";
 }
-else if (x >= 1) {
+else if (x >= 1.5) {
+    descriptionScore = "very late game";
+}
+else if (x >= 0.5) {
     descriptionScore = "late game";
 }
-else if (x<1 && x>-1) {
-    descriptionScore = "normal game";
+else if (x<0.5 && x>-0.5) {
+    descriptionScore = "";
 }
 
 gradientWhich = "#gradientTimer";
@@ -497,18 +548,28 @@ else if (x >= -2.5 && x <=2.5) {
     sizeIcon = (x+2.5) / 5 * 48;
 }
 
-if (x<1 && x>-1) {
-    sizeText = 0;
+
+if (x <= -1.5) {
+    descriptionScore = "stay around well";
+}
+else if (x <= -0.5) {
+    descriptionScore = "stay around";
+}
+else if (x >= 1.5) {
+    descriptionScore = "go around well";
+}
+else if (x >= 0.5) {
+    descriptionScore = "go around";
+}
+else if (x<0.5 && x>-0.5) {
+    descriptionScore = "";
 }
 
-
 if (x >= 0) {
-    descriptionScore = "go around";
     colorFont ="#f8f8f8";
     colorFontOutline ="#333";
 } 
 else if (x<0) {
-    descriptionScore = "stay around";
     colorFont ="#333";
     colorFontOutline ="#f8f8f8";
 }
