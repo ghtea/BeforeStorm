@@ -350,17 +350,12 @@ a {
 }
 
 .rightTopEachHero {
-  
-}
-
-.groupScoreIcon {
-  margin-left: 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
   
   height: 60px;
-
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .rightBottomEachHero {
@@ -404,62 +399,52 @@ a {
   cursor: pointer;
 }
 
-
-
-.divBasicIcon {
+.groupBasicIcon {
   width: 70px;
-  height: 50px;
-  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
-  position: static;
-  
 }
 
-.divArIcon, .divDtIcon{
-  width: 70px;
-  height: 25px;
+.groupBasicIcon > div {
+  
+  color: #336;
+  border: 1px solid #336;
   
   display: flex;
   justify-content: center;
   align-items: center;
   
-  position: relative;
+  border-radius: 5px;
   
-  white-space: nowrap;
-}
-  
-
-
-.textIconBasic {
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.divArIcon .textIconBasic {
-  font-size: 0.9rem !important;
-}
-
-.divDtIcon .textIconBasic {
-  font-size: 0.8rem !important;
-}
-
-
-.basicIcon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 55px;
   
 }
 
+.divIconAttackRange {
+  font-size: 0.9rem;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
 
+.divIconDiff {
+  font-size: 0.8rem;
+  height: 18px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.groupScoreIcon {
+  margin-left: 2px;
+  
+  height: 52px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 
 .divScoreIcon {
@@ -489,7 +474,7 @@ a {
   
 }
 
-.groupSubScoreIcon {
+.groupOtherScoreIcon {
   margin-left: 8px;
   
   display: flex;
@@ -500,7 +485,7 @@ a {
   height: 30px !important;
 }
 
-.groupSubScoreIcon > div {
+.groupOtherScoreIcon > div {
   font-size: 0.9rem;
 
   margin-left: 2px;
@@ -775,13 +760,13 @@ a {
 /* other score color */
 
 .right1EachHero > div[data-AttackRange="Melee"] {
-  border-color: #ff0066 !important;
-  color: #7a0000 !important;
+  border-color: #cc0066 !important;
+  color: #cc0066 !important;
 }
 
 .right1EachHero > div[data-AttackRange="Ranged"] {
-  border-color: #aa35ff !important;
-  color: #6666ff !important;
+  border-color: #82f !important;
+  color: #82f !important;
 }
 
 

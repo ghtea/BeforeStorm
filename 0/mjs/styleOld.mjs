@@ -194,43 +194,16 @@ function hero1({heroId, focusHero, cRoles}) {
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
 else { var onoff = "off";}
 
-
-
-
-let listSubScore2 = [];
-let listSubScore1 = [];
+let listOtherScore = [];
 
 for (let iOtherScore = 0; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
-   
    let cScore = objHeroOtherScoreZ[heroId][Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]]
    
-   if (cScore >= 2) {
-listSubScore2.push(Object.keys(objHeroOtherScoreZ)[heroId][iOtherScore])
-      
-   }
-   
-   else if (cScore >= 1) {
-listSubScore1.push(Object.keys(objHeroOtherScoreZ)[heroId][iOtherScore])
+   if (cScore >= 1) {
+      listOtherScore.push(Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore])
       
    }
 }
-
-
-for (let iManualScore = 0; iManualScore < Object.keys(objHeroManualScoreZ[heroId]).length; iManualScore++) {
-   let cScore = objHeroManualScoreZ[heroId][Object.keys(objHeroManualScoreZ[heroId])[iManualScore]]
-   
-   if (cScore >= 2) {
-listSubScore2.push(Object.keys(objHeroManualScoreZ[heroId][iManualScore])
-      
-   }
-   
-   else if (cScore >= 1) {
-listSubScore1.push(Object.keys(objHeroManualScoreZ[heroId][iManualScore])
-      
-   }
-}
-
-
 
 let cTimer = objHeroFactorScoreZ[heroId]['Timer']
 if (cTimer <= -1.5) {
@@ -292,6 +265,24 @@ return html`
       <div class="rightEachHero">
       
       <div class="rightTopEachHero">
+      <div class="groupBasicIcon">
+         
+         <div
+      class="divIconAttackRange"
+      data-AttackRange="${objHeroBasic[heroId]['Attack Range']}"
+      > 
+      ${objHeroBasic[heroId]['Attack Range']} 
+      </div>
+      
+      <div
+      data-DiffText="${objHeroBasic[heroId]['DiffText']}"
+      class="divIconDiff"
+      > 
+      ${objHeroBasic[heroId]['DiffText']} 
+      </div>
+      
+      
+      </div>
       
       
       
@@ -320,21 +311,12 @@ return html`
       </div>
    
    <div class="rightBottomEachHero">
-   <div class="groupSubScoreIcon">
+   <div class="groupOtherScoreIcon">
       
-      ${listSubScore2.map((nameScore) => html`
+      ${listOtherScore.map((nameScore) => html`
    <div
       data-score="${nameScore}"
-      class="divSubScore"
-   >
-      ${nameScore}
-   </div>
-   `)}
-
-${listSubScore1.map((nameScore) => html`
-   <div
-      data-score="${nameScore}"
-      class="divSubScore"
+      class="divOtherScore"
    >
       ${nameScore}
    </div>

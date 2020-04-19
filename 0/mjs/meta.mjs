@@ -7,7 +7,7 @@ new ClipboardJS('.btn');
 function Message() {
 return html`
    <div id="divMessage">
-   update: Tassadar (talents, builds)
+   v2.50.0.79155 UPDATE
    </div>
 `;
 
@@ -22,8 +22,13 @@ return html`
 }
 
 const infoDate = "2020. 4. 14. (UTC +9)";
-const infoVerHM = "v2.49.4.78725, v2.50.0.79155";
+const infoVerHM = "v2.50.0.79155";
 const infoVerHH = "v2.49";
+
+
+const versionEntireMap = ""; /*  (new version) */
+const versionEachMap = ""; /*  (old version) */
+const widthMap = 240; /* 240 or 270 */
 
 
 const sourceDataText = "Heroes Profile API";
@@ -54,45 +59,6 @@ for (var iHero = 0; iHero < numHero; iHero++) {
        })
    }
    
-   
-/* difficulty */
-for (var iHero = 0; iHero < numHero; iHero++) {
-   /* var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; */
-   
-   var stageDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
-   
-   var cDiffText = "";
-   
-   if (stageDiff == 5) {
-      cDiffText = "Very Hard";
-   } else if (stageDiff == 4) {
-      cDiffText = "Hard";
-   } else if  (stageDiff == 3) {
-      cDiffText = "Medium";
-   } else if  (stageDiff == 2) {
-      cDiffText = "Easy";
-   } else {
-      cDiffText = "Very Easy";
-   }
-   
-   /*
-   if (cDiff > 1.5) {
-      cDiffText = "Very Hard";
-   } else if (cDiff > 0.5) {
-      cDiffText = "Hard";
-   } else if  (cDiff > -0.5) {
-      cDiffText = "Normal";
-   } else if  (cDiff > -1.5) {
-      cDiffText = "Easy";
-   } else {
-      cDiffText = "Very Easy";
-   }
-   
-   */
-   
-   objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
-}
-   
 
 /* components */
 
@@ -109,9 +75,7 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
    }
    */
    
-const versionEntireMap = "(new version)";
-const versionEachMap = "(old version)";
-const widthMap = 270; /* 240 or 270 */
+
    
    
 
@@ -577,7 +541,7 @@ function updatePoint() {
        listObjHeroPoint[iHero]['Point'] =
            (100 - cRatioGW) * objHeroMap[cMap][cHero]['zGame']
            + cRatioGW * objHeroMap[cMap][cHero]['zWin']
-           + (cRatioED - 50) * objHeroBasic[cHero]["zDiff"]
+           + (cRatioED - 50) * objHeroBasic[cHero]["DiffZ"]
    }
    
    listObjHeroPoint = listObjHeroPoint.sort((a, b) => (a.Point > b.Point) ? -1 : 1);

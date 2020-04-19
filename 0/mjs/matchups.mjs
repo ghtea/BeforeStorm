@@ -36,45 +36,7 @@ for (var iHero = 0; iHero < numHero; iHero++) {
 }
 
 }
- 
-/* difficulty */
-for (var iHero = 0; iHero < numHero; iHero++) {
-   /* var cDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["zDiff"]; */
-   
-   var stageDiff = objHeroBasic[Object.keys(objHeroBasic)[iHero]]["Difficulty"];
-   
-   var cDiffText = "";
-   
-   if (stageDiff == 5) {
-      cDiffText = "Very Hard";
-   } else if (stageDiff == 4) {
-      cDiffText = "Hard";
-   } else if  (stageDiff == 3) {
-      cDiffText = "Medium";
-   } else if  (stageDiff == 2) {
-      cDiffText = "Easy";
-   } else {
-      cDiffText = "Very Easy";
-   }
-   
-   /*
-   if (cDiff > 1.5) {
-      cDiffText = "Very Hard";
-   } else if (cDiff > 0.5) {
-      cDiffText = "Hard";
-   } else if  (cDiff > -0.5) {
-      cDiffText = "Normal";
-   } else if  (cDiff > -1.5) {
-      cDiffText = "Easy";
-   } else {
-      cDiffText = "Very Easy";
-   }
-   
-   */
-   objHeroBasic[Object.keys(objHeroBasic)[iHero]]["DiffText"] = cDiffText;
-   
-   
-}
+
    
 /* components */
 function divTop() {
@@ -547,7 +509,7 @@ if (which == "friend") {
        bothPoint[iPoint][iHero]['Point'] =
            (100 - cRatioGW) * obj[cHero][aboutBan]
            + cRatioGW * obj[cHero]['zWin']
-           + (cRatioED - 50) * objHeroBasic[cHero]["zDiff"]
+           + (cRatioED - 50) * objHeroBasic[cHero]["DiffZ"]
    }
    
    bothPoint[iPoint] = bothPoint[iPoint].sort((a, b) => (a.Point > b.Point) ? -1 : 1);
