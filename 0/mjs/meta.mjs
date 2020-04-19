@@ -23,7 +23,7 @@ return html`
 
 const infoDate = "2020. 4. 14. (UTC +9)";
 const infoVerHM = "v2.50.0.79155";
-const infoVerHH = "v2.49";
+const infoVerHH = "v2.49, v2.49.4.78725";
 
 
 const versionEntireMap = ""; /*  (new version) */
@@ -489,7 +489,7 @@ function Data() {
       <div> update:  </div> 
       <div> data: </div>
       <div> version: </div>
-      <div>  (match-ups) </div>
+      <div>  (partially) </div>
       <div> images: </div>
       
       <!-- <div> hero difficulty: </div>-->
