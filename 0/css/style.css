@@ -432,6 +432,22 @@ a {
   white-space: nowrap;
 }
   
+.divDtIconShapes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 54px;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.shapeDtIcon {
+  margin-right: 2px
+}
 
 
 .textIconBasic {

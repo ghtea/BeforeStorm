@@ -60,30 +60,42 @@ else if (cAttackRange == "Both") {
 } 
 
 
+
+
+
+
 if (cDiffText == "Very Hard") {
     descriptionDt = "Very Hard";
-    gradientWhichDt = "#gradientVeryHard";
-    colorFontOutlineDt = "#422";
+    
+    colorFontOutlineDt = "#301";
+    gradientWhichDt = "#gradientDt5";
 } 
 else if (cDiffText == "Hard") {
     descriptionDt = "Hard";
-    gradientWhichDt = "#gradientHard";
-    colorFontOutlineDt = "#422";
+    
+    colorFontOutlineDt = "#b31313";
+    gradientWhichDt = "#gradientDt4";
 } 
 else if (cDiffText == "Medium") {
     descriptionDt = "Medium";
-    gradientWhichDt = "#gradientMedium";
-    colorFontOutlineDt = "#422";
+    
+    colorFontOutlineDt = "#e60";
+    gradientWhichDt = "#gradientDt3";
 } 
 else if (cDiffText == "Easy") {
     descriptionDt = "Easy";
-    gradientWhichDt = "#gradientEasy";
-    colorFontOutlineDt = "#422";
+    
+    colorFontOutlineDt = "#f8f8f8";
+    colorFontDt= "#555";
+    gradientWhichDt = "#gradientDt2";
+    
 } 
 else if (cDiffText == "Very Easy") {
     descriptionDt = "Very Easy";
-    gradientWhichDt = "#gradientVeryEasy";
-    colorFontOutlineDt = "#422";
+    
+    colorFontOutlineDt = "#f8f8f8";
+    colorFontDt= "#555";
+    gradientWhichDt ="#gradientDt1";
 } 
  
 
@@ -150,30 +162,55 @@ style="height: ${heightIcon}px; width: ${widthIcon}px;">
 
 <div class="divDtIcon">
 
-
+    <div class="divDtIconShapes">
+    
     ${listDiff.map((element) => html`
 
-   <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 240" 
-class="basicIcon"
-style="height: 24px; width: 10px;">
+   <div
+   class="shapeDtIcon"
+   >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 200" 
+style="height: 20px; width: 9px;">
 
 <defs>
-    <linearGradient id="gradientDt" gradientTransform="rotate(30)" >
-    <stop offset="10%" stop-color="#aa35ff" />
-    <stop offset="90%" stop-color="#6666ff" />
+
+
+<linearGradient id="gradientDt1" gradientTransform="rotate(30)" >
+    <stop offset="10%" stop-color="#f1ffc1" />
+    <stop offset="90%" stop-color="#b5e51c" />
 </linearGradient>
+
+<linearGradient id="gradientDt2" gradientTransform="rotate(30)" >
+    <stop offset="10%" stop-color="#ec9" />
+    <stop offset="90%" stop-color="#ed0" />
+</linearGradient>
+
+<linearGradient id="gradientDt3" gradientTransform="rotate(30)" >
+    <stop offset="10%" stop-color="#e84" />
+    <stop offset="90%" stop-color="#e60" />
+</linearGradient>
+
+<linearGradient id="gradientDt4" gradientTransform="rotate(30)" >
+    <stop offset="10%" stop-color="#d33e3e" />
+    <stop offset="90%" stop-color="#b31313" />
+</linearGradient>
+
+<linearGradient id="gradientDt5" gradientTransform="rotate(30)" >
+    <stop offset="10%" stop-color="#523" />
+    <stop offset="90%" stop-color="#301" />
+</linearGradient>
+
 </defs>
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
 
 <path fill="url("${gradientWhichDt}")" stroke="" 
     d="
-      M 0,120
-      C 0,0 0,0 50,0
-        100,0 100,0 100,120
-        100,240 100,240 50,240
-        0,240 0,240 0,120
+      M 0,100
+      C 0,0 0,0 45,0
+        90,0 90,0 90,100
+        90,200 90,200 45,200
+        0,200 0,200 0,100
     "
 ></path>    
     
@@ -182,7 +219,8 @@ style="height: 24px; width: 10px;">
    
    `)}
 
-
+    </div>
+    
     <div
     class="textIconBasic"
     style="
@@ -190,6 +228,15 @@ style="height: 24px; width: 10px;">
     font-size: ${sizeText}rem; 
     line-height: ${sizeText*0.9}rem;
     color: ${colorFontDt};
+    text-shadow: 
+    1px 1px 0 ${colorFontOutlineDt},
+    -1px 1px 0 ${colorFontOutlineDt},
+    1px -1px 0 ${colorFontOutlineDt},
+    -1px -1px 0 ${colorFontOutlineDt},
+    0px 1px 0 ${colorFontOutlineDt},
+    0px -1px 0 ${colorFontOutlineDt},
+    -1px 0px 0 ${colorFontOutlineDt},
+    1px 0px 0 ${colorFontOutlineDt};
     "
     >
         ${descriptionDt}
