@@ -200,32 +200,37 @@ else { var onoff = "off";}
 let listSubScore2 = [];
 let listSubScore1 = [];
 
-for (let iOtherScore = 0; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
+for (let iOtherScore = 1; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
    
-   let cScore = objHeroOtherScoreZ[heroId][Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]]
+   let cOtherScoreName = Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]
+   let cOtherScore = objHeroOtherScoreZ[heroId][cOtherScoreName]
    
-   if (cScore >= 2) {
-listSubScore2.push(Object.keys(objHeroOtherScoreZ)[heroId][iOtherScore])
+   if (cOtherScore >= 2) {
+listSubScore2.push(cOtherScoreName)
       
    }
    
-   else if (cScore >= 1) {
-listSubScore1.push(Object.keys(objHeroOtherScoreZ)[heroId][iOtherScore])
+   else if (cOtherScore >= 1) {
+listSubScore1.push(cOtherScoreName)
       
    }
 }
 
 
-for (let iManualScore = 0; iManualScore < Object.keys(objHeroManualScoreZ[heroId]).length; iManualScore++) {
-   let cScore = objHeroManualScoreZ[heroId][Object.keys(objHeroManualScoreZ[heroId])[iManualScore]]
+
+
+for (let iManualScore = 1; iManualScore < Object.keys(objHeroManualScoreZ[heroId]).length; iManualScore++) {
    
-   if (cScore >= 2) {
-listSubScore2.push(Object.keys(objHeroManualScoreZ[heroId][iManualScore])
+   let cManualScoreName = Object.keys(objHeroManualScoreZ[heroId])[iManualScore]
+   let cManualScore = objHeroManualScoreZ[heroId][cManualScoreName]
+   
+   if (cManualScore >= 2) {
+listSubScore2.push(cManualScoreName)
       
    }
    
-   else if (cScore >= 1) {
-listSubScore1.push(Object.keys(objHeroManualScoreZ[heroId][iManualScore])
+   else if (cManualScore >= 1) {
+listSubScore1.push(cManualScoreName)
       
    }
 }
@@ -233,32 +238,32 @@ listSubScore1.push(Object.keys(objHeroManualScoreZ[heroId][iManualScore])
 
 
 let cTimer = objHeroFactorScoreZ[heroId]['Timer']
-if (cTimer <= -1.5) {
-    listOtherScore.push("very early game");
+if (cTimer <= -2) {
+    listSubScore2.push("very early game");
 }
-else if (cTimer <= -0.5) {
-    listOtherScore.push("early game");
+else if (cTimer <= -1) {
+    listSubScore1.push("early game");
 }
-else if (cTimer >= 1.5) {
-    listOtherScore.push("very late game");
+else if (cTimer >= 2) {
+    listSubScore2.push("very late game");
 }
-else if (cTimer >= 0.5) {
-    listOtherScore.push("late game");
+else if (cTimer >= 1) {
+    listSubScore1.push("late game");
 }
 
 
 let cShoes = objHeroFactorScoreZ[heroId]['Shoes']
-if (cShoes <= -1.5) {
-    listOtherScore.push("stay around well");
+if (cShoes <= -2) {
+    listSubScore2.push("stay around well");
 }
-else if (cShoes <= -0.5) {
-    listOtherScore.push("stay around");
+else if (cShoes <= -1) {
+    listSubScore1.push("stay around");
 }
-else if (cShoes >= 1.5) {
-    listOtherScore.push("go around well");
+else if (cShoes >= 2) {
+    listSubScore2.push("go around well");
 }
-else if (cShoes >= 0.5) {
-    listOtherScore.push("go around");
+else if (cShoes >= 1) {
+    listSubScore1.push("go around");
 }
 
 
