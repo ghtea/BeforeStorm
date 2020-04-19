@@ -331,6 +331,7 @@ return html`
    <div
       data-score="${nameScore}"
       class="divSubScore"
+      class="divSubScore2"
    >
       ${nameScore}
    </div>
@@ -340,6 +341,7 @@ ${listSubScore1.map((nameScore) => html`
    <div
       data-score="${nameScore}"
       class="divSubScore"
+      class="divSubScore1"
    >
       ${nameScore}
    </div>

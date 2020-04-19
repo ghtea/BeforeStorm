@@ -500,16 +500,12 @@ a {
   height: 30px !important;
 }
 
-.groupSubScoreIcon > div {
+.divSubScore1, .divSubScore2{
   font-size: 0.9rem;
 
   margin-left: 2px;
   margin-right: 2px;
   margin-top: 2px;
-  
-  color: #335;
-  border: 1px solid #335;
-  
   
   padding-top: 0px;
   padding-bottom: 0px;
@@ -521,6 +517,19 @@ a {
   white-space: nowrap;
   
 }
+
+
+.divSubScore1{
+  color: #335;
+  border: 1px solid #335;
+}
+
+.divSubScore2{
+  color: #f8f8f8;
+  background-color: #446;
+  border: 1px solid #335;
+}
+
 
 
 

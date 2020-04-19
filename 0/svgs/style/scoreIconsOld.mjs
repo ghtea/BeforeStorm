@@ -18,31 +18,10 @@ let gradientWhichDt;
 let colorFontAr ="#f8f8f8";
 let colorFontOutlineAr ="#333";
 
-let colorFontDt ="#f8f8f8";
-let colorFontOutlineDt ="#333";
-
+let colorFontDt;
+let colorFontOutlineDt;
 let sizeText = 0.9;
 
-let cDiffStage;
-if (cDiffText == "Very Hard") {
-    cDiffStage = 5;
-}
-else if (cDiffText == "Hard") {
-    cDiffStage = 4;
-}
-else if (cDiffText == "Medium") {
-    cDiffStage = 3;
-}
-else if (cDiffText == "Easy") {
-    cDiffStage = 2;
-}
-else if (cDiffText == "Very Easy") {
-    cDiffStage = 1;
-}
-
-
-let listDiff = Array(cDiffStage).fill("0");
-/* map 을 사용하기 위해! */
 
 
 if (cAttackRange == "Melee") {
@@ -149,20 +128,14 @@ style="height: ${heightIcon}px; width: ${widthIcon}px;">
 
 
 <div class="divDtIcon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" 
 
-
-    ${listDiff.map((element) => html`
-
-   <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 240" 
 class="basicIcon"
-style="height: 24px; width: 10px;">
+style="height: ${heightIcon}px; width: ${widthIcon}px;">
+
 
 <defs>
-    <linearGradient id="gradientDt" gradientTransform="rotate(30)" >
-    <stop offset="10%" stop-color="#aa35ff" />
-    <stop offset="90%" stop-color="#6666ff" />
-</linearGradient>
+
 </defs>
 
 <g class="" transform="scale(1,1) translate(0,0)" style="touch-action: none;">
@@ -170,18 +143,14 @@ style="height: 24px; width: 10px;">
 <path fill="url("${gradientWhichDt}")" stroke="" 
     d="
       M 0,120
-      C 0,0 0,0 50,0
-        100,0 100,0 100,120
-        100,240 100,240 50,240
+      C 0,0 0,0 300,0
+        600,0 600,0 600,120
+        600,240 600,240 300,240
         0,240 0,240 0,120
     "
 ></path>    
     
 </g></svg>
-   </div>
-   
-   `)}
-
 
     <div
     class="textIconBasic"
@@ -189,13 +158,12 @@ style="height: 24px; width: 10px;">
     z-index:5;
     font-size: ${sizeText}rem; 
     line-height: ${sizeText*0.9}rem;
-    color: ${colorFontDt};
+    color: ${colorFontAr};
+    
     "
     >
         ${descriptionDt}
     </div>
-    
-    
     </div>
 
 
