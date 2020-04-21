@@ -67,12 +67,12 @@ a {
 
 #Header > #BeforeStorm a {
   width: 374px;
-  height: 55px;
+  height: 200px;
   padding-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   
   font-weight: 800;
   font-family: 'Catamaran', 'Barlow', Helvetica, Arial, sans-serif !important;
