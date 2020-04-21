@@ -126,7 +126,9 @@ function partStatic({changeRGW, cRatioGW, changeRED, cRatioED, changeRoles, cRol
 return html`
    <div id="Header"> 
       <div id="BeforeStorm">
-         BEFORE STORM: META
+   <a href="https://stormscape.avantwing.com" >
+         ❗️NEW WEBSITE❗️
+   </a>
       </div>
       
    <${Message}/>
@@ -136,13 +138,9 @@ return html`
    <div id="Tab" >
       <div id="TabFront" >
       
-      <div id="tabFeedback"> <a href="https://forms.gle/iYcMrUcJ52f8my5n6" >  📨 </a> </div>
       
       <div id="tabMeta"> <a href="meta.html" >  META </a> </div>
       
-      <div id="tabLink"><button id="btnCopy" class="btn" data-clipboard-text="beforestorm.avantwing.com/meta">
-    🔗
-</button> </div>
       
       </div>
    </div>

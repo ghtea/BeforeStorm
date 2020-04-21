@@ -32,6 +32,18 @@ var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Hea
 var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
 
 
+const allAttackRange = ['Melee', 'Ranged'];
+var cAttackRange = ['Melee', 'Ranged'];
+var cArButtonsGlobal = {'Melee':"on", 'Ranged':"on"};
+
+
+const allDiffText = ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard'];
+var cDiffText = ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard'];
+var cDtButtonsGlobal = {'Very Easy':"on", 'Easy':"on", 'Medium':"on", 'Hard':"on", 'Very Hard':"on"
+};
+
+
+
 /* first make of point */
 var listObjHeroPoint = [];
 for (var iHero = 0; iHero < numHero; iHero++) {
@@ -82,7 +94,7 @@ function partStatic({changeRoles, cRoles, numRerender}) {
 return html`
    <div id="Header"> 
       <div id="BeforeStorm">
-         BEFORE STORM: STYLE
+         STORMSCAPE
       </div>
       
    </div>
@@ -106,23 +118,80 @@ return html`
    
    <div id="Setting" >
       
-      <div>SORT: What is more important?</div>
       
-      <div>
-      <div>Number <br/> of Games</div>
-      <div><input type="range"/></div>
-      <div> WinRate</div>
-      </div>
-          
-      <div>
-      <div> difficulty: <br /> Easy </div>
-      <div><input type="range"/></div>
-      <div>Hard</div>
-      </div>
          
    </div>
       
 
+<div id="divDiffText" >
+      <div
+         data-Dt="All"
+         class="buttonDt"
+         
+         > All </div>
+      
+      <div
+      data-onoff="${cDtButtonsGlobal['Very Easy']}"
+      data-Dt="Very Easy"
+      class="buttonDt"
+         
+      > Very Easy </div>
+         
+      <div
+      data-onoff="${cDtButtonsGlobal['Easy']}"
+      data-Dt="Easy"
+      class="buttonDt"
+         
+      > E </div>
+      
+      <div
+      data-onoff="${cDtButtonsGlobal['Medium']}"
+      data-Dt="Medium"
+      class="buttonDt"
+         
+      > M </div>
+   
+   <div
+      data-onoff="${cDtButtonsGlobal['Hard']}"
+      data-Dt="Hard"
+      class="buttonDt"
+         
+   > H </div>
+   
+   <div
+      data-onoff="${cDtButtonsGlobal['Very Hard']}"
+      data-Dt="Very Hard"
+      class="buttonDt"
+         
+      > Very Hard </div>
+      
+         
+      <div
+         data-Dt="None"
+         class="buttonDt"
+         
+      > None </div>
+   </div>
+   
+   
+   <div id="divAttackRange" >
+      <div
+         data-onoff="${cArButtonsGlobal['Ranged']}"
+         data-Ar="Melee"
+         class="buttonAr"
+         
+         > Melee </div>
+      
+      <div
+         data-onoff="${cArButtonsGlobal['Ranged']}"
+         data-Ar="Ranged"
+         class="buttonAr"
+         
+         > Ranged </div>
+           
+   </div>
+   
+   
    <div id="divRole" >
       <div
          data-role="All"
@@ -178,6 +247,9 @@ return html`
          onClick=${changeRoles1}
       > None </div>
    </div>
+   
+   
+   
    `;}
    
 
@@ -194,44 +266,76 @@ function hero1({heroId, focusHero, cRoles}) {
 if ( cRoles.includes(objHeroBasic[heroId]['Role']) ) { var onoff = "on";}
 else { var onoff = "off";}
 
-let listOtherScore = [];
 
-for (let iOtherScore = 0; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
-   let cScore = objHeroOtherScoreZ[heroId][Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]]
+
+
+let listSubScore2 = [];
+let listSubScore1 = [];
+
+for (let iOtherScore = 1; iOtherScore < Object.keys(objHeroOtherScoreZ[heroId]).length; iOtherScore++) {
    
-   if (cScore >= 1) {
-      listOtherScore.push(Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore])
+   let cOtherScoreName = Object.keys(objHeroOtherScoreZ[heroId])[iOtherScore]
+   let cOtherScore = objHeroOtherScoreZ[heroId][cOtherScoreName]
+   
+   if (cOtherScore >= 2) {
+listSubScore2.push(cOtherScoreName)
+      
+   }
+   
+   else if (cOtherScore >= 1) {
+listSubScore1.push(cOtherScoreName)
       
    }
 }
 
+
+
+
+for (let iManualScore = 1; iManualScore < Object.keys(objHeroManualScoreZ[heroId]).length; iManualScore++) {
+   
+   let cManualScoreName = Object.keys(objHeroManualScoreZ[heroId])[iManualScore]
+   let cManualScore = objHeroManualScoreZ[heroId][cManualScoreName]
+   
+   if (cManualScore >= 2) {
+listSubScore2.push(cManualScoreName)
+      
+   }
+   
+   else if (cManualScore >= 1) {
+listSubScore1.push(cManualScoreName)
+      
+   }
+}
+
+
+
 let cTimer = objHeroFactorScoreZ[heroId]['Timer']
-if (cTimer <= -1.5) {
-    listOtherScore.push("very early game");
+if (cTimer <= -2) {
+    listSubScore2.push("very early game");
 }
-else if (cTimer <= -0.5) {
-    listOtherScore.push("early game");
+else if (cTimer <= -1) {
+    listSubScore1.push("early game");
 }
-else if (cTimer >= 1.5) {
-    listOtherScore.push("very late game");
+else if (cTimer >= 2) {
+    listSubScore2.push("very late game");
 }
-else if (cTimer >= 0.5) {
-    listOtherScore.push("late game");
+else if (cTimer >= 1) {
+    listSubScore1.push("late game");
 }
 
 
 let cShoes = objHeroFactorScoreZ[heroId]['Shoes']
-if (cShoes <= -1.5) {
-    listOtherScore.push("stay around well");
+if (cShoes <= -2) {
+    listSubScore2.push("stay around well");
 }
-else if (cShoes <= -0.5) {
-    listOtherScore.push("stay around");
+else if (cShoes <= -1) {
+    listSubScore1.push("stay around");
 }
-else if (cShoes >= 1.5) {
-    listOtherScore.push("go around well");
+else if (cShoes >= 2) {
+    listSubScore2.push("go around well");
 }
-else if (cShoes >= 0.5) {
-    listOtherScore.push("go around");
+else if (cShoes >= 1) {
+    listSubScore1.push("go around");
 }
 
 
@@ -250,7 +354,7 @@ return html`
       <div 
       class="backHero"
       data-role="${objHeroBasic[heroId]['Role']}">
-      
+         
          <img
          data-heroId="${heroId}"
          class="imgHero" 
@@ -265,24 +369,6 @@ return html`
       <div class="rightEachHero">
       
       <div class="rightTopEachHero">
-      <div class="groupBasicIcon">
-         
-         <div
-      class="divIconAttackRange"
-      data-AttackRange="${objHeroBasic[heroId]['Attack Range']}"
-      > 
-      ${objHeroBasic[heroId]['Attack Range']} 
-      </div>
-      
-      <div
-      data-DiffText="${objHeroBasic[heroId]['DiffText']}"
-      class="divIconDiff"
-      > 
-      ${objHeroBasic[heroId]['DiffText']} 
-      </div>
-      
-      
-      </div>
       
       
       
@@ -311,12 +397,23 @@ return html`
       </div>
    
    <div class="rightBottomEachHero">
-   <div class="groupOtherScoreIcon">
+   <div class="groupSubScoreIcon">
       
-      ${listOtherScore.map((nameScore) => html`
+      ${listSubScore2.map((nameScore) => html`
    <div
       data-score="${nameScore}"
-      class="divOtherScore"
+      class="divSubScore"
+      class="divSubScore2"
+   >
+      ${nameScore}
+   </div>
+   `)}
+
+${listSubScore1.map((nameScore) => html`
+   <div
+      data-score="${nameScore}"
+      class="divSubScore"
+      class="divSubScore1"
    >
       ${nameScore}
    </div>
@@ -343,9 +440,9 @@ const [point, setPoint] = useState(listObjHeroPoint);
 
 const [visibleF, setVisibleF] = useState(false);
 
-const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);
+const [cRoles, setRoles] = useState(allRoles);
 
-
+/* ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'] */
 
 function changeRoles(x) {
    setRoles(x);

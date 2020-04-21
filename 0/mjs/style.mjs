@@ -32,6 +32,18 @@ var cRolesGlobal = ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Hea
 var cRoleButtonsGlobal = {'Tank':"on", 'Bruiser':"on",  'Melee Assassin':"on", 'Ranged Assassin':"on",  'Healer':"on", 'Support':"on"};
 
 
+const allAttackRange = ['Melee', 'Ranged'];
+var cAttackRange = ['Melee', 'Ranged'];
+var cArButtonsGlobal = {'Melee':"on", 'Ranged':"on"};
+
+
+const allDiffText = ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard'];
+var cDiffText = ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard'];
+var cDtButtonsGlobal = {'Very Easy':"on", 'Easy':"on", 'Medium':"on", 'Hard':"on", 'Very Hard':"on"
+};
+
+
+
 /* first make of point */
 var listObjHeroPoint = [];
 for (var iHero = 0; iHero < numHero; iHero++) {
@@ -82,7 +94,7 @@ function partStatic({changeRoles, cRoles, numRerender}) {
 return html`
    <div id="Header"> 
       <div id="BeforeStorm">
-         BEFORE STORM: STYLE
+         STORMSCAPE
       </div>
       
    </div>
@@ -104,25 +116,84 @@ return html`
    </div>
    
    
-   <div id="Setting" >
+<div id="SettingScore" >
       
-      <div>SORT: What is more important?</div>
       
-      <div>
-      <div>Number <br/> of Games</div>
-      <div><input type="range"/></div>
-      <div> WinRate</div>
-      </div>
-          
-      <div>
-      <div> difficulty: <br /> Easy </div>
-      <div><input type="range"/></div>
-      <div>Hard</div>
-      </div>
          
-   </div>
-      
+</div>
 
+<div id="SettingGroup" >
+
+
+<div id="divDiffText" >
+      <div
+         data-Dt="All"
+         class="buttonDt"
+         
+         > All </div>
+      
+      <div
+      data-onoff="${cDtButtonsGlobal['Very Easy']}"
+      data-Dt="Very Easy"
+      class="buttonDt"
+         
+      > Very Easy </div>
+         
+      <div
+      data-onoff="${cDtButtonsGlobal['Easy']}"
+      data-Dt="Easy"
+      class="buttonDt"
+         
+      > E </div>
+      
+      <div
+      data-onoff="${cDtButtonsGlobal['Medium']}"
+      data-Dt="Medium"
+      class="buttonDt"
+         
+      > M </div>
+   
+   <div
+      data-onoff="${cDtButtonsGlobal['Hard']}"
+      data-Dt="Hard"
+      class="buttonDt"
+         
+   > H </div>
+   
+   <div
+      data-onoff="${cDtButtonsGlobal['Very Hard']}"
+      data-Dt="Very Hard"
+      class="buttonDt"
+         
+      > Very Hard </div>
+      
+         
+      <div
+         data-Dt="None"
+         class="buttonDt"
+         
+      > None </div>
+   </div>
+   
+   
+   <div id="divAttackRange" >
+      <div
+         data-onoff="${cArButtonsGlobal['Ranged']}"
+         data-Ar="Melee"
+         class="buttonAr"
+         
+         > Melee </div>
+      
+      <div
+         data-onoff="${cArButtonsGlobal['Ranged']}"
+         data-Ar="Ranged"
+         class="buttonAr"
+         
+         > Ranged </div>
+           
+   </div>
+   
+   
    <div id="divRole" >
       <div
          data-role="All"
@@ -178,6 +249,9 @@ return html`
          onClick=${changeRoles1}
       > None </div>
    </div>
+   
+</div>
+   
    `;}
    
 
@@ -283,12 +357,15 @@ return html`
       class="backHero"
       data-role="${objHeroBasic[heroId]['Role']}">
       
+      <a href="heroes/${heroId}/talents.html">
          <img
          data-heroId="${heroId}"
          class="imgHero" 
          src="0/images/heroes/${heroId}.png" 
          onClick=${focusHero1} 
          />
+      </a>
+      
       </div>
       </div>
       
@@ -368,9 +445,9 @@ const [point, setPoint] = useState(listObjHeroPoint);
 
 const [visibleF, setVisibleF] = useState(false);
 
-const [cRoles, setRoles] = useState(['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support']);
+const [cRoles, setRoles] = useState(allRoles);
 
-
+/* ['Tank', 'Bruiser', 'Melee Assassin', 'Ranged Assassin', 'Healer', 'Support'] */
 
 function changeRoles(x) {
    setRoles(x);

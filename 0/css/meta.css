@@ -65,7 +65,7 @@ a {
   flex-direction: column;
 }
 
-#Header > #BeforeStorm {
+#Header > #BeforeStorm a {
   width: 374px;
   height: 55px;
   padding-top: 5px;
@@ -78,7 +78,10 @@ a {
   font-family: 'Catamaran', 'Barlow', Helvetica, Arial, sans-serif !important;
   
   color: #404040;
+  
+  text-decoration: underline;
 }
+
 
 
 #Header > #divMessage {
